@@ -11,6 +11,11 @@ class ProizvodModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function get5Proizvoda() {
+        $stmt = $this->pdo->query("SELECT * FROM proizvod LIMIT 5");
+       
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 }

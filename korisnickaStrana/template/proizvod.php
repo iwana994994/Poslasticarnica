@@ -1,12 +1,12 @@
 <?php
-include_once("../config/database.php");
-include_once("../model/ProizvodModel.php");
+
 include_once("../controler/ProizvodController.php");
 include_once("../template/nav-bar.php");
 
 
 $controller = new ProizvodController($pdo);
 $proizvodi = $controller->prikaziProizvod();  // Poziva metodu za sve proizvode
+
 ?>
 
 <html>

@@ -26,7 +26,7 @@ $kontakt= $controller->getKontakt();
 
 <h2>Elektronska adresa:</h2>
 <ul>
-    <li><p>Enail: <?=$kontakt['email'] ?></p></li>
+    <li><p>E-mail: <?=$kontakt['email'] ?></p></li>
     <li><p>Tel:<?= $kontakt['telefon'] ?></p></li>
     
 </ul>  

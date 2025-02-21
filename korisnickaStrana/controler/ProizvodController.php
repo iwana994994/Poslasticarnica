@@ -13,6 +13,10 @@ class  ProizvodController{
     public function prikaziProizvod() {
         return $this->model->getAllProizvodi();
     }
+    public function prikazi5Proizvoda() {
+        return $this->model->get5Proizvoda();
+    }
+
 
 }
 

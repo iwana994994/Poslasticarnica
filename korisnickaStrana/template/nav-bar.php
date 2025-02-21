@@ -32,9 +32,8 @@ include_once("../controler/LogInController.php");
         </a>
         <div class="navigation">
             <ul>
-                <li><a href="nav-bar.php">Početna</a></li>
-                <li><a href="proizvod.php">Menu Karta</a></li>
-                <li><a href="#">Poručivanje</a></li>
+                <li><a href="pocetna.php">Početna</a></li>
+                <li><a href="proizvod.php">Proizvodi</a></li>
                 <li><a href="#">Akcija</a></li>
                 <li><a href="#">Vesti</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
@@ -51,7 +50,7 @@ include_once("../controler/LogInController.php");
             <h2>Prijava</h2>
 
 
-            <form id="form-login" method="POST" action="../controler/loginController.php">
+     <form id="form-login" method="POST" action="../controler/loginController.php">
     <input type="text" name="username" placeholder="Korisničko ime" required>
     <input type="password" name="password" placeholder="Lozinka" required>
     <button id="posalji" type="submit">Prijavi se</button>
