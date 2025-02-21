@@ -1,0 +1,74 @@
+/* Globalni stilovi */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Kontejner forme */
+.container {
+   
+    width: 150%;
+    margin: 50px ;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Naslov */
+#dodaj-proizvod {
+    text-align: center;
+    color: #333;
+}
+
+/* Stil za labele */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Stil za inpute i textarea */
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stil za dugme */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Stil za poruke uspeha i greške */
+.success {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}

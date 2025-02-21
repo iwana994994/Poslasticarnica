@@ -1,0 +1,113 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container for products */
+.conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 40px;
+    
+}
+.product-box{
+    border: 2px solid #f7f7f7;
+    margin: 0px 10px;
+}
+/* Individual product box */
+.conteiner .product-box {
+    position: relative;
+    width: 280px;
+    height: 380px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effects for product box */
+.conteiner .product-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.conteiner .product-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Hover effect on image */
+.conteiner .product-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Product title and price */
+.description {
+    padding: 10px;
+    text-align: center;
+ 
+}
+
+.description .product-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.description .product-price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+/* Quantity input */
+.conteiner .product-box input.quantity {
+    width: 60px;
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Shopping button */
+.shopping {
+    display: inline-block;
+    font-size: 1.1em;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect for the shopping button */
+.shopping:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Header */
+#naslov {
+    font-family: 'Ink Free', Times, serif;
+    font-size: 3.5em;
+    text-align: center;
+    margin: 20px 0;
+    color: #ffffff;
+}
