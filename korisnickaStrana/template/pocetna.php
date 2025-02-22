@@ -10,31 +10,55 @@ $proizvod5 = $controller->prikazi5Proizvoda(); //Objekat kontrolera poziva funkc
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/pocetna.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../public/proizvodi.css">
+    <script src="../public/js/slide.js" ></script>
+    <script src="../public/js/window-for-product-pop.js"></script>
+    <title>Pocetna</title>
 </head>
 <body>
-<div class="head-box">
-            <h1>
-                Čokoladni Shop
-            </h1>
-            <p>
-                Zalogaj koji se pamti.
-            </p>
-        </div>
-        <h1 id="our-product-title"> Naši proizvodi</h1>
-<div class="conteiner">
-        <!-- Loop through all products -->
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
         <?php foreach ($proizvod5 as $proizvod): ?>
-            <div class="product-box">
-                <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->
-                <div class="description">
-                    <h2 class="product-title"><?= ($proizvod['ime']) ?></h2> <!-- Naziv proizvoda -->
-                   
-                </div>
+            <div class="swiper-slide" onclick="openModal(<?= $proizvod['id'] ?>)">
+                <img src="<?= $proizvod['slika']; ?>" >
+                <h3><?= $proizvod['ime']; ?></h3>
+                <p><?= $proizvod['opis']; ?></p>
             </div>
-                
         <?php endforeach; ?>
     </div>
+    </div>
+
+      <!-- Dugmad za navigaciju -->
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+    <!-- Modal (skriven na početku) -->
+<<?php foreach ($proizvod5 as $proizvod): ?>
+    <div id="modal-<?= $proizvod['id'] ?>" class="window-for-product">
+        <div class="modal-content">
+            
+            <img src="<?= $proizvod['slika'] ?>"  id="modalProductImage">
+    
+            <div id="product-description">
+            <h2><?= ($proizvod['ime']) ?></h2>
+            <p><?= ($proizvod['opis']) ?></p>
+            <p><?= ($proizvod['cena']) ?> RSD</p>
+
+            <a href="../korpa/korpa.html" class="shopping2">Ubaci u korpu</a>
+            </div>
+            <span class="close" onclick="closeModal(<?= $proizvod['id'] ?>)">&times;</span>
+            
+            
+        </div>
+    </div>
+<?php endforeach; ?>
+
+    <!-- dugme KUPI-->
+    <a href="proizvod.php">
+    <button id="buy-button">Kupi</button>
+</a>
+
 
 <!-- Proizvodi na akciji -->
 

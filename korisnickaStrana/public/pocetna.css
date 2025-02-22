@@ -1,102 +1,136 @@
-.head-box{
-    display: block;
-    position:absolute;
-    
-    width: 50%;
-    top:60%;
-    left:50%;
-    
-    color: white;
-    padding: 5%;
-    backdrop-filter: blur(5px);
-    transform: translate(-50%,-50%);
-    
-  
-}
-.head-box h1{
-    text-align: center;
-    font-size: 5em;
-    font-family: "Ink Free", Times, serif;
-    
-}
-.head-box p{
-    text-align: center;
-    font-size: 3em;
-    font-family: "Lucida Handwriting";
-   
-    
-}
-#our-product-title{
-    color: white;
-    margin-top: 7em;
-    font-size: 5em;
-    text-align: center;
-    font-family: "Ink Free", Times, serif;
-    
-
-}
-/* Main container for products */
-.conteiner {
-    display: flex;
-    margin-top: 1em;
-    
-}
-.product-box{
-    border: 2px solid #f7f7f7;
-    margin: 0px 10px;
-}
-/* Individual product box */
-.conteiner .product-box {
-    position: relative;
-    width: 280px;
- 
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Stilizacija kontejnera slajdera */
+.swiper-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     overflow: hidden;
-    cursor: pointer;
-    
-    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    border-radius: 10px;
 }
 
-/* Hover effects for product box */
-.conteiner .product-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+/* Wrapper za slajdove - flex za horizontalno poređivanje */
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Product image */
-.conteiner .product-box img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s;
+/* Stil za svaki pojedinačni slajd */
+.swiper-slide {
+  
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+   
 }
 
-/* Hover effect on image */
-.conteiner .product-box:hover img {
-    transform: scale(1.1);
+/* Stil za slike unutar slajdova */
+.swiper-slide img {
+    height: 58vh; /* visina slike je cela visina ekrana */
+    width: 100vh;
+    object-fit: cover; /* Održava proporcije slike i popunjava ceo ekran */
+    border-radius: 10px;
+    margin-bottom: 0; /* Brisanje margine ispod slike */
 }
-
-.product-title {
+/* Stil za naziv proizvoda */
+.swiper-slide h3 {
     font-family: Snell Roundhand, cursive;
-    
+    font-size: 25px;
+    color: #ffffff;
+    margin: 10px 0;
     font-weight: bold;
-    
-    margin-bottom: 10px;
-    text-transform: capitalize;
 }
+
+/* Stil za opis proizvoda */
+.swiper-slide p {
+    font-family: Snell Roundhand, cursive;
+    font-size: 20px;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+/* Dugmadi za navigaciju */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Hover efekat na dugmadi */
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Stil za responsivnost - manji uređaji */
+@media (max-width: 768px) {
+    .swiper-slide img {
+        max-width: 80%;
+    }
+
+    .swiper-container {
+        width: 95%;
+    }
+
+    .swiper-slide h3 {
+        font-size: 16px;
+    }
+
+    .swiper-slide p {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
 
 /*Akcije*/
 #action-title{
     color: white;
-    margin-top: 1em;
+    margin-top: 5%;
     font-size: 5em;
     text-align: center;
     font-family: "Ink Free", Times, serif;
     
 }
+#buy-button{   
+    font-family: Snell Roundhand, cursive;
+     width: 50%;
+    margin-top: 20px;
+    left: 25%;
+    position: relative;
+    padding: 2em;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 25px;
+    background-color: white;
+    backdrop-filter: blur(15px);
+}
 
+#buy-button:hover{
+    color: #ffffff;
+    background-color: transparent;
+
+}
 
 
 
