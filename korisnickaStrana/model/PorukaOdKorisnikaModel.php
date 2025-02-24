@@ -3,20 +3,19 @@ class PorukaOdKorisnikaModel {
     private $pdo;
     public function __construct($pdo) {
         $this->pdo = $pdo;}
-        public function dodajPoruku($ime, $email, $poruka) {
-            if (isset($_POST['submit'])) {
-                // Preuzimanje podataka iz forme
-                $ime = $_POST['ime'];
-                $email = $_POST['email'];
-                $poruka = $_POST['poruka'];
+     
             
-                // Pozivamo funkciju iz kontrolera da pošaljemo poruku u bazu
-        
-               
-                
-            }
-            
-        }
+         // Funkcija za unos poruke u bazu (dodajPoruku)
+    public function dodajPoruku($ime, $email, $poruka) {
+        $sql = "INSERT INTO poruka (ime, email, poruka) VALUES (:ime, :email, :poruka)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':ime', $ime);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':poruka', $poruka);
+        return $stmt->execute();
+    }
+
+
     }
            
 ?>

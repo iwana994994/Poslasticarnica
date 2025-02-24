@@ -1,7 +1,7 @@
 <?php
 
-include_once("../controler/ProizvodController.php");
-include_once("../template/nav-bar.php");
+include_once(__DIR__ ."/../controler/ProizvodController.php");
+include_once(__DIR__ ."/../template/nav-bar.php");
 
 
 $controller = new ProizvodController($pdo);
@@ -14,8 +14,8 @@ $proizvodi = $controller->prikaziProizvod();  // Poziva metodu za sve proizvode
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../public/proizvodi.css">
-    <script src="../public/js/window-for-product-pop.js"></script>
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/proizvodi.css">
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/window-for-product-pop.js"></script>
     <title>Cake-Coffee Shop</title>
 </head>
 <body>

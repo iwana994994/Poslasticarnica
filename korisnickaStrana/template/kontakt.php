@@ -1,18 +1,32 @@
 <?php
-include_once '../model/KontaktModel.php';
-include_once '../model/PorukaOdKorisnikaModel.php';
-include_once '../controler/KontaktController.php';
-include_once 'nav-bar.php';
+
+include_once __DIR__ . '/../controler/KontaktController.php';
+include_once __DIR__ . '/nav-bar.php';
 
 $controller= new KontaktController($pdo);
-$kontakt= $controller->getKontakt();
+$kontakt= $controller -> getKontakt();
 
+
+
+if ($_POST) {
+    // Uzimanje podataka iz forme
+    $ime = $_POST['ime'];
+    $email = $_POST['email'];
+    $poruka = $_POST['poruka'];
+
+    if ($ime && $email && $poruka) {
+        $controller->dodajPoruku($ime, $email, $poruka);
+    } else {
+        
+        echo "Molimo popunite sva polja.";
+    }
+}
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/kontakt.css">
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/kontakt.css">
     <title>Kontakt</title>
 </head>
 <body class="heder">
@@ -39,7 +53,7 @@ $kontakt= $controller->getKontakt();
 </div>
 
 <div class="form">
-<form method="POST" action="../controler/KontaktController.php">
+<form method="POST" action="">
     <label for="ime">Ime:</label>
     <input type="text" id="ime" name="ime" required><br>
 
@@ -49,7 +63,7 @@ $kontakt= $controller->getKontakt();
     <label for="poruka">Poruka:</label>
     <textarea id="poruka" name="poruka" required></textarea><br>
 
-    <button type="submit" name="submit">Pošaljite</button>
+    <button>Pošaljite</button>
    
 
 

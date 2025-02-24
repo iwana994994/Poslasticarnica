@@ -1,6 +1,7 @@
 <?php
-include_once("../controler/ProizvodController.php");
-include_once("../template/nav-bar.php");
+include_once __DIR__ . "/../../korisnickaStrana/controler/ProizvodController.php";
+include_once __DIR__ . "/../../korisnickaStrana/template/nav-bar.php";
+
 
 $controller = new ProizvodController($pdo);
 $proizvod5 = $controller->prikazi5Proizvoda(); //Objekat kontrolera poziva funkciju. koja poziva modul koji ima u sebi funkciju za 5 proizvoda
@@ -9,10 +10,11 @@ $proizvod5 = $controller->prikazi5Proizvoda(); //Objekat kontrolera poziva funkc
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/pocetna.css">
-    <link rel="stylesheet" href="../public/proizvodi.css">
-    <script src="../public/js/slide.js" ></script>
-    <script src="../public/js/window-for-product-pop.js"></script>
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/pocetna.css">
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/proizvodi.css">
+
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/slide.js" ></script>
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/window-for-product-pop.js"></script>
     <title>Pocetna</title>
 </head>
 <body>

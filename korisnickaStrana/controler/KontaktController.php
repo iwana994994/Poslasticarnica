@@ -1,13 +1,16 @@
 <?php
-include_once("../model/KontaktModel.php");
+include_once(__DIR__ . "/../model/KontaktModel.php");
+include_once(__DIR__ . "/../model/PorukaOdKorisnikaModel.php");
 
 class KontaktController {
     private $kontakt;
+    private $poruka;
 
     // Konstruktor za povezivanje sa bazom
     public function __construct($pdo) {
         $this->pdo = $pdo;
         $this->kontakt = new KontaktModel($pdo);
+        $this->poruka = new PorukaOdKorisnikaModel($pdo);
     }
 
     // Funkcija za dobijanje kontakta
@@ -15,15 +18,11 @@ class KontaktController {
         return $this->kontakt->getKontakt();
     }
 
-    // Funkcija za unos poruke u bazu (dodajPoruku)
-    public function dodajPoruku($ime, $email, $poruka) {
-        $sql = "INSERT INTO poruka (ime, email, poruka) VALUES (:ime, :email, :poruka)";
-        $stmt = $this->kontakt->prepare($sql);
-        $stmt->bindParam(':ime', $ime);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':poruka', $poruka);
-        return $stmt->execute();
+     // Funkcija za unos poruke u bazu (dodajPoruku)
+     public function dodajPoruku($ime, $email, $poruka) {
+        return $this->poruka->dodajPoruku($ime, $email, $poruka);
     }
+
 }
 
 ?>

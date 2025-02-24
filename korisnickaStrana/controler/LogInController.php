@@ -1,7 +1,9 @@
 <?php
 session_start();
-include('../model/userModel.php');
-include("../config/database.php");  
+include_once(__DIR__ . "/../model/ProizvodModel.php");
+include_once __DIR__ . '/../model/UserModel.php';
+
+
 class LoginController {
     private $userModel;
 
@@ -21,7 +23,7 @@ class LoginController {
                 header('Location: ../../admin/admin-nav.php');
                 exit;
             } else {
-                header('Location: ../template/nav-bar.php');
+                header('Location: ../template/pocetna.php');
                 exit;
             }
             
@@ -31,7 +33,7 @@ class LoginController {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_POST) {
     $loginController = new LoginController($pdo);
     $loginController->login($_POST['username'], $_POST['password']);
 }

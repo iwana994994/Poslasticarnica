@@ -1,6 +1,5 @@
 <?php
-include_once("../config/database.php");
-include_once("../model/ProizvodModel.php");
+include_once(__DIR__ ."/../model/ProizvodModel.php");
 
 
 class  ProizvodController{

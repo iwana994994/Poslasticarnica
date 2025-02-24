@@ -1,5 +1,5 @@
 <?php
-include_once("../config/database.php");
+include_once(__DIR__ . "/../config/database.php");
 class KontaktModel{
 private $pdo;
 public function __construct($pdo){

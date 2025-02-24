@@ -61,7 +61,14 @@ nav a img{
     width: 100%;
    
 }
-
+h1 {   color: white;
+    text-align:right;
+    font-family: "Freestyle Script";
+    margin-top: 3%;
+    font-size: 65px;
+ 
+   
+}
 
 .navigation ul li{
     display: inline-block;
