@@ -1,11 +1,4 @@
-<?php
-include_once __DIR__ . "/../../korisnickaStrana/controler/ProizvodController.php";
-include_once __DIR__ . "/../../korisnickaStrana/template/nav-bar.php";
 
-
-$controller = new ProizvodController($pdo);
-$proizvod5 = $controller->prikazi5Proizvoda(); //Objekat kontrolera poziva funkciju. koja poziva modul koji ima u sebi funkciju za 5 proizvoda
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

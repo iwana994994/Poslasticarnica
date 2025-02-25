@@ -1,13 +1,3 @@
-<?php
-
-include_once(__DIR__ ."/../controler/ProizvodController.php");
-include_once(__DIR__ ."/../template/nav-bar.php");
-
-
-$controller = new ProizvodController($pdo);
-$proizvodi = $controller->prikaziProizvod();  // Poziva metodu za sve proizvode
-
-?>
 
 <html>
 <head>

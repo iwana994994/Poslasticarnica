@@ -1,27 +1,4 @@
-<?php
 
-include_once __DIR__ . '/../controler/KontaktController.php';
-include_once __DIR__ . '/nav-bar.php';
-
-$controller= new KontaktController($pdo);
-$kontakt= $controller -> getKontakt();
-
-
-
-if ($_POST) {
-    // Uzimanje podataka iz forme
-    $ime = $_POST['ime'];
-    $email = $_POST['email'];
-    $poruka = $_POST['poruka'];
-
-    if ($ime && $email && $poruka) {
-        $controller->dodajPoruku($ime, $email, $poruka);
-    } else {
-        
-        echo "Molimo popunite sva polja.";
-    }
-}
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
