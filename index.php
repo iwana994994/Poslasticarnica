@@ -17,22 +17,36 @@ $proizvod5 = $proizvodModel->prikazi5Proizvoda(); //Objekat kontrolera poziva fu
 $kontaktModel = new KontaktModel($pdo);
 $kontakt = $kontaktModel->getKontakt(); // Dohvatiti kontakt podatke
 // Obrada forme za kontakt
+$_error = [];
+$_message = '';
 if ($_POST) {
     $ime = $_POST['ime'];
     $email = $_POST['email'];
     $poruka = $_POST['poruka'];
 
+    // Validacija podataka
     if ($ime && $email && $poruka) {
-        $kontaktModel->dodajPoruku($ime, $email, $poruka); // Dodavanje poruke
+        if ($kontaktModel->dodajPoruku($ime, $email, $poruka)) {
+            $_message = "Vaša poruka je uspešno poslata!";
+            unset ($_POST['ime']);
+            unset ($_POST['email']);
+            unset ($_POST['poruka']);
+            
+        } else {
+            $_error[] = "Greška pri slanju poruke.";
+        }
     } else {
-        echo "Molimo popunite sva polja.";
+        if (!$ime) $_error[] = "Unesite ime.";
+        if (!$email) $_error[] = "Unesite email.";
+        if (!$poruka) $_error[] = "Unesite poruku.";
     }
 }
 //<! ------------------Pozivanje loginModel.php ------------------------------------------->
-if ($_POST) {
+if (isset($_POST["username"]) && isset($_POST["password"])) {
     $loginModel = new LoginModel($pdo);
     $loginModel->login($_POST['username'], $_POST['password']);
 }
+
 
 
 // Uzimanje parametra iz URL-a

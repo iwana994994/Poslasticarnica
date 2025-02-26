@@ -48,8 +48,4 @@ class LoginModel {
     }
 }
 
-if ($_POST) {
-    $loginModel = new LoginModel($pdo);
-    $loginModel->login($_POST['username'], $_POST['password']);
-}
 ?>

@@ -30,22 +30,36 @@
 </div>
 
 <div class="form">
-<form method="POST" action="">
-    <label for="ime">Ime:</label>
-    <input type="text" id="ime" name="ime" required><br>
+    <form method="POST" action="">
+        <label for="ime">Ime:</label>
+        <input type="text" id="ime" name="ime" value="<?= $_POST['ime'] ?? '' ?>"><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<?= $_POST['email'] ?? '' ?>" ><br>
 
-    <label for="poruka">Poruka:</label>
-    <textarea id="poruka" name="poruka" required></textarea><br>
+        <label for="poruka">Poruka:</label>
+        <textarea id="poruka" name="poruka"><?= $_POST['poruka'] ?? '' ?></textarea><br>
 
-    <button>Pošaljite</button>
-   
+        <button>Pošaljite</button>
+    </form>
 
+    <!-- Poruka o grešci -->
+    <?php if (!empty($_error)): ?>
+        <div>
+            <ul>
+                <?php foreach ($_error as $err): ?>
+                    <li><?= $err ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
-</form>
-
+    <!-- Poruka o uspehu -->
+    <?php if ($_message): ?>
+        <div class="success">
+            <p><?= $_message ?></p>
+        </div>
+    <?php endif; ?>
 
 </div>
 </div>
