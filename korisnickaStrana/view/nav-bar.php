@@ -49,7 +49,7 @@
             <h2>Prijava</h2>
 
 
-     <form id="form-login" method="POST" action="/Poslasticarnica/korisnickaStrana/model/loginModel.php">
+     <form id="form-login" method="POST" action="/Poslasticarnica/admin/admin-nav.php">
     <input type="text" name="username" placeholder="Korisničko ime" required>
     <input type="password" name="password" placeholder="Lozinka" required>
     <button id="posalji">Prijavi se</button>

@@ -35,10 +35,10 @@ class LoginModel {
 
             // Preusmeravanje u zavisnosti od uloge
             if ($user['role'] == 'admin') {
-                header('Location: ../../admin/admin-nav.php');
+                header('Location: /Poslasticarnica/admin/admin-nav.php');
                 exit;
             } else {
-                header('Location: ../../index.php');
+                header('Location: /Poslasticarnica/index.php');
                 exit;
             }
             

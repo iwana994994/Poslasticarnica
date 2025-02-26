@@ -31,7 +31,7 @@ if ($_POST) {
             unset ($_POST['ime']);
             unset ($_POST['email']);
             unset ($_POST['poruka']);
-            
+
         } else {
             $_error[] = "Greška pri slanju poruke.";
         }
@@ -42,7 +42,7 @@ if ($_POST) {
     }
 }
 //<! ------------------Pozivanje loginModel.php ------------------------------------------->
-if (isset($_POST["username"]) && isset($_POST["password"])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     $loginModel = new LoginModel($pdo);
     $loginModel->login($_POST['username'], $_POST['password']);
 }
