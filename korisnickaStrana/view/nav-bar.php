@@ -1,6 +1,3 @@
-<?php
-include_once(__DIR__ ."/../controler/LogInController.php");
-
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +49,7 @@ include_once(__DIR__ ."/../controler/LogInController.php");
             <h2>Prijava</h2>
 
 
-     <form id="form-login" method="POST" action="/Poslasticarnica/korisnickaStrana/controler/loginController.php">
+     <form id="form-login" method="POST" action="/Poslasticarnica/korisnickaStrana/model/loginModel.php">
     <input type="text" name="username" placeholder="Korisničko ime" required>
     <input type="password" name="password" placeholder="Lozinka" required>
     <button id="posalji">Prijavi se</button>

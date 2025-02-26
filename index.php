@@ -1,21 +1,21 @@
 <?php
 // Uključivanje potrebnih datoteka
 include_once './korisnickaStrana/config/database.php'; 
-include_once './korisnickaStrana/controler/ProizvodController.php'; 
-include_once './korisnickaStrana/controler/LogInController.php'; 
-include_once './korisnickaStrana/controler/KontaktController.php'; 
-include_once './korisnickaStrana/template/nav-bar.php'; 
+include_once './korisnickaStrana/model/ProizvodModel.php'; 
+include_once './korisnickaStrana/model/LogInModel.php'; 
+include_once './korisnickaStrana/model/KontaktModel.php'; 
+include_once './korisnickaStrana/view/nav-bar.php'; 
 
-//<! ------------------Pozivanje proizvodController.php ------------------------------------------->
+//<! ------------------Pozivanje proizvodModel.php ------------------------------------------->
 
-$proizvodController = new ProizvodController($pdo);
-$proizvodi = $proizvodController->prikaziProizvod(); // Svi proizvodi
-$proizvod5 = $proizvodController->prikazi5Proizvoda(); //Objekat kontrolera poziva funkciju. koja poziva modul koji ima u sebi funkciju za 5 proizvoda
+$proizvodModel = new ProizvodModel($pdo);
+$proizvodi = $proizvodModel->prikaziProizvod(); // Svi proizvodi
+$proizvod5 = $proizvodModel->prikazi5Proizvoda(); //Objekat kontrolera poziva funkciju. koja poziva modul koji ima u sebi funkciju za 5 proizvoda
 
-//<! ------------------Pozivanje kontaktController.php ------------------------------------------->
+//<! ------------------Pozivanje kontaktModel.php ------------------------------------------->
 
-$kontaktController = new KontaktController($pdo);
-$kontakt = $kontaktController->getKontakt(); // Dohvatiti kontakt podatke
+$kontaktModel = new KontaktModel($pdo);
+$kontakt = $kontaktModel->getKontakt(); // Dohvatiti kontakt podatke
 // Obrada forme za kontakt
 if ($_POST) {
     $ime = $_POST['ime'];
@@ -23,12 +23,16 @@ if ($_POST) {
     $poruka = $_POST['poruka'];
 
     if ($ime && $email && $poruka) {
-        $kontaktController->dodajPoruku($ime, $email, $poruka); // Dodavanje poruke
+        $kontaktModel->dodajPoruku($ime, $email, $poruka); // Dodavanje poruke
     } else {
         echo "Molimo popunite sva polja.";
     }
 }
-//<! ------------------Pozivanje kontaktController.php ------------------------------------------->
+//<! ------------------Pozivanje loginModel.php ------------------------------------------->
+if ($_POST) {
+    $loginModel = new LoginModel($pdo);
+    $loginModel->login($_POST['username'], $_POST['password']);
+}
 
 
 // Uzimanje parametra iz URL-a
@@ -37,19 +41,19 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'pocetna';
 // Upravljačka logika
 switch ($page) {
     case 'pocetna':
-        include 'korisnickaStrana/template/pocetna.php';
+        include 'korisnickaStrana/view/pocetna.php';
         break;
     case 'proizvod':
-        include './korisnickaStrana/template/proizvod.php'; 
+        include './korisnickaStrana/view/proizvod.php'; 
         break;
     case 'kontakt':
-        include './korisnickaStrana/template/kontakt.php';
+        include './korisnickaStrana/view/kontakt.php';
         break;
     case 'login':
-        include './korisnickaStrana/template/login.php';
+        include './korisnickaStrana/view/login.php';
         break;
     default:
-        include './korisnickaStrana/template/pocetna.php';
+        include './korisnickaStrana/view/pocetna.php';
         break;
 }
 ?>
