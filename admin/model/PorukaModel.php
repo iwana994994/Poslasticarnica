@@ -1,22 +1,23 @@
 <?php
-
 include_once("./config/database.php");
-class PorukaModel {
+
+
+class PorukaModel{
+  
     private $pdo;
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
-
-    // Dohvati sve poruke
-    public function getPoruke() {
+    // Funkcija za prikazivanje poruka u admin panelu
+    public function prikaziPoruke() {
         $stmt = $this->pdo->prepare("SELECT * FROM poruka ");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
-    // Obriši poruku
-    public function deletePoruka($id) {
+    // Funkcija za brisanje poruke
+    public function obrisiPoruku($id) {
         $stmt = $this->pdo->prepare("DELETE FROM poruka WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute();

@@ -1,10 +1,4 @@
-<?php 
-include_once("./controler/ProizvodController.php");
 
-
-$controller = new ProizvodController($pdo);
-$controller->dodajProizvod();
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
