@@ -8,7 +8,7 @@ if(isset($_POST["add-product"])){
         $opis=$_POST["opis"];
     
 
-        $query="INSERT INTO proizvod (ime,cena,opis) VALUES ('$naziv', '$cena', '$opis')";
+        $query="INSERT INTO proizvod (naziv,cena,opis) VALUES ('$naziv', '$cena', '$opis')";
         $query_run=mysqli_query($con,$query);
 if($query_run){
     $_SESSION['message']='Proizvod je uspesno dodat';
