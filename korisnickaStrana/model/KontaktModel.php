@@ -1,5 +1,7 @@
 <?php
-include_once(__DIR__ . "/../config/database.php");
+session_start();
+include_once(__DIR__ ."/../config/database.php");
+
 
 
 class KontaktModel {
@@ -16,15 +18,25 @@ class KontaktModel {
             
     
       }
+}
+if(isset($_POST["send-message"])){
+    $ime=$_POST ["ime"];
+    $email=$_POST ["email"];
+    $poruka=$_POST ["poruka"];
 
-     // Funkcija za unos poruke u bazu (dodajPoruku)   // Funkcija za unos poruke u bazu (dodajPoruku)
-    public function dodajPoruku($ime, $email, $poruka) {
-        $sql = "INSERT INTO poruka (ime, email, poruka) VALUES (:ime, :email, :poruka)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':ime', $ime);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':poruka', $poruka);
-        return $stmt->execute();
+    $query= "INSERT INTO poruka(ime,email,poruka) VALUES ('$ime','$email','$poruka')";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run){
+        $_SESSION['message']='Poruka je uspesno poslata';
+        header("Location: /Poslasticarnica/index.php?page=kontakt");
+        exit();
+    }
+    else{
+        $_SESSION['message']='Poruka nije poslata';
+        header("Location: /Poslasticarnica/index.php?page=kontakt");
+        exit();
+
     }
 
 }

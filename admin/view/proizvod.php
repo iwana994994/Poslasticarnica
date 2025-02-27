@@ -23,14 +23,18 @@
         <?php foreach ($proizvodi as $proizvod): ?>
         <tr>
             <td><?=($proizvod['id']) ?></td>
-            <td><?= ($proizvod['ime']) ?></td>
+            <td><?= ($proizvod['naziv']) ?></td>
             <td><?= ($proizvod['opis']) ?></td>
             <td><?= ($proizvod['cena']) ?> RSD</td>
             <td><?= ($proizvod['zalihe']) ?></td>
             <td><img src="../public/images/<?= ($proizvod['slika']) ?>" width="50"></td>
             <td>
-            <a id="dugme" href="admin-dashbord.php?page=proizvod&action=delete&id=<?php echo $proizvod['id']; ?>">Obriši</a>
-            <a id="dugme" href="#">Izmeni</a>
+                <form method="POST" action="./model/delete-product.php">
+                    <button id="dugme" type="submit" name="delete-product" value="<?=$proizvod['id'] ?>">Obrisi</button>
+                
+                </form>
+            
+            <a id="dugme" href="./view/editProduct.php?id=<?= $proizvod['id'] ?>">Izmeni</a>
                 </form>
             </td>
         </tr>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="./public/admin-nav.css">
+    <link rel="stylesheet" href="./public/message-session.css">
 </head>
 <body id="body-nav">
     <div class="admin-container">
@@ -17,6 +18,8 @@
                 <li><a href="admin-dashbord.php?page=poruke">Poruke</a></li>
                 <li><a href="admin-dashbord.php?page=korisnici">Korisnici</a></li>
                 <li><a href="admin-dashbord.php?page=odjava">Odjava</a></li>
+                
+               
             </ul>
         </aside>
 

@@ -6,6 +6,7 @@
 }
 
 .admin-container {
+    height: 50em;
     display: flex;
 }
 

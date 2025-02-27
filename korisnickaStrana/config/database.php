@@ -1,4 +1,6 @@
 <?php
+$con = mysqli_connect("localhost","root","","poslasticarnica");
+
 $host="localhost";
 $dbname="poslasticarnica";
 $username="root";

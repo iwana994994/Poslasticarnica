@@ -34,9 +34,10 @@
                         <td><?php echo $poruka['datum']; ?></td>
                         <td>
                             <!-- Opcija za brisanje poruke -->
-                            <a id="dugme" href="admin-dashbord.php?page=poruka&action=delete&id=<?php echo $poruka['id']; ?>">Obriši</a>
-
-
+                             <form method="POST" action="./model/delete-product.php">
+                         <button id="dugme" type="submit" name="delete-message" value="<?=$poruka['id'] ?>">Obrisi</button>
+                
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -1,6 +1,5 @@
 <?php
 
-include_once("./config/database.php");
 
 
 class ProizvodModel {
@@ -33,28 +32,10 @@ class ProizvodModel {
         return $stmt->execute();
     }
 
-    public function dodajProizvod() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $naziv = $_POST['naziv'];
-            $cena = $_POST['cena'];
-            $opis = $_POST['opis'];
-        
-            if (!empty($_FILES["slika"]["name"])) {
-                $slika = basename($_FILES["slika"]["name"]);
-                move_uploaded_file($_FILES["slika"]["tmp_name"], "../public/uploads/" . $slika);
-            }
-        
-            // Ubacivanje u bazu 
-            $query = "INSERT INTO proizvodi (naziv, cena, opis, slika) VALUES (?, ?, ?, ?)";
-            $stmt = $this ->prepare($query);
-            $stmt->execute([$naziv, $cena, $opis, $slika]);
-        
-            header("Location: ../admin/template/dodajProizvod.php?success=1");
-            exit();
-        }
+    
         }
         
-}
+
 
 
 

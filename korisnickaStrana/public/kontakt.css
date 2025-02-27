@@ -1,136 +1,16 @@
-/* navigation*/
 
-*{
-    margin: 0%;
-    padding: 0%;
-}
-.search{
-    display: flex;
-    justify-content: right;
-    margin-right: 5%;
-}
-#prijavi-se{
-    
-    margin: 0.5%;
-    margin-right: 1%;
-    cursor: pointer;
-    
-}
-#prijavi-se a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-#search-card{
-    margin: 0.5%;
-    margin-right: 2%;
-    width: 20%;
-}
-#search-card button{
-    color: white;
-    border: 2px solid black;
-    border-radius: 2px;
-    transition: 0.4s;
-    background-color: transparent;
-    width: 20%;
-    font-size: 16px;
-}
-#search-card button:hover{
-    background-color: black;
-}
-
-nav{
-    display: flex;
-    justify-content: space-between;  
-    backdrop-filter: blur(15px);
-    background-color: #45454540;
-    
-}
-nav a img{
-    width: 12em;
-    height: 8em;
-    margin-top: 20px;
-    margin-right: 20px;
-    
-    margin-left: 30px;
-    
-    
-}
-.heder{
-    height: 200vh;
-    width: 100%;
-    background-image: url('../kontakt/about-us-thumb-cut.jpg');
-        background-position: center;
-    background-size: cover;
-    position: relative;
-    
-}
-
-.navigation {
-    
-    text-align:right;
-    font-family: Snell Roundhand, cursive;
-    margin-top: 2%;
-    margin-right: 1%;
-    width: 100%;
-   
-}
-
-
-.navigation ul li{
-    display: inline-block;
-    position: relative;
-    list-style: none;
-    padding-right: 1%;
-    margin-top: 2%;
-    margin-right: 1%;
-    
-    
-}
-
-.navigation ul li::after{
-    background-color: #775206;
-    height: 3px;
-    width: 0%;
-    transition: 0.3s;
-    display: block;
-    content: "";
-    
-}
-.navigation ul li:hover::after{
-    width: 100%;   
-}
-
-
-.navigation ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 25px;   
-}
-
-.navigation ul li a:hover {
-    color: antiquewhite;  
-}
-
-.heder .head-box {
-    display: flex;
-    top: 15%;
-}
-
-
-.head-box h1{
-    text-align: center;
-    font-size: 5em;
-    font-family: "Ink Free", Times, serif;
-    color: white;  
-    flex-grow: 1;
-}
 /*---- information----*/
 label{
     display: flex;
 }
 
-
+.title{
+    color: white;
+    text-align: center;
+    font-family: "Freestyle Script";
+    margin-top: 3%;
+    font-size: 65px;
+}
 .form{
    margin: 2%;
     width: 80%;
@@ -189,37 +69,6 @@ iframe{
     margin-right: 10%;
 }
 
-/*----footer----*/
-#footer{
-    display: flex;
-    background-image: url('../kontakt/about-us-thumb-cut.jpg');
-    background-position: center;
-    background-size: 80%;
-    margin-top: 0.5em;
-    
-
-}
-#footer .informacije {
-    display: inline-block;
-    
-    height: 10em;
-    width: 100%;
-    
-    justify-content: center;
-    
-    color: white;
-    text-align: center;
-    font-size: 1.2em;
-    
-    backdrop-filter: blur(5px);  
-}
-.informacije ul li{
-    margin-top: 0.2em;
-    list-style: none;
-}
-.informacije h2{
-    margin-top: 0.2em;
-}
 
 /* Mobile */
 @media(max-width:600px){

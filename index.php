@@ -1,10 +1,12 @@
 <?php
+
 // Uključivanje potrebnih datoteka
 include_once './korisnickaStrana/config/database.php'; 
 include_once './korisnickaStrana/model/ProizvodModel.php'; 
 include_once './korisnickaStrana/model/LogInModel.php'; 
 include_once './korisnickaStrana/model/KontaktModel.php'; 
 include_once './korisnickaStrana/view/nav-bar.php'; 
+include_once './korisnickaStrana/view/message-session.php';
 
 //<! ------------------Pozivanje proizvodModel.php ------------------------------------------->
 
@@ -16,31 +18,7 @@ $proizvod5 = $proizvodModel->prikazi5Proizvoda(); //Objekat kontrolera poziva fu
 
 $kontaktModel = new KontaktModel($pdo);
 $kontakt = $kontaktModel->getKontakt(); // Dohvatiti kontakt podatke
-// Obrada forme za kontakt
-$_error = [];
-$_message = '';
-if ($_POST) {
-    $ime = $_POST['ime'];
-    $email = $_POST['email'];
-    $poruka = $_POST['poruka'];
 
-    // Validacija podataka
-    if ($ime && $email && $poruka) {
-        if ($kontaktModel->dodajPoruku($ime, $email, $poruka)) {
-            $_message = "Vaša poruka je uspešno poslata!";
-            unset ($_POST['ime']);
-            unset ($_POST['email']);
-            unset ($_POST['poruka']);
-
-        } else {
-            $_error[] = "Greška pri slanju poruke.";
-        }
-    } else {
-        if (!$ime) $_error[] = "Unesite ime.";
-        if (!$email) $_error[] = "Unesite email.";
-        if (!$poruka) $_error[] = "Unesite poruku.";
-    }
-}
 //<! ------------------Pozivanje loginModel.php ------------------------------------------->
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $loginModel = new LoginModel($pdo);
