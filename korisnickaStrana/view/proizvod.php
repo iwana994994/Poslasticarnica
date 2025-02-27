@@ -18,7 +18,7 @@
             <div class="product-box" onclick="openModal(<?= $proizvod['id'] ?>)">
                 <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->
                 <div class="description" >
-                    <h2 class="product-title"><?= ($proizvod['ime']) ?></h2> <!-- Naziv proizvoda -->
+                    <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2> <!-- Naziv proizvoda -->
                     <h3 class="product-price"><?= ($proizvod['cena']) ?> RSD</h3> <!-- Cena proizvoda -->
                 </div>
                 <input type="number" class="quantity" value="1">
