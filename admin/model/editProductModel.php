@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+
 if(isset($_GET["id"])){
 
 include_once("../config/database.php");

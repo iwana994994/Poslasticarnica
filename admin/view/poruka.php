@@ -34,7 +34,7 @@
                         <td><?php echo $poruka['datum']; ?></td>
                         <td>
                             <!-- Opcija za brisanje poruke -->
-                             <form method="POST" action="./model/delete-product.php">
+                             <form method="POST" action="./model/PorukaModel.php">
                          <button id="dugme" type="submit" name="delete-message" value="<?=$poruka['id'] ?>">Obrisi</button>
                 
                             </form>

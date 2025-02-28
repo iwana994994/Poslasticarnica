@@ -1,26 +1,35 @@
 <?php
-include_once("./config/database.php");
+include_once __DIR__ . '/../config/database.php';
 
 
-class PorukaModel{
-  
-    private $pdo;
+//-----------Prikazi sve poruke ---------------
 
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
+$query = "SELECT * FROM poruka ";
+$query_run = mysqli_query($con, $query);
+
+if ($query_run && mysqli_num_rows($query_run) > 0) {
+    $poruke = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+} else {
+    die("Greška: Nema poruka.");
+}
+
+//---------------Obrisi Poruku--------------
+
+    if(isset($_POST["delete-message"]))
+    {
+    $product_id= mysqli_real_escape_string($con,$_POST["delete-message"]);
+    $query ="DELETE FROM poruka WHERE id='$product_id'";
+    $query_run = mysqli_query($con,$query);
+    
+    if($query_run){
+        $_SESSION['message']='Proizvod je obrisan';
+        header('Location: ../admin-dashbord.php?page=poruke');
+        exit();
     }
-    // Funkcija za prikazivanje poruka u admin panelu
-    public function prikaziPoruke() {
-        $stmt = $this->pdo->prepare("SELECT * FROM poruka ");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    // Funkcija za brisanje poruke
-    public function obrisiPoruku($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM poruka WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+    else{
+        $_SESSION['message']='Proizvod nije obrisan';
+        header('Location: ../admin-dashbord.php?page=poruke');
+        exit();
     }
 }
 ?>

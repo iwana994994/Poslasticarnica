@@ -7,22 +7,6 @@ include_once 'model/PorukaModel.php';
 include "../korisnickaStrana/view/message-session.php";
 
 
-
-
-//-----------------Dodavanje ProizvodController.php---------------
-$controller = new ProizvodModel($pdo);
-$proizvodi = $controller->prikaziProizvode();
-
-
-//----------------------------Dodavanje PorukaController.php---------------------------
-
-// Kreiramo objekat kontrolera
-$poruka = new PorukaModel($pdo);
-
-// Dohvatamo sve poruke
-$poruke = $poruka->prikaziPoruke();
-
-
 // Uzimanje parametra 'page' iz URL-a
 $page = isset($_GET['page']) ? $_GET['page'] : 'proizvodi'; // Podrazumevana stranica je 'proizvodi'
 

@@ -18,9 +18,9 @@ $akcije = $productModel->getDiscountedProducts();
     <div class="conteiner">
         <?php foreach ($akcije as $proizvod): ?>
             <div class="product">
-                <img src="../public/images/<?= htmlspecialchars($proizvod['image']) ?>" class="product-img">
-                <h2 class="product-title"><?= htmlspecialchars($proizvod['name']) ?></h2>
-                <h3 class="product-price"><s><?= htmlspecialchars($proizvod['price']) ?> RSD</s>
+                <img src="../public/images/<?= ($proizvod['image']) ?>" class="product-img">
+                <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2>
+                <h3 class="product-price"><s><?= ($proizvod['cena']) ?> RSD</s>
                  <?= htmlspecialchars($proizvod['discount_price']) ?> RSD</h3>
                 <input type="number" class="quantity" value="1">
                 <a href="../korpa/korpa.php?id=<?= $proizvod['id'] ?>" class="shopping">Ubaci u korpu</a>

@@ -17,7 +17,7 @@
         <?php foreach ($proizvod5 as $proizvod): ?>
             <div class="swiper-slide" onclick="openModal(<?= $proizvod['id'] ?>)">
                 <img src="<?= $proizvod['slika']; ?>" >
-                <h3><?= $proizvod['ime']; ?></h3>
+                <h3><?= $proizvod['naziv']; ?></h3>
                 <p><?= $proizvod['opis']; ?></p>
             </div>
         <?php endforeach; ?>
@@ -36,7 +36,7 @@
             <img src="<?= $proizvod['slika'] ?>"  id="modalProductImage">
     
             <div id="product-description">
-            <h2><?= ($proizvod['ime']) ?></h2>
+            <h2><?= ($proizvod['naziv']) ?></h2>
             <p><?= ($proizvod['opis']) ?></p>
             <p><?= ($proizvod['cena']) ?> RSD</p>
 
@@ -64,7 +64,7 @@
             <div class="product-box">
                 <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->
                 <div class="description">
-                    <h2 class="product-title"><?= ($proizvod['ime']) ?></h2> <!-- Naziv proizvoda -->
+                    <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2> <!-- Naziv proizvoda -->
                    
                 </div>
             </div>
