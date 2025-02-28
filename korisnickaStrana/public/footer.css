@@ -1,0 +1,27 @@
+ .footer {
+            background-color: #6f4d37; /*Boja pozadine */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    
+        .footer-logo {
+            margin-bottom: 10px;
+        }
+        .footer-logo img {
+            height: 40px; 
+        }
+        .footer-links a {
+            color: #faf4e3;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            color: #a3826c; /* Krem boja za hover efekat */
+        }
+        .social-media img {
+            height: 20px; /* Veličina ikona društvenih mreža */
+            margin: 0 5px;
+        }
