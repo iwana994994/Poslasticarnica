@@ -7,9 +7,7 @@ include_once(__DIR__ ."/../config/database.php");
 
 $query = "SELECT * FROM kontakt";
 $query_run = mysqli_query($con, $query);
-
-
-    $kontakt = mysqli_fetch_assoc($query_run);
+$kontakt = mysqli_fetch_assoc($query_run);
  
 
 //--------------------- POSALJI PORUKU --------------------- 

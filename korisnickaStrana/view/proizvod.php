@@ -1,4 +1,4 @@
-<?php include_once './korisnickaStrana/model/ProizvodModel.php'; ?>
+
 <html>
 <head>
     <meta charset="UTF-8">

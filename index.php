@@ -8,11 +8,6 @@ include_once './korisnickaStrana/model/KontaktModel.php';
 include_once './korisnickaStrana/view/nav-bar.php'; 
 include_once './korisnickaStrana/view/message-session.php';
 
-//<! ------------------Pozivanje proizvodModel.php ------------------------------------------->
-
-
-//<! ------------------Pozivanje kontaktModel.php ------------------------------------------->
-
 
 //<! ------------------Pozivanje loginModel.php ------------------------------------------->
 if (isset($_POST['username']) && isset($_POST['password'])) {

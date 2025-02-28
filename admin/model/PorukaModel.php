@@ -2,21 +2,19 @@
 include_once __DIR__ . '/../config/database.php';
 
 
+//-----------Prikazi sve poruke ---------------
 
-class PorukaModel{
-  
-    private $pdo;
+$query = "SELECT * FROM poruka ";
+$query_run = mysqli_query($con, $query);
 
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
-    }
-    // Funkcija za prikazivanje poruka u admin panelu
-    public function prikaziPoruke() {
-        $stmt = $this->pdo->prepare("SELECT * FROM poruka ");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
+if ($query_run && mysqli_num_rows($query_run) > 0) {
+    $poruke = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+} else {
+    die("Greška: Nema poruka.");
 }
+
+//---------------Obrisi Poruku--------------
+
     if(isset($_POST["delete-message"]))
     {
     $product_id= mysqli_real_escape_string($con,$_POST["delete-message"]);

@@ -1,23 +1,14 @@
 <?php
 
+      
+$query = "SELECT * FROM proizvod";
+$query_run = mysqli_query($con, $query);
 
-
-class ProizvodModel {
-    private $pdo;
-
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
-    }
-
-    public function prikaziProizvode() {
-       $stmt = $this->pdo->query("SELECT * FROM proizvod");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-   
-    
+if ($query_run && mysqli_num_rows($query_run) > 0) {
+    $proizvodi = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+} else {
+    die("Greška: Nema poruka.");
 }
-        
 
 
 
