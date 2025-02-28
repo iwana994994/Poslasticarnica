@@ -2,29 +2,24 @@
 include_once(__DIR__ . "/../config/database.php");
 
 
+$query = "SELECT * FROM proizvod ";
+$query_run = mysqli_query($con, $query);
 
-class  ProizvodModel{
-    private $pdo;
- public function __construct($pdo){
-    $this->pdo = $pdo;}
-
-    public function prikaziProizvod() {
-        $stmt = $this->pdo->query("SELECT * FROM proizvod");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    public function prikazi5Proizvoda() {
-        $stmt = $this->pdo->query("SELECT * FROM proizvod LIMIT 5");
-       
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-
+if ($query_run && mysqli_num_rows($query_run) > 0) {
+    $proizvodi = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+} else {
+    die("Greška: Proizvod nije pronađen.");
 }
 
 
+$query = "SELECT * FROM proizvod LIMIT 5";
+$query_run = mysqli_query($con, $query);
 
-
+if ($query_run && mysqli_num_rows($query_run) > 0) {
+    $proizvod5 = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+} else {
+    die("Greška: Proizvod nije pronađen.");
+}
 
 
 

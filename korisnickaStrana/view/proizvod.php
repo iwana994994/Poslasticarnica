@@ -1,4 +1,4 @@
-
+<?php include_once './korisnickaStrana/model/ProizvodModel.php'; ?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -35,7 +35,7 @@
             <img src="<?= $proizvod['slika'] ?>"  id="modalProductImage">
     
             <div id="product-description">
-            <h2><?= ($proizvod['ime']) ?></h2>
+            <h2><?= ($proizvod['naziv']) ?></h2>
             <p><?= ($proizvod['opis']) ?></p>
             <p><?= ($proizvod['cena']) ?> RSD</p>
 
