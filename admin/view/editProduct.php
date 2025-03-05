@@ -1,7 +1,6 @@
 <?php 
-
 include "../model/editProductModel.php"; // Uključi model
-
+if (!isset($product)) die("Greška: Proizvod nije učitan.");
 ?>
 
 <html lang="en">
@@ -9,13 +8,14 @@ include "../model/editProductModel.php"; // Uključi model
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/dodajProizvod.css">
+    <link rel="stylesheet" href="../public/message-session.css">
     
     
     <title>Izmeni proizvod</title>
 </head>
 <body>
 <div class="container">
-    <h2 id="dodaj-proizod">Izmeni proizvod</h2>
+    <h2 id="dodaj-proizvod">Izmeni proizvod</h2>
         
 
     <form action="#" method="POST">

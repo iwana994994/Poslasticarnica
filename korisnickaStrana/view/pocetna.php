@@ -54,6 +54,40 @@
     <button id="buy-button">Kupi</button>
 </a>
 
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <?php foreach ($vest5 as $vest): ?>
+            <div class="swiper-slide" onclick="openModal(<?= $vest['id'] ?>)">
+                <img src="<?= $vest['slika']; ?>" >
+                <h3><?= $vest['naziv']; ?></h3>
+                <p><?= $vest['opis']; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    </div>
+
+      <!-- Dugmad za navigaciju -->
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+    <!-- Modal (skriven na početku) -->
+    <<?php foreach ($vest5 as $vest): ?>
+    <div id="modal-<?= $vest['id'] ?>" class="windowForNews">
+        <div class="modal-content">
+            
+            <img src="<?= $vest['slika'] ?>"  id="modalNewsImage">
+    
+            <div id="NewsDescription">
+            <h2><?= ($vest['naziv']) ?></h2>
+            <p><?= ($vest['opis']) ?></p>
+            <p><?= ($vest['slika']) ?></p>
+            </div>
+            <span class="close" onclick="closeModal(<?= $vest['id'] ?>)">&times;</span>
+              
+        </div>
+    </div>
+<?php endforeach; ?>
+
 
 <!-- Proizvodi na akciji -->
 

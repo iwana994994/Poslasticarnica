@@ -6,17 +6,16 @@
 }
 
 .admin-container {
-    height: 50em;
+    height: 100vh; /* Popravljeno da bude u visini prozora; pisalo je 1000 umesto 100 */
     display: flex;
 }
 
 .sidebar {
-   
     width: 250px;
     background: #2990ff;
     color: white;
     padding: 20px;
-    height: 1000hv;
+    height: 100%; /* Puna visina kontejnera */
 }
 
 .sidebar #admin-title {
@@ -42,7 +41,6 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: larger;
-    
 }
 
 .sidebar ul li a:hover {

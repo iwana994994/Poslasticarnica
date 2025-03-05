@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 1); error_reporting(E_ALL); //Za potencijalne errore prilikom konekcije sa serverom/databazom
+
 // Uključivanje potrebnih datoteka
 include_once './korisnickaStrana/config/database.php'; 
 include_once './korisnickaStrana/model/ProizvodModel.php'; 
@@ -7,6 +9,7 @@ include_once './korisnickaStrana/model/LogInModel.php';
 include_once './korisnickaStrana/model/KontaktModel.php'; 
 include_once './korisnickaStrana/view/nav-bar.php'; 
 include_once './korisnickaStrana/view/message-session.php';
+
 
 
 //<! ------------------Pozivanje loginModel.php ------------------------------------------->
@@ -38,4 +41,5 @@ switch ($page) {
         include './korisnickaStrana/view/pocetna.php';
         break;
 }
+
 ?>

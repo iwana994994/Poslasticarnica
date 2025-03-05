@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once(__DIR__ . "/../config/database.php");
 
 
@@ -14,17 +14,17 @@ class LoginModel {
      // Funkcija koja proverava korisnika u bazi
      public function authenticate($username, $password) {
         // Pretraži bazu po korisničkom imenu
-   $stmt = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
-   $stmt->bindParam(':username', $username);
-   $stmt->execute();
-   $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
    // Ako korisnik postoji i lozinka je tačna
-   if ($user && $password == $user['password']) {
+    if ($user && $password == $user['password']) {
        return $user;
-   } else {
+    } else {
        return false;
-   }
+    }
 }
     public function login ($username, $password) {
         $user = $this->authenticate($username, $password);
@@ -35,7 +35,7 @@ class LoginModel {
 
             // Preusmeravanje u zavisnosti od uloge
             if ($user['role'] == 'admin') {
-                header('Location: /Poslasticarnica/admin/admin-nav.php');
+                header('Location: /Poslasticarnica/admin/admin-dashboard.php');
                 exit;
             } else {
                 header('Location: /Poslasticarnica/index.php');
@@ -43,9 +43,11 @@ class LoginModel {
             }
             
         } else {
-            echo "Neispravno korisničko ime ili lozinka.";
+            // Preusmeravanje sa porukom o gresci
+            $_SESSION['message'] = 'Neispravno korisničko ime ili lozinka.';
+            header('Location: /Poslasticarnica/?page=login');
+            exit;
         }
     }
 }
-
 ?>

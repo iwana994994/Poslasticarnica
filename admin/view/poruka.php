@@ -1,10 +1,11 @@
+<?php include "message-session.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/table-style.css">
+    <link rel="stylesheet" href="../public/table-style.css">
     <title>Admin Panel</title>
 </head>
 <body id="body-poruka">
@@ -24,19 +25,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php if ($poruke): ?>
+            <?php if (!empty($poruke)): ?>
                 <?php foreach ($poruke as $poruka): ?>
                     <tr>
-                        <td><?php echo $poruka['id']; ?></td>
-                        <td><?php echo ($poruka['ime']); ?></td>
-                        <td><?php echo ($poruka['email']); ?></td>
-                        <td><?php echo (($poruka['poruka'])); ?></td>
-                        <td><?php echo $poruka['datum']; ?></td>
+                        <td><?php echo htmlspecialchars($poruka['id']); ?></td>
+                        <td><?php echo htmlspecialchars($poruka['ime']); ?></td>
+                        <td><?php echo htmlspecialchars($poruka['email']); ?></td>
+                        <td><?php echo htmlspecialchars($poruka['poruka']); ?></td>
+                        <td><?php echo htmlspecialchars($poruka['datum']); ?></td>
                         <td>
-                            <!-- Opcija za brisanje poruke -->
-                             <form method="POST" action="./model/PorukaModel.php">
-                         <button id="dugme" type="submit" name="delete-message" value="<?=$poruka['id'] ?>">Obrisi</button>
-                
+                            <form method="POST" action="../model/PorukaModel.php">
+                                <button type="submit" name="delete-message" value="<?php echo htmlspecialchars($poruka['id']); ?>">Obriši</button>
                             </form>
                         </td>
                     </tr>
@@ -50,3 +49,7 @@
     </table>
 </body>
 </html>
+
+            <!-- Dodala sam message-session.php
+             Uklonila visak zagrada i dodala opet htmlspecialchars zbog sigurnosti
+             Ubacila sam !empty($poruke) da bi vise odgovaralo samom ponasanju-->

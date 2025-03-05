@@ -6,7 +6,7 @@ include_once(__DIR__ ."/../config/database.php");
 
 
 $query = "SELECT * FROM kontakt";
-$query_run = mysqli_query($con, $query);
+$query_run = mysqli_query($conn, $query);
 $kontakt = mysqli_fetch_assoc($query_run);
  
 
@@ -18,7 +18,7 @@ if(isset($_POST["send-message"])){
     $poruka=$_POST ["poruka"];
 
     $query= "INSERT INTO poruka(ime,email,poruka) VALUES ('$ime','$email','$poruka')";
-    $query_run = mysqli_query($con,$query);
+    $query_run = mysqli_query($conn,$query);
 
     if($query_run){
         $_SESSION['message']='Poruka je uspesno poslata';

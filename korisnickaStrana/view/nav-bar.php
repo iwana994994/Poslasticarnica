@@ -25,7 +25,7 @@
     </div>
     <nav>
         <a href="#">
-            <img src="/Poslasticarnica/korisnickaStrana/public/slike/logo.png">
+            <img src="/Poslasticarnica/korisnickaStrana/public/slike/Poslastičarnica_logo.png">
         </a>
         <h1>Poslasticarnica</h1>
         <div class="navigation">
@@ -34,8 +34,10 @@
         <li><a href="/Poslasticarnica/index.php?page=proizvod">Proizvodi</a></li>
         <li><a href="#">Akcija</a></li>
         <li><a href="#">Vesti</a></li>
+        <li><a href="/Poslasticarnica/index.php?page=vesti">Vesti</a></li>
         <li><a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a></li>
         <li><a href="#">Korpa</a></li>
+
     </ul>
 </div>
 
@@ -49,7 +51,7 @@
             <h2>Prijava</h2>
 
 
-     <form id="form-login" method="POST" action="/Poslasticarnica/admin/admin-dashbord.php">
+     <form id="form-login" method="POST" action="/Poslasticarnica/admin/admin-dashboard.php">
     <input type="text" name="username" placeholder="Korisničko ime" required>
     <input type="password" name="password" placeholder="Lozinka" required>
     <button id="posalji">Prijavi se</button>

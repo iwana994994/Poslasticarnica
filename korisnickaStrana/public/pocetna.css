@@ -96,11 +96,6 @@
     }
 }
 
-
-
-
-
-
 /*Akcije*/
 #action-title{
     color: white;
@@ -132,6 +127,21 @@
 
 }
 
+/* Stil za naziv vesti */
+.swiper-slide h3 {
+    font-family: Snell Roundhand, cursive;
+    font-size: 25px;
+    color: #ffffff;
+    margin: 10px 0;
+    font-weight: bold;
+}
 
+/* Stil za opis vesti */
+.swiper-slide p {
+    font-family: Snell Roundhand, cursive;
+    font-size: 20px;
+    color: #ffffff;
+    margin: 10px 0;
+}
 
 
