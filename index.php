@@ -6,6 +6,7 @@ include_once './korisnickaStrana/model/ProizvodModel.php';
 include_once './korisnickaStrana/model/LogInModel.php'; 
 include_once './korisnickaStrana/model/KontaktModel.php'; 
 include_once './korisnickaStrana/view/nav-bar.php'; 
+ 
 include_once './korisnickaStrana/view/message-session.php';
 
 
@@ -38,4 +39,6 @@ switch ($page) {
         include './korisnickaStrana/view/pocetna.php';
         break;
 }
+
+include_once './korisnickaStrana/view/footer.php';
 ?>

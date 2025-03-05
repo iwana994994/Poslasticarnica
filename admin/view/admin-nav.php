@@ -13,11 +13,13 @@
         <aside class="sidebar">
             <h2 id="admin-title">Admin Panel</h2>
             <ul>
-            <li><a href="admin-dashbord.php?page=proizvodi">Proizvodi</a></li>
-                <li><a href="admin-dashbord.php?page=dodajProizvod">Dodaj Proizvod</a></li>
-                <li><a href="admin-dashbord.php?page=poruke">Poruke</a></li>
-                <li><a href="admin-dashbord.php?page=korisnici">Korisnici</a></li>
-                <li><a href="admin-dashbord.php?page=odjava">Odjava</a></li>
+            <li><a href="admin-dashboard.php?page=proizvodi">Proizvodi</a></li>
+                <li><a href="admin-dashboard.php?page=dodajProizvod">Dodaj Proizvod</a></li>
+                <li><a href="admin-dashboard.php?page=poruke">Poruke</a></li>
+                <li><a href="admin-dashboard.php?page=vesti">Vesti</a></li>
+                <li><a href="admin-dashboard.php?page=dodajVest">Dodaj vest</a></li>   
+                <li><a href="admin-dashboard.php?page=korisnici">Korisnici</a></li>
+                <li><a href="admin-dashboard.php?page=odjava">Odjava</a></li>
                 
                
             </ul>

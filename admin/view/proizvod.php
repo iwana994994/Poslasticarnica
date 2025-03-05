@@ -31,11 +31,10 @@
             <td>
                 <form method="POST" action="./model/delete-product.php">
                     <button id="dugme" type="submit" name="delete-product" value="<?=$proizvod['id'] ?>">Obrisi</button>
-                
                 </form>
             
             <a id="dugme" href="./view/editProduct.php?id=<?= $proizvod['id'] ?>">Izmeni</a>
-                </form>
+                
             </td>
         </tr>
         <?php endforeach; ?>
