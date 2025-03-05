@@ -13,6 +13,7 @@
         <aside class="sidebar">
             <h2 id="admin-title">Admin Panel</h2>
             <ul>
+            <li><a href="admin-dashboard.php?page=pocetna">Početna</a></li>
             <li><a href="admin-dashboard.php?page=proizvodi">Proizvodi</a></li>
                 <li><a href="admin-dashboard.php?page=dodajProizvod">Dodaj Proizvod</a></li>
                 <li><a href="admin-dashboard.php?page=poruke">Poruke</a></li>

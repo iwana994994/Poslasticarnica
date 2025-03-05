@@ -1,51 +1,23 @@
 <?php
-
+session_start();
 include_once(__DIR__ . "/../config/database.php");
 
-
-
-class LoginModel {
-    private $pdo;
-
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
-    }
-
-     // Funkcija koja proverava korisnika u bazi
-     public function authenticate($username, $password) {
+ 
         // Pretraži bazu po korisničkom imenu
-   $stmt = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
-   $stmt->bindParam(':username', $username);
-   $stmt->execute();
-   $user = $stmt->fetch(PDO::FETCH_ASSOC);
+   if (isset($_POST['login'])) {
+	$user =mysqli_real_escape_string($con,$_POST['username']);
+	$password = mysqli_real_escape_string($con,$_POST['password']);
 
-   // Ako korisnik postoji i lozinka je tačna
-   if ($user && $password == $user['password']) {
-       return $user;
-   } else {
-       return false;
-   }
+    $query= "SELECT * FROM user WHERE username='$user' AND 'password'='$password' LIMIT 1";
+    $query_run=mysqli_query($con,$query);
+
+  if (mysqli_num_rows($query_run)> 0)
+{}
+else{
+    $_SESSION["message2"] = "Nije dobar username ili lozinka";
+    header("Location: /Poslasticarnica/index.php?page=login");
+    exit(0);
 }
-    public function login ($username, $password) {
-        $user = $this->authenticate($username, $password);
-
-        if ($user) {
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-
-            // Preusmeravanje u zavisnosti od uloge
-            if ($user['role'] == 'admin') {
-                header('Location: /Poslasticarnica/admin/admin-nav.php');
-                exit;
-            } else {
-                header('Location: /Poslasticarnica/index.php');
-                exit;
-            }
-            
-        } else {
-            echo "Neispravno korisničko ime ili lozinka.";
-        }
-    }
-}
+}    
 
 ?>

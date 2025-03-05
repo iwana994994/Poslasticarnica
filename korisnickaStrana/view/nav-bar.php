@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/nav-bar.css">
-    <script src="/Poslasticarnica/korisnickaStrana/public/js/login.js"></script>
+   
 
     <title>Cake-Coffee Shop</title>
 </head>
 <body id="body">
    
     <div class="search">
-        
-            <button onclick="openLogin()">Prijavi se</button> <!-- Otvori modal za login -->
+              
+            <a href="/Poslasticarnica/index.php?page=login">Prijavi se</a> 
             
         <div id="search-card">
             <form method="get">
@@ -42,21 +42,7 @@
     </nav>
 
     <!-- Model za prijavu (unutar iste stranice) -->
-    <div id="loginModal" >
-        <div id="login-box">
-            <button id="close" onclick="closeLogin()">&times;</button>
-            
-            <h2>Prijava</h2>
-
-
-     <form id="form-login" method="POST" action="/Poslasticarnica/admin/admin-dashboard.php">
-    <input type="text" name="username" placeholder="Korisničko ime" required>
-    <input type="password" name="password" placeholder="Lozinka" required>
-    <button id="posalji">Prijavi se</button>
-       </form>
-
-        </div>
-    </div>
+   
 
 </body>
 </html>

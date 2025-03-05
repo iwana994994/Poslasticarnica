@@ -9,10 +9,13 @@ include "../korisnickaStrana/view/message-session.php";
 
 
 // Uzimanje parametra 'page' iz URL-a
-$page = isset($_GET['page']) ? $_GET['page'] : 'proizvodi'; // Podrazumevana stranica je 'proizvodi'
+$page = isset($_GET['page']) ? $_GET['page'] : 'pocetna'; // Podrazumevana stranica je 'proizvodi'
 
 // Upravljačka logika za učitavanje odgovarajuće stranice
 switch ($page) {
+    case 'pocetna':
+        include './view/pocetna.php'; // pocetna stranica
+        break;
     case 'proizvodi':
         include './view/proizvod.php'; // Stranica za prikaz proizvoda
         break;
