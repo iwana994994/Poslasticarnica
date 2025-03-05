@@ -15,7 +15,11 @@ body {
     margin-top: 40px;
     
 }
-.product-box{
+a{ 
+    text-decoration: none;
+}
+.product-box {
+   
     border: 2px solid #f7f7f7;
     margin: 0px 10px;
 }

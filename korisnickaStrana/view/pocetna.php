@@ -15,7 +15,8 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <?php foreach ($proizvod5 as $proizvod): ?>
-            <div class="swiper-slide" onclick="openModal(<?= $proizvod['id'] ?>)">
+            <div class="swiper-slide">
+            <a href="./korisnickaStrana/view/proizvod.php?id=<?= $proizvod['id'] ?>" >
                 <img src="<?= $proizvod['slika']; ?>" >
                 <h3><?= $proizvod['naziv']; ?></h3>
                 <p><?= $proizvod['opis']; ?></p>
@@ -28,26 +29,8 @@
       <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
     <button class="next" onclick="moveSlide(1)">&#10095;</button>
 
-    <!-- Modal (skriven na početku) -->
-<<?php foreach ($proizvod5 as $proizvod): ?>
-    <div id="modal-<?= $proizvod['id'] ?>" class="window-for-product">
-        <div class="modal-content">
-            
-            <img src="<?= $proizvod['slika'] ?>"  id="modalProductImage">
+   
     
-            <div id="product-description">
-            <h2><?= ($proizvod['naziv']) ?></h2>
-            <p><?= ($proizvod['opis']) ?></p>
-            <p><?= ($proizvod['cena']) ?> RSD</p>
-
-            <a href="../korpa/korpa.html" class="shopping2">Ubaci u korpu</a>
-            </div>
-            <span class="close" onclick="closeModal(<?= $proizvod['id'] ?>)">&times;</span>
-            
-            
-        </div>
-    </div>
-<?php endforeach; ?>
 
     <!-- dugme KUPI-->
     <a href="proizvod.php">

@@ -1,0 +1,107 @@
+
+
+/* Header styling */
+#naslov {
+    font-family: Snell Roundhand, cursive;
+    font-size: 3em;
+    text-align: center;
+    margin: 40px 0;
+    color: #ffffff;  /* Tamna boja za naslove */
+    text-transform: uppercase;
+    letter-spacing: 1px;  /* Proširenje slova za moderniji efekat */
+}
+
+/* Main container for news */
+.conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;  /* Dodan razmak između kutija */
+    margin-top: 40px;
+}
+a{ 
+    text-decoration: none;
+}
+/* Individual news box */
+.news-box {
+    width: 48%;  /* Podesi širinu kako bi kutije bile raspoređene u dve kolone */
+    margin: 15px 0;
+    border-radius: 12px;
+    background-color: #fff;  /* Beli pozadinski okvir */
+    border: none;
+    
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Hover effects for news box */
+.news-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);  /* Veća senka pri hoveru */
+}
+
+/* News image */
+.news-box img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on image */
+.news-box:hover img {
+    transform: scale(1.05);  /* Slika postaje veća pri hoveru */
+}
+
+/* News title */
+.description {
+    padding: 15px;
+    text-align: left;
+    flex: 1;  /* Proširivanje opisa na preostali prostor */
+}
+
+/* News title style */
+.description .news-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #313131;
+    margin-bottom: 1em;
+    text-transform: capitalize;
+    line-height: 1.4;
+}
+
+/* News description style */
+.description .news-description {
+    font-size: 1em;
+    color: #414141;  /* Svetlija boja za opis */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Slika kod parnih vesti (levo raspoređivanje) */
+.news-box:nth-child(even) img {
+    order: 1;
+    margin-right: 20px;  /* Razmak između slike i opisa */
+}
+
+/* Slika kod neparnih vesti (desno raspoređivanje) */
+.news-box:nth-child(odd) img {
+    order: 2;
+    margin-left: 20px;  /* Razmak između slike i opisa */
+}
+
+/* Responsive design: Vesti na mobilnim uređajima */
+@media screen and (max-width: 768px) {
+    .news-box {
+        width: 100%;  /* Na manjim ekranima, kutije zauzimaju celu širinu */
+        flex-direction: column;  /* Slika ide iznad opisa */
+    }
+    .news-box img {
+        width: 100%;
+        margin-bottom: 15px;  /* Razmak između slike i opisa */
+    }
+}

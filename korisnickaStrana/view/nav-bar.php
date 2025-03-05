@@ -31,9 +31,9 @@
         <div class="navigation">
     <ul>
         <li><a href="/Poslasticarnica/index.php?page=pocetna">Početna</a></li>
-        <li><a href="/Poslasticarnica/index.php?page=proizvod">Proizvodi</a></li>
+        <li><a href="/Poslasticarnica/index.php?page=proizvodi">Proizvodi</a></li>
         <li><a href="#">Akcija</a></li>
-        <li><a href="#">Vesti</a></li>
+        <li><a href="/Poslasticarnica/index.php?page=vesti">Vesti</a></li>
         <li><a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a></li>
         <li><a href="#">Korpa</a></li>
     </ul>

@@ -5,6 +5,7 @@ include_once './korisnickaStrana/config/database.php';
 include_once './korisnickaStrana/model/ProizvodModel.php'; 
 include_once './korisnickaStrana/model/LogInModel.php'; 
 include_once './korisnickaStrana/model/KontaktModel.php'; 
+include_once './korisnickaStrana/model/VestiModel.php'; 
 include_once './korisnickaStrana/view/nav-bar.php'; 
  
 include_once './korisnickaStrana/view/message-session.php';
@@ -26,12 +27,15 @@ switch ($page) {
     case 'pocetna':
         include 'korisnickaStrana/view/pocetna.php';
         break;
-    case 'proizvod':
-        include './korisnickaStrana/view/proizvod.php'; 
+    case 'proizvodi':
+        include './korisnickaStrana/view/svi-proizvodi.php'; 
         break;
     case 'kontakt':
         include './korisnickaStrana/view/kontakt.php';
         break;
+        case 'vesti':
+            include './korisnickaStrana/view/vesti.php';
+            break;
     case 'login':
         include './korisnickaStrana/view/login.php';
         break;
