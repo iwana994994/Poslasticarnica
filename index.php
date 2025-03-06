@@ -9,7 +9,7 @@ include_once './korisnickaStrana/model/VestiModel.php';
 
 include_once './korisnickaStrana/view/nav-bar.php'; 
 
- 
+include_once './korisnickaStrana/view/footer.php';
 include_once './korisnickaStrana/view/message-session.php';
 
 
@@ -31,19 +31,21 @@ switch ($page) {
     case 'kontakt':
         include './korisnickaStrana/view/kontakt.php';
         break;
-        case 'vesti':
-            include './korisnickaStrana/view/vesti.php';
-            break;
+    case 'usluge':
+        include './korisnickaStrana/view/usluge.php';
+        break;
+    case 'vesti':
+        include './korisnickaStrana/view/vesti.php';
+        break;
     case 'login':
         include './korisnickaStrana/view/login.php';
         break;
-        case 'registracija':
-            include './korisnickaStrana/view/registracija.php';
-            break;
+    case 'registracija':
+        include './korisnickaStrana/view/registracija.php';
+        break;
     default:
         include './korisnickaStrana/view/pocetna.php';
         break;
 }
 
-include_once './korisnickaStrana/view/footer.php';
 ?>

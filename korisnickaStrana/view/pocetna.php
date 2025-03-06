@@ -8,6 +8,8 @@
 
     <script src="/Poslasticarnica/korisnickaStrana/public/js/slide.js" ></script>
     <script src="/Poslasticarnica/korisnickaStrana/public/js/window-for-product-pop.js"></script>
+
+
     <title>Pocetna</title>
 </head>
 <body>
@@ -56,4 +58,6 @@
     </div>
 
 </body>
+
+
 </html>

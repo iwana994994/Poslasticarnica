@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/nav-bar.css">
-   
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/footer.css">
 
     <title>Cake-Coffee Shop</title>
 </head>
@@ -40,6 +40,7 @@
         <li><a href="/Poslasticarnica/index.php?page=proizvodi">Proizvodi</a></li>
         <li><a href="#">Akcija</a></li>
         <li><a href="/Poslasticarnica/index.php?page=vesti">Vesti</a></li>
+        <li><a href="/Poslasticarnica/index.php?page=usluge">Usluge</a></li>
         <li><a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a></li>
         <li><a href="#">Korpa</a></li>
     </ul>
