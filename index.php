@@ -6,6 +6,7 @@ include_once './korisnickaStrana/model/ProizvodModel.php';
 include_once './korisnickaStrana/model/LogInModel.php'; 
 include_once './korisnickaStrana/model/KontaktModel.php'; 
 include_once './korisnickaStrana/model/VestiModel.php'; 
+include_once './korisnickaStrana/model/UslugeModel.php'; 
 
 include_once './korisnickaStrana/view/nav-bar.php'; 
 
