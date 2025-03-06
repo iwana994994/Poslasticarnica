@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once(__DIR__ . "/../config/database.php");
 
 
@@ -42,8 +42,9 @@ else{
     
     if($user_query_run){
         $_SESSION["message2"] = 'Registracija je uspešna';
-        header("Location: /Poslasticarnica/index.php?page=login");
+        header("Location: /Poslasticarnica/index.php?page=registracija");
         exit(0);
+        
     }
     else{
         $_SESSION["message2"] = 'Registracija nije uspešna, pokušajte ponovo';
