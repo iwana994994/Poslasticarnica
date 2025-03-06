@@ -26,3 +26,4 @@ include_once './nav-bar.php';
     </div>
 </body>
 </html>
+<?php include_once './footer.php';?>

@@ -27,3 +27,4 @@ $usluga = getUsluge($con, isset($_GET["id"]) ? $_GET["id"] : null);
 </div>
 </body>
 </html>
+<?php include_once './footer.php';?>
