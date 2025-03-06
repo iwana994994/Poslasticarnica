@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Lista proizvoda</h1>
-    <a id="dodajProizvod" href="admin-dashbord.php?page=dodajProizvod">Dodaj novi proizvod</a>
+    <a id="dodajProizvod" href="admin-dashboard.php?page=dodajProizvod">Dodaj novi proizvod</a>
     <table >
         <tr>
             <th>ID</th>

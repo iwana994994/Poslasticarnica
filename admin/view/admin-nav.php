@@ -20,6 +20,7 @@
                 <li><a href="admin-dashboard.php?page=vesti">Vesti</a></li>
                 <li><a href="admin-dashboard.php?page=dodajVest">Dodaj vest</a></li>   
                 <li><a href="admin-dashboard.php?page=korisnici">Korisnici</a></li>
+                <li><a href="admin-dashboard.php?page=upravljajAdminima">Upravljanje Aminima</a></li>
                 <li><a href="admin-dashboard.php?page=odjava">Odjava</a></li>
                 
                

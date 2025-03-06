@@ -41,11 +41,18 @@ CREATE TABLE IF NOT EXISTS `poruka` (
   `email` text NOT NULL,
   `datum` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.poruka: ~0 rows (approximately)
+-- Dumping data for table poslasticarnica.poruka: ~8 rows (approximately)
 INSERT INTO `poruka` (`id`, `poruka`, `ime`, `email`, `datum`) VALUES
-	(9, 'FFFFFFFFFFF', 'FFFF', 'FFFF', '2025-02-28 10:46:23');
+	(9, 'FFFFFFFFFFF', 'FFFF', 'FFFF', '2025-02-28 10:46:23'),
+	(10, '1111111111', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:11:46'),
+	(11, '22222222222\r\n\r\n', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:12:01'),
+	(12, '33333333333', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:13:27'),
+	(13, '1111123', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:14:04'),
+	(14, '45445', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:17:59'),
+	(15, '2222222222222', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:19:39'),
+	(16, '123123123\r\n', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:23:32');
 
 -- Dumping structure for table poslasticarnica.proizvod
 CREATE TABLE IF NOT EXISTS `proizvod` (
@@ -77,19 +84,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) NOT NULL DEFAULT '0',
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `role` tinyint(4) NOT NULL,
+  `role` enum('admin','user') NOT NULL DEFAULT 'user',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.user: ~4 rows (approximately)
+-- Dumping data for table poslasticarnica.user: ~3 rows (approximately)
 INSERT INTO `user` (`id`, `ime`, `prezime`, `email`, `username`, `password`, `role`, `created_at`) VALUES
-	(1, '0', '0', '0', 'iwana', 'iwana994994', 2, '2025-03-05 21:30:18'),
-	(2, 'RRRR', 'GGGG', 'iwana994994@gmail.com', 'ggggg', '123123123', 0, '2025-03-05 22:00:42'),
-	(3, 'Ivana ', 'HGFGH', 'HGFHFG', 'GFDGDFGDF', '123123123', 0, '2025-03-05 22:05:11'),
-	(5, 'RRRR', 'Pavlovic ', 'iwana994994@hotmail.com', 'mmmmm', '123123123', 0, '2025-03-05 22:29:33');
+	(1, '0', '0', '0', 'iwana', 'iwana994994', 'admin', '2025-03-06 09:56:10'),
+	(7, 'Ivana ', 'ffff', 'iwana994994@h2il.com', '11123', '123123123', 'user', '2025-03-06 10:03:20'),
+	(16, 'anastasija2', 'a', '1111', 'anastasija2', '123', 'admin', '2025-03-06 11:24:52');
 
 -- Dumping structure for table poslasticarnica.vesti
 CREATE TABLE IF NOT EXISTS `vesti` (

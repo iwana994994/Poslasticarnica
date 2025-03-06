@@ -5,6 +5,7 @@ include("view/admin-nav.php"); // Uključi navigaciju za admina
 include("model/ProizvodModel.php");
 include_once 'model/PorukaModel.php';
 include_once 'model/VestModel.php';
+include_once 'model/upravljanjeAdminimaModel.php';
 include "../korisnickaStrana/view/message-session.php";
 
 
@@ -28,10 +29,16 @@ switch ($page) {
     case 'vesti':
             include './view/vesti.php'; //Str za prikaz vesti
             break;
-     case 'dodajVest':
+    case 'dodajVest':
             include './view/dodajVest.php'; //Str za dodavanje vesti
             break;
-            case 'odjava':
+    case 'upravljajAdminima':
+                include './view/upravljanjeAdminima.php'; //Str za dodavanje vesti
+                break;
+    case 'dodajAdmina':
+                    include './view/dodajAdmina.php'; //Str za dodavanje vesti
+                    break;            
+    case 'odjava':
                 // Dodavanje logout logike:
                 session_destroy();
                 header("Location: ../index.php");
