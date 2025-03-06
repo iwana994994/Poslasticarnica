@@ -3,13 +3,17 @@
     padding: 0%;
 }
 #body {
-    min-height: 100vh;
+    height: 111vh;
     width: 100%;
     background-image: linear-gradient(rgba(0,0,9,0.4),rgba(0,0,9,0.7)), url(../public/slike/slice-homemade.jpg);
     background-position: center;
     background-size: cover;
+<<<<<<< Updated upstream
     padding-bottom: 60px;
     position: static;
+=======
+    position: relative;
+>>>>>>> Stashed changes
 }
 .search{
     display: flex;

@@ -12,20 +12,28 @@
     position: absolute;
     margin: 20px;
 }
-.custom-alert2 {
-    
-    width: 17%;
-    
-    justify-content: right;
-    height: 1em;
+#custom-alert2 {
+    color: white;
+    padding: 0.5em;
+    margin-left: 4em;
+    margin-top: 2em;
+    border-radius: 1em;
+    background-color: indianred;
+    display: inline-grid;
+    position: absolute;
+    width: 17em;
+}
+
+.custom-alert3 {
+    padding: 0.5em;
+    margin-left: 4em;
+    margin-top: 2em;
+    border-radius: 1em;
     background-color: #fff3cd;
     color: #856404;
     padding: 15px;
     border: 1px solid #ffeeba;
-    border-radius: 5px;
+    display: inline-grid;
     position: absolute;
-    margin: 20px;
+    width: 17em;
 }
-
-
-

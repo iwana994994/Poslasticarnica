@@ -10,7 +10,7 @@ include_once './korisnickaStrana/model/UslugeModel.php';
 
 include_once './korisnickaStrana/view/nav-bar.php'; 
 
-include_once './korisnickaStrana/view/footer.php';
+
 include_once './korisnickaStrana/view/message-session.php';
 
 
@@ -48,5 +48,5 @@ switch ($page) {
         include './korisnickaStrana/view/pocetna.php';
         break;
 }
-
+include_once './korisnickaStrana/view/footer.php';
 ?>
