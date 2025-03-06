@@ -1,0 +1,26 @@
+.container{
+   display: inline-block;
+
+    color: white;
+    background-color: #2990ff;
+    margin-top: 5em;
+    margin-top: 6em;
+    margin: 2em;
+    
+    height: 10em;
+}
+.card-heder{
+    background-color: #92c7ff;
+    padding: 1em;
+    
+}
+.card-body{
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 1em;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

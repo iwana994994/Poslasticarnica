@@ -20,3 +20,12 @@
     right: 15px;
     cursor: pointer;
 }
+.custom-alert2 {
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    color: white;
+    background-color: indianred;
+    
+}
+

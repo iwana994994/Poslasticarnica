@@ -16,7 +16,7 @@
             <th>e-mail</th>
             <th>username</th>
             <th>password</th>
-            <th>akcija</th>
+            <th> </th>
         </tr>
         <tr>
             <?php foreach($admini as $admin): ?>
@@ -26,6 +26,13 @@
             <td><?= $admin['email']?></td>
             <td><?= $admin['username']?></td>
             <td><?= $admin['password']?></td>
+
+            <td>
+                <form method="POST" action="./model/deleteAdminModel.php">
+                    <button id="dugme" type="submit" name="delete-admin" value="<?=$admin['id'] ?>">Obrisi</button>
+                </form>
+                
+            </td>
 
         </tr>
         <?php endforeach; ?>

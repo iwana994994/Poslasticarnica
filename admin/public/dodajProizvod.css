@@ -41,7 +41,8 @@ textarea{
 }
 /* Stil za inpute i textarea */
 input[type="text"],
-input[type="number"],
+input[type="email"],
+input[type="password"],
 textarea,
 input[type="file"] {
     
@@ -80,4 +81,9 @@ button:hover {
     color: red;
     text-align: center;
     font-weight: bold;
+}
+#opis{
+    font-size: 11px;
+    color: darkgray;
+
 }
