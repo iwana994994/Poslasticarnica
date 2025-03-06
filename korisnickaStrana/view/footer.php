@@ -9,7 +9,7 @@
 <body>
     <footer class="footer">
         <div class="footer-logo">
-            <img src="/Poslasticarnica/korisnickaStrana/public/slike/Poslastičarnica.png" alt="Poslastičarnica logo">
+            <img src="/Poslasticarnica/korisnickaStrana/public/slike/Poslastičarnica_logo.png" alt="Poslastičarnica logo">
         </div>
         <div class="footer-links">
             <a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a>
@@ -19,8 +19,8 @@
         </div>
         <div class="social-media">
             <!-- Ikone društvenih mreža -->
-            <a href="https://facebook.com"><img src="./public/slike/facebook.png" alt="Facebook"></a>
-            <a href="https://instagram.com"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://facebook.com"><img src="/Poslasticarnica/korisnickaStrana/public/slike/facebook.png" alt="Facebook"></a>
+            <a href="https://instagram.com"><img src="/Poslasticarnica/korisnickaStrana/public/slike/instagram.png" alt="Instagram"></a>
         </div>
     </footer>
 

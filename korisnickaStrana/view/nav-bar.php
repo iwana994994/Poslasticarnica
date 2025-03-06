@@ -25,7 +25,7 @@
     </div>
     <nav>
         <a href="#">
-            <img src="/Poslasticarnica/korisnickaStrana/public/slike/logo.png">
+            <img src="/Poslasticarnica/korisnickaStrana/public/slike/Poslastičarnica_logo.png">
         </a>
         <h1>Poslasticarnica</h1>
         <div class="navigation">

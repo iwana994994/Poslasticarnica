@@ -20,15 +20,15 @@
         </tr>
         <?php foreach ($vesti as $vest): ?>
         <tr>
-            <td><?= htmlspecialchars($vest['vesti_id']) ?></td>
+            <td><?= htmlspecialchars($vest['id']) ?></td>
             <td><?= htmlspecialchars($vest['naziv']) ?></td>
             <td><?= htmlspecialchars($vest['opis']) ?></td>
             <td><img src="../public/slike/<?= htmlspecialchars($vest['slika']) ?>"></td>
             <td>
                 <form method="POST" action="../model/obrisiVestModel.php">
-                    <button  id="dugme" type="submit" name="obrisiVest" value="<?= htmlspecialchars($vest['vesti_id']) ?>">Obriši</button>
+                    <button  id="dugme" type="submit" name="obrisiVest" value="<?= htmlspecialchars($vest['id']) ?>">Obriši</button>
                 </form>
-                <a id="dugme" href="editVest.php?id=<?= htmlspecialchars($vest['vesti_id']) ?>">Izmeni</a>
+                <a id="dugme" href="editVest.php?id=<?= htmlspecialchars($vest['id']) ?>">Izmeni</a>
             </td>
         </tr>
         <?php endforeach; ?>
