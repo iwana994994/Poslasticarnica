@@ -1,8 +1,13 @@
+<?php
+
+include_once(__DIR__ ."/../view/message-session2.php");
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/login.css">
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/message-session.css">
     <title>Document</title>
 </head>
 <body>
