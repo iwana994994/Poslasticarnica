@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Uklanjanje .php ekstenzije
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/.]+)$ $1.php [L]
+
+
+
+# Preusmeravanje ?page=proizvodi u /proizvodi
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?page=$1 [L]
+
+# Osiguranje da index.php bude defaultni fajl
+DirectoryIndex index.php

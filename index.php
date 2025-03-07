@@ -24,7 +24,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'pocetna';
 // Upravljačka logika
 switch ($page) {
     case 'pocetna':
-        include 'korisnickaStrana/view/pocetna.php';
+        include './korisnickaStrana/view/pocetna.php';
         break;
     case 'proizvodi':
         include './korisnickaStrana/view/svi-proizvodi.php'; 

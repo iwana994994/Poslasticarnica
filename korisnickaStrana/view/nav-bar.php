@@ -37,12 +37,12 @@
         <h1>Poslasticarnica</h1>
         <div class="navigation">
     <ul>
-        <li><a href="/Poslasticarnica/index.php?page=pocetna">Početna</a></li>
-        <li><a href="/Poslasticarnica/index.php?page=proizvodi">Proizvodi</a></li>
+        <li><a href="/Poslasticarnica/">Početna</a></li>
+        <li><a href="/Poslasticarnica/proizvodi">Proizvodi</a></li>
         <li><a href="#">Akcija</a></li>
-        <li><a href="/Poslasticarnica/index.php?page=vesti">Vesti</a></li>
-        <li><a href="/Poslasticarnica/index.php?page=usluge">Usluge</a></li>
-        <li><a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a></li>
+        <li><a href="/Poslasticarnica/vesti">Vesti</a></li>
+        <li><a href="/Poslasticarnica/usluge">Usluge</a></li>
+        <li><a href="/Poslasticarnica/kontakt">Kontakt</a></li>
         <li><a href="#">Korpa</a></li>
     </ul>
 </div>
