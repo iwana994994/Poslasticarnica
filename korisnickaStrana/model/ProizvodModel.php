@@ -2,7 +2,7 @@
 include_once(__DIR__ . "/../config/database.php");
 
 
-$query = "SELECT * FROM proizvod ";
+$query = "SELECT * FROM proizvod ORDER BY id DESC";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {
@@ -12,7 +12,7 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
 }
 
 
-$query = "SELECT * FROM proizvod LIMIT 5";
+$query = "SELECT * FROM proizvod ORDER BY id DESC LIMIT 5";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {

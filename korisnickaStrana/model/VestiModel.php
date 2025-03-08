@@ -2,7 +2,7 @@
 
 include_once(__DIR__ . "/../config/database.php");
 
-$query = "SELECT * FROM vesti ";
+$query = "SELECT * FROM vesti ORDER BY id DESC ";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {

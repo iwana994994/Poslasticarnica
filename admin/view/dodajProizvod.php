@@ -12,7 +12,7 @@ include "message-session.php";
 <body>
 <div class="container">
     <h2 id="dodaj-proizod">Dodaj novi proizvod</h2>
-    <form action="./model/dodajProizvodModel.php" method="POST">
+    <form action="./model/dodajProizvodModel.php" method="POST" enctype="multipart/form-data">
         <label for="naziv">Naziv:</label>
         <input type="text" name="naziv" >
         
@@ -21,7 +21,9 @@ include "message-session.php";
         
         <label for="opis">Opis:</label>
         <textarea name="opis"></textarea>
-        
+
+        <label for="slika">Slika:</label>
+        <input type="file" name="slika" >
        
         
         <button type="submit" name="add-product">Dodaj proizvod</button>

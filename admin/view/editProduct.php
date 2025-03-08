@@ -28,8 +28,8 @@ include "../model/editProductModel.php"; // Uključi model
         <label for="opis">Opis:</label>
         <textarea name="opis" type="text"><?= $product['opis'] ?></textarea>
 
-        
-       
+        <label for="slika">Slika:</label>
+        <input type="file">
         
         <button type="submit" name="edit-product">Izmeni proizvod</button>
     </form>

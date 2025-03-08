@@ -29,11 +29,11 @@ if(isset($_POST["edit-product"])){
 
     if($update_run) {
         $_SESSION['message'] = 'Proizvod je uspešno izmenjen';
-        header("Location: ../admin-dashbord.php");
+        header("Location: ../admin-dashboard.php");
         exit();
     } else {
         $_SESSION['message'] = 'Došlo je do greške prilikom izmene proizvoda';
-        header("Location: ../admin-dashbord.php");
+        header("Location: ../admin-dashboard.php");
         exit();
     }
 
