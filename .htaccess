@@ -13,4 +13,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?page=$1 [L]
 
 # Osiguranje da index.php bude defaultni fajl
-DirectoryIndex index.php
