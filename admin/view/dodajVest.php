@@ -15,7 +15,7 @@
             <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
         </p>
     <?php endif; ?>
-    <form action="./model/dodajVestModel.php" method="POST">
+    <form action="./model/dodajVestModel.php" method="POST" >
         <label for="naziv">Naziv:</label>
         <input type="text" name="naziv" required>
         

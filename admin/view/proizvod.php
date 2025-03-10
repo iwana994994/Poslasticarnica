@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./public/table-style.css">
     <link rel="stylesheet" href="./public/pop-up.css">
-    <script src="./public/js/delete-pop.js"></script> <!-- Povezivanje JS fajla -->
+    <script src="./public/js/delete-pop.js"></script> 
     <title>Lista proizvoda</title>
 </head>
 <body>
