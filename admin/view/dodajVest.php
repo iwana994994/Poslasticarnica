@@ -9,23 +9,18 @@
 </head>
 <body>
 <div class="container">
-    <h2 id="dodajVest">Dodaj novu vest</h2>
-    <?php if (isset($_SESSION['message'])): ?>
-        <p class="<?php echo strpos($_SESSION['message'], 'uspešno') !== false ? 'success' : 'error'; ?>">
-            <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
-        </p>
-    <?php endif; ?>
-    <form action="./model/dodajVestModel.php" method="POST" >
+    <h2 id="dodaj-vest">Dodaj novu vest</h2>
+    <form action="./model/dodajVestModel.php" method="POST" enctype="multipart/form-data">
         <label for="naziv">Naziv:</label>
-        <input type="text" name="naziv" required>
+        <input type="text" name="naziv" >
         
         <label for="opis">Opis:</label>
-        <textarea name="opis" required></textarea>
+        <textarea name="opis"></textarea>
         
-        <label for="slika">Slika (unesite naziv fajla, npr. 'novost1.jpg'):</label>
-        <input type="text" name="slika" placeholder="npr. novost1.jpg">
+        <label for="slika">Slika:</label>
+        <input type="file" name="slika" >
         
-        <button type="submit" name="addVest">Dodaj vest</button>
+        <button type="submit" name="add-vest">Dodaj vest</button>
     </form>
 </div>
 </body>

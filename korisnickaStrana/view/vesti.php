@@ -9,16 +9,16 @@
 <body>
     <section>
         <h1 id="naslov">Poslastičarnica Vesti</h1>
-        <div class="conteiner">
-            <!-- Loop through all news -->
+        <div class="conteiner"> 
             <?php foreach ($vesti as $vest): ?>
                 <div class="news-box">
-                <a href="./korisnickaStrana/view/vest.php?id=<?= $vest['id'] ?>" >
-                    <img src="<?= $vest['slika'] ?>" class="news-img"> <!-- Slika za vesti -->
-                    <div class="description">
-                        <h2 class="news-title"><?= $vest['naziv'] ?></h2> <!-- Naziv vesti -->
-                        <h3 class="news-description"><?=$vest['opis'] ?></h3> <!-- Opis vesti -->
-                    </div>
+                    <a href="/Poslasticarnica/korisnickaStrana/view/vest.php?id=<?= $vest['id'] ?>">
+                        <img src="<?= $vest['slika'] ?>" class="news-img">
+                        <div class="description">
+                            <h2 class="news-title"><?= $vest['naziv'] ?></h2>
+                            <p class="news-description"><?= $vest['opis'] ?></p> 
+                        </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>
