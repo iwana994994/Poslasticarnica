@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `kontakt` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.kontakt: ~0 rows (approximately)
+-- Dumping data for table poslasticarnica.kontakt: ~1 rows (approximately)
 INSERT INTO `kontakt` (`id`, `adresa`, `telefon`, `email`, `working_hours`) VALUES
 	(3, 'Nikole Pasica 28, Nis', '+381 11 1234 567', 'kontakt@example.com', '0');
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `poruka` (
   `email` text NOT NULL,
   `datum` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table poslasticarnica.poruka: ~8 rows (approximately)
 INSERT INTO `poruka` (`id`, `poruka`, `ime`, `email`, `datum`) VALUES
@@ -49,10 +49,8 @@ INSERT INTO `poruka` (`id`, `poruka`, `ime`, `email`, `datum`) VALUES
 	(10, '1111111111', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:11:46'),
 	(11, '22222222222\r\n\r\n', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:12:01'),
 	(12, '33333333333', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:13:27'),
-	(13, '1111123', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 09:14:04'),
 	(14, '45445', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:17:59'),
-	(15, '2222222222222', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:19:39'),
-	(16, '123123123\r\n', 'Ivana ', 'iwana994994@hotmail.com', '2025-03-06 09:23:32');
+	(17, '2323333333', 'RRRRRR', 'iwana994994@hotmail.comg', '2025-03-10 16:17:52');
 
 -- Dumping structure for table poslasticarnica.proizvod
 CREATE TABLE IF NOT EXISTS `proizvod` (
@@ -88,13 +86,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.user: ~3 rows (approximately)
+-- Dumping data for table poslasticarnica.user: ~18 rows (approximately)
 INSERT INTO `user` (`id`, `ime`, `prezime`, `email`, `username`, `password`, `role`, `created_at`) VALUES
 	(1, '0', '0', '0', 'iwana', 'iwana994994', 'admin', '2025-03-06 09:56:10'),
 	(7, 'Ivana ', 'ffff', 'iwana994994@h2il.com', '11123', '123123123', 'user', '2025-03-06 10:03:20'),
-	(22, '0', '0', 'anastasija@anastasija', 'abastasija', 'anastasija', 'admin', '2025-03-09 11:40:14');
+	(22, '0', '0', 'anastasija@anastasija', 'abastasija', 'anastasija', 'admin', '2025-03-09 11:40:14'),
+	(24, 'Marko', 'Marković', 'marko.markovic@example.com', 'marko123', 'sifra123', 'user', '2025-03-10 16:00:52'),
+	(25, 'Ana', 'Anić', 'ana.anic@example.com', 'ana_1990', 'lozinka456', 'user', '2025-03-10 16:00:52'),
+	(26, 'Petar', 'Petrović', 'petar.petrovic@example.com', 'petar_p', 'lozinka789', 'user', '2025-03-10 16:00:52'),
+	(27, 'Jelena', 'Jovanović', 'jelena.jovanovic@example.com', 'jelena01', 'sifra987', 'user', '2025-03-10 16:00:52'),
+	(28, 'Ivan', 'Ivić', 'ivan.ivic@example.com', 'ivan_123', 'lozinka654', 'user', '2025-03-10 16:00:52'),
+	(29, 'Marija', 'Marić', 'marija.maric@example.com', 'marija2025', 'lozinka1234', 'user', '2025-03-10 16:00:52'),
+	(30, 'Nikola', 'Nikolić', 'nikola.nikolic@example.com', 'nikola_88', 'lozinka5678', 'user', '2025-03-10 16:00:52'),
+	(31, 'Tanja', 'Tanović', 'tanja.tanovic@example.com', 'tanja1985', 'tajna123', 'user', '2025-03-10 16:00:52'),
+	(33, 'Maja', 'Majkić', 'maja.majkic@example.com', 'maja_maja', 'sifra1122', 'user', '2025-03-10 16:00:52'),
+	(37, 'Sara', 'Sarić', 'sara.saric@example.com', 'sara1234', 'mypassword999', 'user', '2025-03-10 16:00:52');
 
 -- Dumping structure for table poslasticarnica.usluge
 CREATE TABLE IF NOT EXISTS `usluge` (

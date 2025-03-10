@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("config/database.php"); // Uključi konekciju sa bazom
 include("view/admin-nav.php"); // Uključi navigaciju za admina
 include("model/ProizvodModel.php");

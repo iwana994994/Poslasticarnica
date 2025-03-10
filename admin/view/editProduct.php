@@ -1,6 +1,6 @@
 <?php 
 
-include "../model/editProductModel.php"; // Uključi model
+include "../model/editProductModel.php"; 
 
 ?>
 
@@ -9,11 +9,17 @@ include "../model/editProductModel.php"; // Uključi model
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/dodajProizvod.css">
-    
-    
-    <title>Izmeni proizvod</title>
+    <link rel="stylesheet" href="../public/breadcrumb.css">
 </head>
 <body>
+    <div>
+    <div aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Poslasticarnica/admin/admin-dashboard.php">Početna /</a></li>
+            <li class="breadcrumb-item"><a href="/Poslasticarnica/admin/admin-dashboard.php?page=proizvodi">Proizvodi /</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $product['naziv'] ?></li>
+        </ol>
+</div>
 <div class="container">
     <h2 id="dodaj-proizod">Izmeni proizvod</h2>
         

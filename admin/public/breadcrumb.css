@@ -1,0 +1,27 @@
+.breadcrumb {
+    margin: 3em;
+    margin-left: 6em;
+    background-color: transparent;
+    padding: 10px 0;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-item {
+    display: inline;
+    font-size: 1em;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    font-size: 25px;
+    color: #fdfdfd;
+}

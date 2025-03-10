@@ -1,4 +1,5 @@
 <?php
+
 include_once __DIR__ . '/../config/database.php';
 
 
@@ -15,20 +16,20 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
 
 //---------------Obrisi Poruku--------------
 
-    if(isset($_POST["delete-message"]))
+    if(isset($_POST["delete-product"]))
     {
-    $product_id= mysqli_real_escape_string($con,$_POST["delete-message"]);
+    $product_id= mysqli_real_escape_string($con,$_POST["delete-product"]);
     $query ="DELETE FROM poruka WHERE id='$product_id'";
     $query_run = mysqli_query($con,$query);
     
     if($query_run){
-        $_SESSION['message']='Proizvod je obrisan';
-        header('Location: ../admin-dashbord.php?page=poruke');
+        $_SESSION['message']='Poruka je obrisan';
+        header('Location: ../admin-dashboard.php?page=poruke');
         exit();
     }
     else{
-        $_SESSION['message']='Proizvod nije obrisan';
-        header('Location: ../admin-dashbord.php?page=poruke');
+        $_SESSION['message']='Poruka nije obrisan';
+        header('Location: ../admin-dashboard.php?page=poruke');
         exit();
     }
 }

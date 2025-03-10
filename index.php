@@ -45,7 +45,7 @@ switch ($page) {
         include './korisnickaStrana/view/registracija.php';
         break;
     default:
-        include './korisnickaStrana/view/pocetna.php';
+         include './korisnickaStrana/view/404.php';
         break;
 }
 include_once './korisnickaStrana/view/footer.php';

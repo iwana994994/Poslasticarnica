@@ -11,8 +11,6 @@ $query_run = mysqli_query($con,$query);
     if ($query_run) 
         // Ako je proizvod obrisan
         $_SESSION['message'] = 'Proizvod je obrisan';
-    
-        // Preusmeravanje na stranicu sa porukom o uspehu
         header('Location: ../admin-dashboard.php?page=proizvodi');
         exit();
 }

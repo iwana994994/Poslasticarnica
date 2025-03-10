@@ -1,0 +1,78 @@
+
+body {
+    
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+#card {
+    margin-left: 35em;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+#title {
+    text-align: center;
+    font-size: 48px;
+    color: #e74c3c; /* Crvena boja za naslov */
+}
+
+.heder h2 {
+    font-size: 24px;
+    color: #555; /* Tamnija siva za podnaslov */
+    margin: 10px 0;
+}
+
+.body p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #777; /* Svetlija siva za tekst */
+}
+
+.body a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db; /* Plava boja za dugme */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.body a:hover {
+    background-color: #2980b9; /* Tamnija plava na hover */
+}
+
+
+@media (max-width: 480px) {
+    #card {
+        margin-left: 10px;
+        padding: 20px;
+    }
+
+    .heder h1 {
+        font-size: 28px;
+    }
+
+    .heder h2 {
+        font-size: 18px;
+    }
+
+    .body p {
+        font-size: 14px;
+    }
+
+    .body a {
+        padding: 6px 12px;
+    }
+}
