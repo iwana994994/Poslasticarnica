@@ -3,12 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/usluge.css">
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/windowForServicePop.js"></script>
     <title>Poslastičarnica</title>
     </head>
 <body>
     <section>
         <h1 id="naslov">Usluge</h1>
-        <div class="conteiner"> 
+        <div class="container"> 
             <?php foreach ($usluge as $usluga): ?>
                 <div class="service-box">
                     <a href="/Poslasticarnica/korisnickaStrana/view/usluga.php?id=<?= $usluga['id'] ?>">

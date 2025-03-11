@@ -9,7 +9,7 @@
 <body>
     <section>
         <h1 id="naslov">Vesti</h1>
-        <div class="conteiner"> 
+        <div class="container"> 
             <?php foreach ($vesti as $vest): ?>
                 <div class="news-box">
                     <a href="/Poslasticarnica/korisnickaStrana/view/vest.php?id=<?= $vest['id'] ?>">
