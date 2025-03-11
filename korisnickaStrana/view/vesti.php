@@ -8,7 +8,7 @@
 </head>
 <body>
     <section>
-        <h1 id="naslov">Poslastičarnica Vesti</h1>
+        <h1 id="naslov">Vesti</h1>
         <div class="conteiner"> 
             <?php foreach ($vesti as $vest): ?>
                 <div class="news-box">

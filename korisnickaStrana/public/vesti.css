@@ -15,43 +15,39 @@ a {
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Even spacing */
+    justify-content: space-evenly; /* Even spacing */
     gap: 20px;
     margin-top: 40px;
-    padding: 20px;
-    background-color: transparent;
+
 }
 
 /* Individual news box */
-.news-box {
+.container .news-box {
     width: 280px; 
     height: 400px; 
+    position: relative;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
 }
 
-.news-box:hover {
+.container .news-box:hover {
     transform: scale(1.05); /* Zoom effect */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* News image */
-.news-img {
+.container .news-img {
     width: 100%;
     height: 200px; 
     object-fit: cover;
     transition: transform 0.3s;
 }
 
-.news-box:hover .news-img {
+.container .news-box:hover .news-img {
     transform: scale(1.1); /* Zoom on hover */
 }
 
@@ -62,7 +58,7 @@ a {
     flex-grow: 1; /* Fill remaining space */
 }
 
-.news-title {
+.description .news-title {
     font-size: 1.2em;
     font-weight: bold;
     color: #333;
@@ -70,7 +66,7 @@ a {
     text-transform: capitalize;
 }
 
-.news-description {
+.description .news-description {
     font-size: 0.9em;
     color: #666;
     line-height: 1.5;
@@ -85,30 +81,33 @@ a {
     margin: 20px 0;
     color: #ffffff;
 }
-
+/*Modal style*/
 .window-for-news {
-    display: none;
+    display: none;  /*Hidden at the beggining */
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4); /*Haalf-transparent bg*/
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal-content {
+    display: flex; /*flexbox for pic and desc placement*/
+    justify-content: space-between; /*Space between pic and desc*/
     background-color: #fff;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
+    box-sizing: border-box;
+  
 }
-
+/*Closing modal*/
 .close {
     color: #aaa;
     float: right;
@@ -123,12 +122,22 @@ a {
     cursor: pointer;
 }
 
+/* Style for R part (news desc) */
+#news-description {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    width: 45%; /* R part takes 45% width */
+    padding: 10px;
+    box-sizing: border-box;
+}
+/*Style for L side (news pic)*/
 #modalNewsImage {
-    width: 45%;
-    object-fit: cover;
+    width: 45%; /*Pic takes 45% width*/
+    object-fit: cover; /*Pic is automatically placed*/
     border-radius: 8px;
 }
-
+/*desc style*/
 #news-description {
     width: 45%;
     padding: 10px;

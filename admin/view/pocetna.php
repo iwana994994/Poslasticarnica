@@ -50,6 +50,18 @@
         </div>
         </a>
     </div>
+
+    <div class="container">
+        <div class="card-heder">
+        <a href="/Poslasticarnica/admin/admin-dashboard.php?page=usluge">
+            <h1>Ukupno usluga</h1>
+        </div>
+        <div class="card-body">
+            <?= getCountNews('usluge');?>
+        </div>
+        </a>
+    </div>
+
     <div class="container">
         <div class="card-heder">
         <a href="/Poslasticarnica/admin/admin-dashboard.php?page=poruke">

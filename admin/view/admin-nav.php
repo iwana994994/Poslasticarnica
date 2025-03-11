@@ -14,13 +14,19 @@
             <h2 id="admin-title">Admin Panel</h2>
             <ul>
             <li><a href="admin-dashboard.php?page=pocetna">Početna</a></li>
-            <li><a href="admin-dashboard.php?page=proizvodi">Proizvodi</a></li>
+
+                <li><a href="admin-dashboard.php?page=proizvodi">Proizvodi</a></li>
                 <li><a href="admin-dashboard.php?page=dodajProizvod">Dodaj Proizvod</a></li>
+                
                 <li><a href="admin-dashboard.php?page=poruke">Poruke</a></li>
                 <li><a href="admin-dashboard.php?page=vesti">Vesti</a></li>
                 <li><a href="admin-dashboard.php?page=dodajVest">Dodaj vest</a></li>   
+
+                <li><a href="admin-dashboard.php?page=usluge">Usluge</a></li>
+                <li><a href="admin-dashboard.php?page=dodajUslugu">Dodaj uslugu</a></li>  
+
                 <li><a href="admin-dashboard.php?page=korisnici">Korisnici</a></li>
-                <li><a href="admin-dashboard.php?page=upravljajAdminima">Upravljanje Aminima</a></li>
+                <li><a href="admin-dashboard.php?page=upravljajAdminima">Upravljanje Adminima</a></li>
                 <li><a href="admin-dashboard.php?page=odjava">Odjava</a></li>
                 
                

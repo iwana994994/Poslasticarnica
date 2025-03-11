@@ -8,6 +8,7 @@ include_once 'model/VestModel.php';
 include_once 'model/upravljanjeAdminimaModel.php';
 include_once 'model/korisnikModel.php';
 include_once 'model/pocetnaModel.php';
+include_once 'model/UslugaModel.php';
 include "../korisnickaStrana/view/message-session.php";
 
 
@@ -33,6 +34,12 @@ switch ($page) {
             break;
     case 'dodajVest':
             include './view/dodajVest.php'; //Str za dodavanje vesti
+            break;
+    case 'usluge':
+            include './view/usluge.php'; //Str za prikaz usluga
+            break;
+    case 'dodajUslugu':
+            include './view/dodajUslugu.php'; //Str za dodavanje usluga
             break;
     case 'korisnici':
                 include './view/korisnik.php'; //Str za dodavanje vesti

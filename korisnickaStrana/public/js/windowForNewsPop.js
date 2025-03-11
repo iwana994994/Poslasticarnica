@@ -1,6 +1,6 @@
 // Funkcija za otvaranje modala
 function openModal(vestiId) {
-    var modal = document.getElementById('modal-' + vesetiId); // Na osnovu ID-a proizvoda, otvara se odg modal
+    var modal = document.getElementById('modal-' + vestiId); // Na osnovu ID-a proizvoda, otvara se odg modal
     modal.style.display = "flex"; // Prikaži modal
 }
 
