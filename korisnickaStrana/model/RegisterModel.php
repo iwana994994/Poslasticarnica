@@ -74,7 +74,7 @@ else {
         exit(0);
      }
 else{
-// Šifrovanje lozinke pre unosa u bazu
+//-------------------------------Unos podataka u bazu ------------------------------------------
     
 
     $user_query="INSERT INTO user(ime,prezime,email,username,`password`) VALUES ('$ime','$prezime','$email','$username','$password')";

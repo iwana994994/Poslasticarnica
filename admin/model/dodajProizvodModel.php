@@ -7,9 +7,13 @@ if(isset($_POST["add-product"])){
         $cena=$_POST["cena"];
         $opis=$_POST["opis"];
         $slika=$_FILES["slika"]["name"];
+
+        // Definišite putanju gde će se slika sačuvati
+    $upload_dir = "korisnickaStrana/public/slike/";
+    $upload_file = $upload_dir .$slika;
     
 
-        $query="INSERT INTO proizvod (naziv,cena,opis,slika) VALUES ('$naziv', '$cena', '$opis','$slika')";
+        $query="INSERT INTO proizvod (naziv,cena,opis,slika) VALUES ('$naziv', '$cena', '$opis','$upload_file')";
         $query_run=mysqli_query($con,$query);
 
 
