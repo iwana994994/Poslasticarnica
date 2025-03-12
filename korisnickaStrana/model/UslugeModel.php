@@ -21,30 +21,14 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
     die("Greška: Usluga nije pronađena.");
 }
 
-//--------------------------------------------------------
-/*
-if(isset($_GET["id"])){
-    
-    $usluga_id = mysqli_real_escape_string($con, $_GET["id"]);
-    $query = "SELECT * FROM usluge WHERE id='$usluga_id'";
-    $query_run = mysqli_query($con, $query);
-    
-    if ($query_run && mysqli_num_rows($query_run) > 0) {
-        $usluga = mysqli_fetch_array($query_run);
-    } else {
-        die("Greška: Usluga nije pronađena.");
-    }
-    
-
-}*/
 function getUslugeById($con, $id) {
-    $product_id = mysqli_real_escape_string($con, $id);
-    $query = "SELECT * FROM usluge WHERE id='$product_id'";
+    $usluga_id = mysqli_real_escape_string($con, $id);
+    $query = "SELECT * FROM usluge WHERE id='$usluga_id'";
     $query_run = mysqli_query($con, $query);
     
     if ($query_run && mysqli_num_rows($query_run) > 0) {
         return mysqli_fetch_array($query_run);
     }
-    return null; // Proizvod nije pronađen
+    return null; // Usluga nije pronađena
 }
 ?>

@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-image: linear-gradient(rgba(0,0,9,0.4),rgba(0,0,9,0.7)), url(../public/slike/slice-homemade.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+}
+
+/* Container for sale details */
+.sale-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sale image */
+.sale-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+
+/* Sale information */
+.sale-info {
+    max-width: 600px;
+}
+
+.sale-info h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sale-info p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Button for ordering */
+.shopping2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.shopping2:hover {
+    background-color: #e95a47;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    margin: 3em 6em;
+    background-color: transparent;
+    padding: 10px 0;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-item {
+    display: inline;
+    font-size: 1em;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    font-size: 25px;
+    color: #fdfdfd;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .sale-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sale-img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sale-info {
+        width: 100%;
+    }
+
+    .sale-info h2 {
+        font-size: 1.8em;
+    }
+}

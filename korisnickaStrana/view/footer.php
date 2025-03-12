@@ -4,7 +4,7 @@
     </div>
     <div class="footer-links">
         <a href="/Poslasticarnica/index.php?page=kontakt">Kontakt</a>
-        <a href="/services">Usluge</a>
+        <a href="/Poslasticarnica/index.php?page=usluge">Usluge</a>
         <a href="/faq">FAQ</a>
         <a href="/privacy">Privatnost & Politika</a>
     </div>

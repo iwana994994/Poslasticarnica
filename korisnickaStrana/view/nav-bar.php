@@ -39,7 +39,7 @@
     <ul>
         <li><a href="/Poslasticarnica/">Početna</a></li>
         <li><a href="/Poslasticarnica/proizvodi">Proizvodi</a></li>
-        <li><a href="#">Akcija</a></li>
+        <li><a href="/Poslasticarnica/akcije">Akcija</a></li>
         <li><a href="/Poslasticarnica/vesti">Vesti</a></li>
         <li><a href="/Poslasticarnica/usluge">Usluge</a></li>
         <li><a href="/Poslasticarnica/kontakt">Kontakt</a></li>

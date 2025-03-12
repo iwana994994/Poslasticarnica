@@ -46,7 +46,7 @@
 
 <!-- Proizvodi na akciji -->
 
-<h1 id="action-title"> Akcije</h1>
+<h1 id="sale-title"> Akcije</h1>
 <div class="conteiner">
         <!-- Loop through all products -->
         <?php foreach ($proizvod5 as $proizvod): ?>

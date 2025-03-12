@@ -9,6 +9,7 @@ include_once 'model/upravljanjeAdminimaModel.php';
 include_once 'model/korisnikModel.php';
 include_once 'model/pocetnaModel.php';
 include_once 'model/UslugaModel.php';
+include_once 'model/AkcijaModel.php';
 include "../korisnickaStrana/view/message-session.php";
 
 
@@ -40,6 +41,12 @@ switch ($page) {
             break;
     case 'dodajUslugu':
             include './view/dodajUslugu.php'; //Str za dodavanje usluga
+            break;
+    case 'akcije':
+            include './view/akcije.php'; //Str za prikaz akcija
+            break;
+    case 'dodajAkciju':
+            include './view/dodajAkciju.php'; //Str za dodavanje akcija
             break;
     case 'korisnici':
                 include './view/korisnik.php'; //Str za dodavanje vesti

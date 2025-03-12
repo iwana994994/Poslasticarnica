@@ -29,20 +29,34 @@ function getCountAdmin($totalAdmin){
         return 'Nesto nije u redu !';
     }
     }
-    function getCountNews($totalNews){
+function getCountNews($totalNews){
+
+    global $con;
+    $query = "SELECT * FROM $totalNews ";
+    $query_run = mysqli_query($con,$query);
+        
+    if($query_run){
+        $countTotal = mysqli_num_rows($query_run);
+        
+        return $countTotal;
+    }else{
+        return 'Nesto nije u redu !';
+    }
+    }
+function getCountSale($totalSale){
 
         global $con;
-        $query = "SELECT * FROM $totalNews ";
+        $query = "SELECT * FROM $totalSale";
         $query_run = mysqli_query($con,$query);
-        
+            
         if($query_run){
             $countTotal = mysqli_num_rows($query_run);
-        
+            
             return $countTotal;
         }else{
             return 'Nesto nije u redu !';
         }
-        }
+        }  
  function getCountMessage($totalMessage){
 
             global $con;

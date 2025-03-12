@@ -53,11 +53,11 @@
 
     <div class="container">
         <div class="card-heder">
-        <a href="/Poslasticarnica/admin/admin-dashboard.php?page=usluge">
-            <h1>Ukupno usluga</h1>
+        <a href="/Poslasticarnica/admin/admin-dashboard.php?page=akcije">
+            <h1>Ukupno akcija</h1>
         </div>
         <div class="card-body">
-            <?= getCountNews('usluge');?>
+            <?= getCountSale('akcije');?>
         </div>
         </a>
     </div>

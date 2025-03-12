@@ -1,32 +1,27 @@
-<?php
-require '../config/database.php';
-require '../models/Product.php';
+<!DOCTYPE html>
+<html lang="sr">
 
-$productModel = new Product($pdo);
-$akcije = $productModel->getDiscountedProducts();
-?>
-
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $akcija['naziv'] ?> - Cake-Coffee Shop</title>
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/akcija.css">
+</head>
 <body>
-    <?php include 'header.php'; ?>
-
-    <div class="head-box">
-            <h1>
-               Akcija
-            </h1>
-
-    <div class="conteiner">
-        <?php foreach ($akcije as $proizvod): ?>
-            <div class="product">
-                <img src="../public/images/<?= ($proizvod['image']) ?>" class="product-img">
-                <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2>
-                <h3 class="product-price"><s><?= ($proizvod['cena']) ?> RSD</s>
-                 <?= htmlspecialchars($proizvod['discount_price']) ?> RSD</h3>
-                <input type="number" class="quantity" value="1">
-                <a href="../korpa/korpa.php?id=<?= $proizvod['id'] ?>" class="shopping">Ubaci u korpu</a>
-            </div>
-        <?php endforeach; ?>
+<div aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Poslasticarnica/index.php?page=pocetna">Početna /</a></li>
+            <li class="breadcrumb-item"><a href="/Poslasticarnica/index.php?page=akcije">Akcije /</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $akcija['naziv'] ?></li>
+        </ol>
+</div>
+    <div class="sale-container">
+    <img src="/Poslasticarnica/<?= $akcija['slika'] ?>" class="sale-img" >
+        <div class="sale-info">
+            <h2><?= $akcija['naziv']?></h2>
+            <p><?= $akcija['opis'] ?></p>
+            <p><strong><?= $akcija['cena'] ?> RSD</strong></p>
+            <a href="../korpa/korpa.html" class="shopping2">Ubaci u korpu</a>
+        </div>
     </div>
-
-    <?php include 'footer.php'; ?>
 </body>

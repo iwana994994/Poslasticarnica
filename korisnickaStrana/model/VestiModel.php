@@ -36,8 +36,8 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
     
 }*/
 function getVestById($con, $id) {
-    $product_id = mysqli_real_escape_string($con, $id);
-    $query = "SELECT * FROM vesti WHERE id='$product_id'";
+    $vest_id = mysqli_real_escape_string($con, $id);
+    $query = "SELECT * FROM vesti WHERE id='$vest_id'";
     $query_run = mysqli_query($con, $query);
     
     if ($query_run && mysqli_num_rows($query_run) > 0) {

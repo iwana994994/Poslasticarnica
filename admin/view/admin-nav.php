@@ -25,6 +25,9 @@
                 <li><a href="admin-dashboard.php?page=usluge">Usluge</a></li>
                 <li><a href="admin-dashboard.php?page=dodajUslugu">Dodaj uslugu</a></li>  
 
+                <li><a href="admin-dashboard.php?page=akcije">Akcije</a></li>
+                <li><a href="admin-dashboard.php?page=dodajAkciju">Dodaj akciju</a></li>  
+
                 <li><a href="admin-dashboard.php?page=korisnici">Korisnici</a></li>
                 <li><a href="admin-dashboard.php?page=upravljajAdminima">Upravljanje Adminima</a></li>
                 <li><a href="admin-dashboard.php?page=odjava">Odjava</a></li>
