@@ -1,6 +1,6 @@
 /* Stilizacija kontejnera slajdera */
 .swiper-container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
@@ -21,6 +21,7 @@
     box-sizing: border-box;
     text-align: center;
     border-radius: 10px;
+    padding: 10%;
    
 }
 
@@ -28,7 +29,7 @@
 .swiper-slide img {
     height: 58vh; /* visina slike je cela visina ekrana */
     width: 100vh;
-    object-fit: cover; /* Održava proporcije slike i popunjava ceo ekran */
+    object-fit:cover; /* Održava proporcije slike i popunjava ceo ekran */
     border-radius: 10px;
     margin-bottom: 0; /* Brisanje margine ispod slike */
 }
@@ -102,7 +103,7 @@
 
 
 /*Akcije*/
-#action-title{
+#sale-title{
     color: white;
     margin-top: 5%;
     font-size: 5em;
@@ -110,18 +111,18 @@
     font-family: "Ink Free", Times, serif;
     
 }
-#buy-button{   
+#buy-button{ 
+    margin-left: 42%;  
     font-family: Snell Roundhand, cursive;
-     width: 50%;
-    margin-top: 20px;
-    left: 25%;
-    position: relative;
-    padding: 2em;
+    width: 256px;
+    height: 64px;
+    padding-bottom: 10px;
+    position:relative;
     border: 1px solid #ffffff;
     border-radius: 20px;
     color: #000000;
-    font-weight: 500;
-    font-size: 25px;
+    font-weight: 1000;
+    font-size: 32px;
     background-color: white;
     backdrop-filter: blur(15px);
 }
