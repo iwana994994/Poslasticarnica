@@ -17,7 +17,7 @@
               
     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] == true): ?>
             <!-- Ako je korisnik prijavljen, prikaži dugme "Odjavi se" -->
-            <a href="/Poslasticarnica/korisnickaStrana/view/logout.php">Odjavi se</a>
+            <a href="/Poslasticarnica/index.php?page=logout">Odjavi se</a>
         <?php else: ?>
             <!-- Ako nije prijavljen, prikaži dugme "Prijavi se" -->
             <a href="/Poslasticarnica/index.php?page=login">Prijavi se</a>

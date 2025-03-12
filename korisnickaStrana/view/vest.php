@@ -1,6 +1,4 @@
-<?php include_once("../model/VestiModel.php");
-include_once './nav-bar.php';
-?>
+
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -26,4 +24,3 @@ include_once './nav-bar.php';
     </div>
 </body>
 </html>
-<?php include_once './footer.php';?>

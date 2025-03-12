@@ -12,7 +12,7 @@
         <div class="container"> 
             <?php foreach ($usluge as $usluga): ?>
                 <div class="service-box">
-                    <a href="/Poslasticarnica/korisnickaStrana/view/usluga.php?id=<?= $usluga['id'] ?>">
+                    <a href="index.php?page=usluga&id=<?= $usluga['id'] ?>">
                         <img src="<?= $usluga['slika'] ?>" class="service-img">
                         <div class="description">                           <h2 class="service-title"><?= $usluga['naziv'] ?></h2>
                             <p class="service-description"><?= $usluga['opis'] ?></p> 

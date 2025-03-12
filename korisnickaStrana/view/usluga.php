@@ -1,7 +1,4 @@
-<?php
-include_once("../model/UslugeModel.php");
-include_once './nav-bar.php';
-?>
+
 
 <!DOCTYPE html>
 <html lang="sr">
@@ -28,4 +25,3 @@ include_once './nav-bar.php';
     </div>
 </body>
 </html>
-<?php include_once './footer.php';?>

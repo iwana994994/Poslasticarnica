@@ -16,8 +16,9 @@
         <!-- Loop through all products -->
         <?php foreach ($proizvodi as $proizvod): ?>
             <div class="product-box">
-            <a href="./korisnickaStrana/view/proizvod.php?id=<?= $proizvod['id'] ?>" >
-            
+          
+            <a href="index.php?page=proizvod&id=<?= $proizvod['id'] ?>">
+                
                 <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->
                 <div class="description" >
                     <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2> <!-- Naziv proizvoda -->

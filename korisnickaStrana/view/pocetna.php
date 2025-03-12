@@ -18,7 +18,8 @@
     <div class="swiper-wrapper">
         <?php foreach ($proizvod5 as $proizvod): ?>
             <div class="swiper-slide">
-            <a href="./korisnickaStrana/view/proizvod.php?id=<?= $proizvod['id'] ?>" >
+            <a href="index.php?page=proizvod&id=<?= $proizvod['id'] ?>">
+           
                 <img src="<?= $proizvod['slika']; ?>" >
                 <h3><?= $proizvod['naziv']; ?></h3>
                 <p><?= $proizvod['opis']; ?></p>
@@ -35,9 +36,12 @@
     
 
     <!-- dugme KUPI-->
-    <a href="proizvod.php">
+  
+    <a href="/Poslasticarnica/proizvodi ?>">
     <button id="buy-button">Kupi</button>
 </a>
+
+
 
 
 <!-- Proizvodi na akciji -->

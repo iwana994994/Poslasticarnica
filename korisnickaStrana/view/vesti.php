@@ -12,7 +12,8 @@
         <div class="container"> 
             <?php foreach ($vesti as $vest): ?>
                 <div class="news-box">
-                    <a href="/Poslasticarnica/korisnickaStrana/view/vest.php?id=<?= $vest['id'] ?>">
+                <a href="index.php?page=vest&id=<?= $vest['id'] ?>">
+                    
                         <img src="<?= $vest['slika'] ?>" class="news-img">
                         <div class="description">
                             <h2 class="news-title"><?= $vest['naziv'] ?></h2>

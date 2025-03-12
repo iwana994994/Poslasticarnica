@@ -22,7 +22,7 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
 }
 
 //--------------------------------------------------------
-
+/*
 if(isset($_GET["id"])){
     
     $usluga_id = mysqli_real_escape_string($con, $_GET["id"]);
@@ -36,5 +36,15 @@ if(isset($_GET["id"])){
     }
     
 
+}*/
+function getUslugeById($con, $id) {
+    $product_id = mysqli_real_escape_string($con, $id);
+    $query = "SELECT * FROM usluge WHERE id='$product_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if ($query_run && mysqli_num_rows($query_run) > 0) {
+        return mysqli_fetch_array($query_run);
+    }
+    return null; // Proizvod nije pronađen
 }
 ?>

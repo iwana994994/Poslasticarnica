@@ -21,6 +21,8 @@ include_once './korisnickaStrana/view/message-session.php';
 // Uzimanje parametra iz URL-a
 $page = isset($_GET['page']) ? $_GET['page'] : 'pocetna';
 
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
 // Upravljačka logika
 switch ($page) {
     case 'pocetna':
@@ -29,18 +31,57 @@ switch ($page) {
     case 'proizvodi':
         include './korisnickaStrana/view/svi-proizvodi.php'; 
         break;
+    case 'proizvod':
+            if ($id > 0) {
+                $proizvod = getProizvodById($con, $id);
+                if ($proizvod) {
+                    include './korisnickaStrana/view/proizvod.php';
+                } else {
+                    die("Greška: Proizvod nije pronađen.");
+                }
+            } else {
+                die("Greška: Neispravan ID proizvoda.");
+            }
+            break;
     case 'kontakt':
         include './korisnickaStrana/view/kontakt.php';
         break;
-    case 'usluge':
-        include './korisnickaStrana/view/usluge.php';
-        break;
-    case 'vesti':
-        include './korisnickaStrana/view/vesti.php';
-        break;
+        case 'usluge':
+            include './korisnickaStrana/view/usluge.php';
+            break;
+        case 'usluga':
+            if ($id > 0) {
+                $usluga= getUslugeById($con, $id);
+                if ($usluga) {
+                    include './korisnickaStrana/view/usluga.php';
+                } else {
+                    die("Greška: Usluge nisu pronadjene.");
+                }
+            } else {
+                die("Greška: Neispravan ID usluga.");
+            }
+            break;
+            case 'vesti':
+                include './korisnickaStrana/view/vesti.php';
+                break;
+    case 'vest':
+            if ($id > 0) {
+                $vest = getVestById($con, $id);
+                if ($vest) {
+                    include './korisnickaStrana/view/vest.php';
+                } else {
+                    die("Greška: Vest nije pronađena.");
+                }
+            } else {
+                die("Greška: Neispravan ID vesti.");
+            }
+            break;
     case 'login':
         include './korisnickaStrana/view/login.php';
         break;
+        case 'logout':
+            include './korisnickaStrana/view/logout.php';
+            break;
     case 'registracija':
         include './korisnickaStrana/view/registracija.php';
         break;

@@ -22,7 +22,7 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
 }
 
 //----------------------Uzmi id- vesti i prikazi na novu stranicu 
-if(isset($_GET["id"])){
+/*if(isset($_GET["id"])){
     
     $vest_id = mysqli_real_escape_string($con, $_GET["id"]);
     $query = "SELECT * FROM vesti WHERE id='$vest_id'";
@@ -34,5 +34,15 @@ if(isset($_GET["id"])){
         die("Greška: Vest nije pronadjena.");
     }
     
+}*/
+function getVestById($con, $id) {
+    $product_id = mysqli_real_escape_string($con, $id);
+    $query = "SELECT * FROM vesti WHERE id='$product_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if ($query_run && mysqli_num_rows($query_run) > 0) {
+        return mysqli_fetch_array($query_run);
+    }
+    return null; // Vest nije pronađena
 }
 ?>
