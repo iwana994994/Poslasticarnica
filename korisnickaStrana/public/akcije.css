@@ -81,7 +81,7 @@ a {
 }
 
 /* Quantity input */
-.conteiner .sale-box input.quantity {
+.container .sale-box input.quantity {
     width: 60px;
     padding: 5px;
     font-size: 1em;

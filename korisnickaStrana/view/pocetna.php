@@ -46,9 +46,9 @@
 
 <!-- Proizvodi na akciji -->
 
-<h1 id="sale-title"> Akcije</h1>
+<h1 id="sale-title"> Akcija</h1>
 <div class="conteiner">
-        <!-- Loop through all products -->
+        <!-- Loop through all sale items -->
         <?php foreach ($proizvod5 as $proizvod): ?>
             <div class="product-box">
                 <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->

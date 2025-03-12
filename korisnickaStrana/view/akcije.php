@@ -24,3 +24,6 @@
             </div>
         <?php endforeach; ?>
     </div>
+    </section>
+</body>
+</html>
