@@ -16,7 +16,7 @@ $query = "SELECT * FROM akcije ORDER BY id DESC LIMIT 5";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {
-    $akcija5 = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+    $akcije = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
 } else {
     die("Greška: Akcija nije pronađena.");
 }

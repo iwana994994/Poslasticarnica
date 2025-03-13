@@ -1,6 +1,5 @@
-<?php 
-include "message-session.php";
-?>
+<?php include "message-session.php"; ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +25,7 @@ include "message-session.php";
         <input type="file" name="slika" >
        
         
-        <button type="submit" name="add-sale">Dodaj akciju</button>
+        <button type="submit" name="add-akciju">Dodaj akciju</button>
     </form>
 </div>
 <div></div>

@@ -21,22 +21,6 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
     die("Greška: Proizvod nije pronađen.");
 }
 
-//--------------------------------------------------------
-
-/*if(isset($_GET["id"])){
-    
-    $product_id = mysqli_real_escape_string($con, $_GET["id"]);
-    $query = "SELECT * FROM proizvod WHERE id='$product_id'";
-    $query_run = mysqli_query($con, $query);
-    
-    if ($query_run && mysqli_num_rows($query_run) > 0) {
-        $proizvod = mysqli_fetch_array($query_run);
-    } else {
-        die("Greška: Proizvod nije pronađen.");
-    }
-    
-
-}*/
 
 function getProizvodById($con, $id) {
     $product_id = mysqli_real_escape_string($con, $id);

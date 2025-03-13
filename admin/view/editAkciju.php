@@ -18,10 +18,10 @@ include "../model/editAkcijuModel.php";
             <li class="breadcrumb-item active" aria-current="page"><?= $akcija['naziv'] ?></li>
         </ol>
 </div>
-<div class="container">
-    <h2 id="dodajAkciju">Izmeni akciju</h2>
-        
 
+<div class="container">
+    <h2 id="dodaj-akciju">Izmeni akciju</h2>
+        
     <form action="#" method="POST">
         <label for="naziv">Naziv:</label>
          <input type="text" name="naziv" value="<?= $akcija['naziv']?>">
@@ -35,7 +35,7 @@ include "../model/editAkcijuModel.php";
         <label for="slika">Slika:</label>
         <input type="file">
         
-        <button type="submit" name="edit-sale">Izmeni akciju</button>
+        <button type="submit" name="edit-akciju">Izmeni akciju</button>
     </form>
 </div>
 <div></div>

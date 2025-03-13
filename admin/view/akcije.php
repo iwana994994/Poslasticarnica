@@ -16,9 +16,8 @@
             <th>Ime</th>
             <th>Opis</th>
             <th>Cena</th>
-            <th>Zalihe</th>
             <th>Slika</th>
-            <th>Akcije</th>
+
         </tr>
         <?php foreach ($akcije as $akcija): ?>
         <tr>
@@ -26,14 +25,13 @@
             <td><?= ($akcija['naziv']) ?></td>
             <td><?= ($akcija['opis']) ?></td>
             <td><?= ($akcija['cena']) ?> RSD</td>
-            <td><?= ($akcija['zalihe']) ?></td>
-            <td><img src="../public/images/<?= ($akcija['slika']) ?>" width="50"></td>
+            <td><img src="../public/slike/<?= ($akcija['slika']) ?>" width="50"></td>
             <td>
             <form method="POST" action="./model/delete-akciju.php" id="deleteForm<?=$akcija['id']?>">
                  <input type="hidden" name="delete-akciju" value="<?=$akcija['id']?>">
                  <button type="button" onclick="deletePop(<?=$akcija['id']?> )" id="dugme">Obriši</button>
             </form>
-                <a id="dugme" href="./view/editAkciju.php?id=<?= $akcija['id'] ?>">Izmeni</a>
+                <a id="dugme" href="/Poslasticarnica/admin/view/editAkciju.php?id=<?= $akcija['id'] ?>">Izmeni</a>
             </td>
         </tr>
         <?php endforeach; ?>

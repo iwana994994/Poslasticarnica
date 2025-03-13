@@ -16,7 +16,7 @@ $query = "SELECT * FROM usluge ORDER BY id DESC LIMIT 5";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {
-    $usluge5 = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
+    $usluge = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
 } else {
     die("Greška: Usluga nije pronađena.");
 }

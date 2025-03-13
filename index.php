@@ -78,7 +78,6 @@ switch ($page) {
             }
         break;
     case 'akcije':
-        $akcije = $akcija5; // Assigned 5 recent sale items from AkcijaModel.php to show on the Akcije page
         include './korisnickaStrana/view/akcije.php';
         break;
     case 'akcija':

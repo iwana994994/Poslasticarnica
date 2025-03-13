@@ -7,13 +7,9 @@ if(isset($_POST["add-akciju"])){
         $cena=$_POST["cena"];
         $opis=$_POST["opis"];
         $slika=$_FILES["slika"]["name"];
+   
 
-        // Definišite putanju gde će se slika sačuvati
-    $upload_dir = "korisnickaStrana/public/slike/";
-    $upload_file = $upload_dir .$slika;
-    
-
-        $query="INSERT INTO akcije (naziv,cena,opis,slika) VALUES ('$naziv', '$cena', '$opis','$upload_file')";
+        $query="INSERT INTO akcije (naziv,cena,opis,slika) VALUES ('$naziv', '$cena', '$opis','$slika')";
         $query_run=mysqli_query($con,$query);
 
 
