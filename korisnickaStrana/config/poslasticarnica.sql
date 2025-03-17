@@ -1,9 +1,9 @@
-poslasticarnica-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2025 at 05:47 PM
+-- Generation Time: Mar 12, 2025 at 07:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `poslasticarnica`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akcije`
+--
+
+CREATE TABLE `akcije` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `naziv` varchar(128) NOT NULL,
+  `opis` varchar(255) NOT NULL,
+  `cena` double NOT NULL,
+  `zalihe` int(11) NOT NULL,
+  `slika` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `akcije`
+--
+
+INSERT INTO `akcije` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
+(1, 'Popust na voćnu tortu parče – 20% jeftinije', 'Osveži se uz voćnu tortu parče po akcijskoj ceni od 200 dinara! Samo ovog meseca, 20% popusta pri narudžbini preko sajta.', 200, 50, 'korisnickaStrana/public/slike/vocnaTortaParce.jpg'),
+(2, 'Čokoladna torta + besplatna dostava', 'Poruči čokoladnu tortu za 800 dinara i uživaj uz besplatnu dostavu! Akcija traje do kraja nedelje.', 800, 30, 'korisnickaStrana/public/slike/19.jpg'),
+(3, 'Kupi dva tiramisu, treći gratis', 'Naruči dva tiramisua po 350 dinara, treći dobiješ besplatno! Ponuda važi preko sajta.', 350, 40, 'korisnickaStrana/public/slike/tiramisu.jpg'),
+(4, 'Srećni sati – 15% popusta na sve!', 'Od 17h do 19h, sve torte i kolači sniženi uz dodatnih 15% popusta! Požurite!', 300, 60, 'korisnickaStrana/public/slike/srecni_sati.jpg'),
+(5, 'Vikend akcija – svaka torta 500 dinara', 'Sve torte po ceni od samo 500 dinara, ovog vikenda! Požurite i ne propustite priliku da uživate u eksploziji ukusa!', 500, 25, 'korisnickaStrana/public/slike/Sale.jpg'),
+(6, 'Prva narudžbina i jož 10% popusta!', 'Prva narudžbina? Sve po sniženoj ceni uz 10% popusta – od torti do tiramisua! Važi samo za online porudžbine.', 450, 35, 'korisnickaStrana/public/slike/10percentoff.jpg'),
+(7, 'Voćna torta parče + kafa za 250 dinara', 'Uživaj u parčetu voćne torte i kafi za samo 250 dinara! Ponuda važi radnim danima preko sajta.', 250, 45, 'korisnickaStrana/public/slike/cakecoffee.jpg'),
+(8, 'Čokoladni dan – 25% popusta', 'Svake srede, čokoladna torta samo 600 dinara uz 25% popusta! Naruči preko sajta i zasladi dan.', 600, 20, 'korisnickaStrana/public/slike/chocoslice.jpg');
 
 -- --------------------------------------------------------
 
@@ -77,7 +106,7 @@ INSERT INTO `poruka` (`id`, `poruka`, `ime`, `email`, `datum`) VALUES
 CREATE TABLE `proizvod` (
   `id` int(10) UNSIGNED NOT NULL,
   `naziv` varchar(50) NOT NULL DEFAULT '0',
-  `opis` varchar(50) NOT NULL DEFAULT '',
+  `opis` varchar(255) NOT NULL,
   `cena` double NOT NULL DEFAULT 0,
   `zalihe` int(11) NOT NULL DEFAULT 0,
   `slika` varchar(255) NOT NULL DEFAULT '0'
@@ -91,9 +120,9 @@ INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
 (3, 'Cheesecake parče', 'Kremasti užitak sa hrskavom podlogom – savršeno pa', 299, 15, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
 (4, 'Medena pita', 'Tradicija u svakom zalogaju – medena pita sa sloje', 1000, 12, 'korisnickaStrana/public/slike/med i orasi.jpg'),
 (5, 'Tiramisu', 'Klasik u našem stilu – nežni slojevi mascarponea, ', 1400, 9, 'korisnickaStrana/public/slike/tiramisu.jpg'),
-(6, 'Čokoladna torta', 'Za prave čokoholičare – bogata čokoladna torta sa ', 2000.99, 30, 'korisnickaStrana/public/slike/19.jpg'),
-(7, 'Voćna torta parče', 'Osveži dan uz parče voćne torte – sočna kombinacij', 250.5, 20, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
-(78, 'Velvetcake set mini tortica', 'Baršunaste mini tortice u živim bojama, idealne za', 1500, 0, 'korisnickaStrana/public/slike/redvelvet.jpg');
+(6, 'Čokoladna torta', 'Za prave čokoholičare!', 2000.99, 30, 'korisnickaStrana/public/slike/19.jpg'),
+(7, 'Voćna torta parče', 'Sočna kombinacija svežeg voća i lagane kreme', 250.5, 20, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
+(78, 'Velvetcake set mini tortica', 'Baršunaste mini tortice u živim bojama!', 1500, 0, 'korisnickaStrana/public/slike/redvelvet.jpg');
 
 -- --------------------------------------------------------
 
@@ -184,6 +213,12 @@ INSERT INTO `vesti` (`id`, `naziv`, `opis`, `slika`) VALUES
 --
 
 --
+-- Indexes for table `akcije`
+--
+ALTER TABLE `akcije`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kontakt`
 --
 ALTER TABLE `kontakt`
@@ -224,6 +259,12 @@ ALTER TABLE `vesti`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `akcije`
+--
+ALTER TABLE `akcije`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `kontakt`

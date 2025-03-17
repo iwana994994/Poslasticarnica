@@ -9,7 +9,7 @@ if(isset($_POST["add-product"])){
         $slika=$_FILES["slika"]["name"];
 
         // Definišite putanju gde će se slika sačuvati
-    $upload_dir = "korisnickaStrana/public/slike/";
+    $upload_dir = "admin/model/upload/";
     $upload_file = $upload_dir .$slika;
     
 

@@ -72,6 +72,10 @@
 .next {
     right: 10px;
 }
+.conteiner {
+    position: relative; 
+    z-index: 0; 
+}
 
 /* Hover efekat na dugmadi */
 .prev:hover, .next:hover {
@@ -109,7 +113,7 @@
     font-size: 5em;
     text-align: center;
     font-family: "Ink Free", Times, serif;
-    
+    z-index: 0; 
 }
 #buy-button{ 
     margin-left: 42%;  
