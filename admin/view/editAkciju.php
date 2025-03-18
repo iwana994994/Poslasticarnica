@@ -22,7 +22,7 @@ include "../model/editAkcijuModel.php";
 <div class="container">
     <h2 id="dodaj-akciju">Izmeni akciju</h2>
         
-    <form action="#" method="POST">
+    <form action="../model/editAkcijutModel.php?id=<?=$akcija['id'] ?>" method="POST" enctype="multipart/form-data">
         <label for="naziv">Naziv:</label>
          <input type="text" name="naziv" value="<?= $akcija['naziv']?>">
         
@@ -33,7 +33,14 @@ include "../model/editAkcijuModel.php";
         <textarea name="opis" type="text"><?= $akcija['opis'] ?></textarea>
 
         <label for="slika">Slika:</label>
-        <input type="file">
+        <input type="file" name="slika">
+
+        <!-- Prikaz trenutne slike -->
+        <?php if (!empty($akcija['slika'])): ?>
+                    <div>
+                        <img src="/Poslasticarnica/<?= $akcija['slika'] ?>" alt="Trenutna slika" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
         
         <button type="submit" name="edit-akciju">Izmeni akciju</button>
     </form>

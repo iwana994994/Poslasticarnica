@@ -24,21 +24,28 @@ include "../model/editProductModel.php";
     <h2 id="dodaj-proizod">Izmeni proizvod</h2>
         
 
-    <form action="#" method="POST">
-        <label for="naziv">Naziv:</label>
-         <input type="text" name="naziv" value="<?= $product['naziv']?>">
-        
-        <label for="cena">Cena:</label>
-        <input type="number" name="cena"  value="<?= $product['cena']?>">
-        
-        <label for="opis">Opis:</label>
-        <textarea name="opis" type="text"><?= $product['opis'] ?></textarea>
+    <form action="../model/editProductModel.php?id=<?= $product['id'] ?>" method="POST" enctype="multipart/form-data">
+                <label for="naziv">Naziv:</label>
+                <input type="text" name="naziv" value="<?= $product['naziv']?>">
+                
+                <label for="cena">Cena:</label>
+                <input type="number" name="cena" value="<?= $product['cena']?>">
+                
+                <label for="opis">Opis:</label>
+                <textarea name="opis" type="text"><?= $product['opis'] ?></textarea>
 
-        <label for="slika">Slika:</label>
-        <input type="file">
-        
-        <button type="submit" name="edit-product">Izmeni proizvod</button>
-    </form>
+                <label for="slika">Slika:</label>
+                <input type="file" name="slika">
+                
+                <!-- Prikaz trenutne slike -->
+                <?php if (!empty($product['slika'])): ?>
+                    <div>
+                        <img src="/Poslasticarnica/<?= $product['slika'] ?>" alt="Trenutna slika" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
+                <button type="submit" name="edit-product">Izmeni proizvod</button>
+
+                </form>
 </div>
 <div></div>
     

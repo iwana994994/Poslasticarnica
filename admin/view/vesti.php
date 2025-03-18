@@ -16,13 +16,14 @@
             <th>Naziv</th>
             <th>Opis</th>
             <th>Slika</th>
+            <th></th>
         </tr>
         <?php foreach ($vesti as $vest): ?>
         <tr>
             <td><?= ($vest['id']) ?></td>
             <td><?= ($vest['naziv']) ?></td>
             <td><?= ($vest['opis']) ?></td>
-            <td><img src="../public/slike/<?= ($vest['slika']) ?>" width="50"></td>
+            <td><img src="/Poslasticarnica/<?=$vest['slika'] ?>" alt="proizvod"></td>
             <td>
                 <form method="POST" action="./model/delete-vest.php" id="deleteForm<?=$vest['id']?>">
                     <input type="hidden" name="delete-vest" value="<?=$vest['id']?>">

@@ -24,7 +24,7 @@ include "../model/editUsluguModel.php"; // Uključivanje modela
     <h2 id="dodaj-uslugu">Izmeni uslugu</h2>
         
 
-    <form action="#" method="POST">
+    <form action="../model/editUsluguModel.php?id=<?= $usluga['id'] ?>" method="POST" enctype="multipart/form-data">
         <label for="naziv">Naziv:</label>
          <input type="text" name="naziv" value="<?= $usluga['naziv']?>">
         
@@ -32,7 +32,14 @@ include "../model/editUsluguModel.php"; // Uključivanje modela
         <textarea name="opis" type="text"><?= $usluga['opis'] ?></textarea>
 
         <label for="slika">Slika:</label>
-        <input type="file">
+        <input type="file" name="slika">
+
+        <!-- Prikaz trenutne slike -->
+        <?php if (!empty($usluga['slika'])): ?>
+                    <div>
+                        <img src="/Poslasticarnica/<?= $usluga['slika'] ?>" alt="Trenutna slika" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
         
         <button type="submit" name="edit-uslugu">Izmeni uslugu</button>
     </form>

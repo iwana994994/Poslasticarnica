@@ -1,10 +1,8 @@
 <?php 
-session_start();
-
-
+include_once("../config/database.php");
 if(isset($_GET["id"])){
 
-include_once("../config/database.php");
+
 
 $akcija_id = mysqli_real_escape_string($con, $_GET["id"]);
 $query = "SELECT * FROM akcije WHERE id='$akcija_id'";
@@ -21,13 +19,19 @@ if(isset($_POST["edit-akciju"])){
     $naziv=$_POST["naziv"];
     $cena=$_POST["cena"];
     $opis=$_POST["opis"];
+    $slika=$_FILES["slika"]["name"];
+
+     // Definišite putanju gde će se slika sačuvati
+     $upload_dir = "admin/model/upload/";
+     $upload_file = $upload_dir .$slika;
 
 
-    $update = "UPDATE akcije SET naziv='$naziv', cena='$cena', opis='$opis' WHERE id='$akcija_id'";
+    $update = "UPDATE akcije SET naziv='$naziv', cena='$cena', opis='$opis', slika='$upload_file' WHERE id='$akcija_id'";
 
     $update_run=mysqli_query($con,$update);
 
     if($update_run) {
+        move_uploaded_file($_FILES["slika"]["tmp_name"],"./upload/".$_FILES["slika"]["name"]);
         $_SESSION['message'] = 'Akcija je uspešno izmenjena.';
         header("Location: ../admin-dashboard.php");
         exit();

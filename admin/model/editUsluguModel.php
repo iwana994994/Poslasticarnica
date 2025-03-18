@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 
 
 if(isset($_GET["id"])){
@@ -20,13 +20,20 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
 if(isset($_POST["edit-uslugu"])){
     $naziv=$_POST["naziv"];
     $opis=$_POST["opis"];
+    $slika=$_FILES["slika"]["name"];
+
+    // Definišite putanju gde će se slika sačuvati
+    $upload_dir = "admin/model/upload/";
+    $upload_file = $upload_dir .$slika;
 
 
-    $update = "UPDATE usluge SET naziv='$naziv', opis='$opis' WHERE id='$usluga_id'";
+
+    $update = "UPDATE usluge SET naziv='$naziv', opis='$opis',slika='$upload_file' WHERE id='$usluga_id'";
 
     $update_run=mysqli_query($con,$update);
 
     if($update_run) {
+        move_uploaded_file($_FILES["slika"]["tmp_name"],"./upload/".$_FILES["slika"]["name"]);
         $_SESSION['message'] = 'Usluga je uspešno izmenjena';
         header("Location: ../admin-dashboard.php");
         exit();

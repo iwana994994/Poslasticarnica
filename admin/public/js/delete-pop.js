@@ -11,7 +11,7 @@ function closePopup(productId) {
     currentProductId.style.display = "none"; // Zatvaramo popup
 }
 
-// Funkcija koja se poziva kada korisnik klikne "Da"
+
 // Funkcija koja se poziva kada korisnik klikne "Da"
 function confirmPopup(productId) {
     //forma koja se salje, njen id treba da se pronadje

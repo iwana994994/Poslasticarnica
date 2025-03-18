@@ -1,6 +1,9 @@
 /* Stilizacija tabele proizvoda i vesti*/
 
-
+img{
+    width: 7em;
+    height: 7em;
+}
 h1 {
     text-align: center;
     color: #333;

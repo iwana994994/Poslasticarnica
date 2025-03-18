@@ -18,7 +18,7 @@
             <th>Cena</th>
             <th>Zalihe</th>
             <th>Slika</th>
-            <th>Akcije</th>
+            <th></th>
         </tr>
         <?php foreach ($proizvodi as $proizvod): ?>
         <tr>
@@ -27,7 +27,8 @@
             <td><?= ($proizvod['opis']) ?></td>
             <td><?= ($proizvod['cena']) ?> RSD</td>
             <td><?= ($proizvod['zalihe']) ?></td>
-            <td><img src="../public/images/<?= ($proizvod['slika']) ?>" width="50"></td>
+            <td><img src="/Poslasticarnica/<?=$proizvod['slika'] ?>" alt="proizvod"></td>
+            
             <td>
             <form method="POST" action="./model/delete-product.php" id="deleteForm<?=$proizvod['id']?>">
                  <input type="hidden" name="delete-product" value="<?=$proizvod['id']?>">

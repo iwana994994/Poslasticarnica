@@ -16,13 +16,14 @@
             <th>Naziv</th>
             <th>Opis</th>
             <th>Slika</th>
+            <th></th>
         </tr>
         <?php foreach ($usluge as $usluga): ?>
         <tr>
             <td><?= ($usluga['id']) ?></td>
             <td><?= ($usluga['naziv']) ?></td>
             <td><?= ($usluga['opis']) ?></td>
-            <td><img src="../public/slike/<?= ($usluga['slika']) ?>" width="50"></td>
+            <td><img src="/Poslasticarnica/<?=$usluga['slika'] ?>" alt="proizvod"></td>
             <td>
                 <form method="POST" action="./model/delete-uslugu.php" id="deleteForm<?=$usluga['id']?>">
                     <input type="hidden" name="delete-uslugu" value="<?=$usluga['id']?>">

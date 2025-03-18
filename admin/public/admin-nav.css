@@ -6,7 +6,8 @@
 }
 
 .admin-container {
-    height: 50em;
+    
+    height: 70em;
     display: flex;
 }
 
@@ -16,7 +17,7 @@
     background: #2990ff;
     color: white;
     padding: 20px;
-    height: 1000hv;
+  
 }
 
 .sidebar #admin-title {

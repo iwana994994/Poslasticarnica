@@ -24,7 +24,7 @@ include "../model/editVestModel.php"; // Uključivanje modela
     <h2 id="dodaj-vest">Izmeni vest</h2>
         
 
-    <form action="#" method="POST">
+    <form action="../model/editVestModel.php?id=<?= $vest['id'] ?>" method="POST" enctype="multipart/form-data">
         <label for="naziv">Naziv:</label>
          <input type="text" name="naziv" value="<?= $vest['naziv']?>">
         
@@ -32,7 +32,14 @@ include "../model/editVestModel.php"; // Uključivanje modela
         <textarea name="opis" type="text"><?= $vest['opis'] ?></textarea>
 
         <label for="slika">Slika:</label>
-        <input type="file">
+        <input type="file" name="slika">
+
+           <!-- Prikaz trenutne slike -->
+           <?php if (!empty($vest['slika'])): ?>
+                    <div>
+                        <img src="/Poslasticarnica/<?=$vest['slika'] ?>" alt="Trenutna slika" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
         
         <button type="submit" name="edit-vest">Izmeni vest</button>
     </form>
