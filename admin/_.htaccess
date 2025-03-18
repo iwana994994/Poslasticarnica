@@ -1,8 +1,4 @@
 RewriteEngine On
-
-
-
-
 AuthType Basic
 AuthName "Restricted Area"
 AuthUserFile "C:/xampp/htdocs/Poslasticarnica/admin/.htpasswd"
