@@ -32,8 +32,6 @@
       <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
     <button class="next" onclick="moveSlide(1)">&#10095;</button>
 
-   
-    
 
     <!-- dugme KUPI-->
   
@@ -49,17 +47,18 @@
 <h1 id="sale-title"> Akcija</h1>
 <div class="conteiner">
         <!-- Loop through all sale items -->
-        <?php foreach ($proizvod5 as $proizvod): ?>
+        <?php foreach ($akcije as $akcija): ?>
             <div class="product-box">
-                <img src="<?= $proizvod['slika'] ?>" class="product-img"> <!-- Slika proizvoda -->
+                <img src="<?= $akcija['slika'] ?>" class="sale-img"> <!-- Slika proizvoda -->
                 <div class="description">
-                    <h2 class="product-title"><?= ($proizvod['naziv']) ?></h2> <!-- Naziv proizvoda -->
-                   
+                    <h2 class="sale-title"><?= ($akcija['naziv']) ?></h2> <!-- Naziv proizvoda -->
+                <a href="index.php?page=akcija&id=<?= $akcija['id'] ?>">  
                 </div>
             </div>
                 
-        <?php endforeach; ?>
+        <?php endforeach; ?> 
     </div>
+
 
 </body>
 

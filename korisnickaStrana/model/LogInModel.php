@@ -19,7 +19,7 @@ include_once(__DIR__ . "/../config/database.php");
 {
   // sada uziamo podatke iz baze i uporedjujemo ih sa datim podacima
   foreach ($query_run as $data){
-    $user_id = $data["id"];
+      $user_id = $data["id"];
       $username = $data["username"];
       $email = $data["email"];
       $password = $data["password"];
