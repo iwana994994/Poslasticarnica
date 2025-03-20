@@ -19,7 +19,7 @@ if(isset($_POST["add-uslugu"])){
 
 if($query_run){
 
-    move_uploaded_file($_FILES["slika"]["tmp_name"],$upload_file);
+    move_uploaded_file($_FILES["slika"]["tmp_name"],"upload/".$_FILES["slika"]["name"]);
     $_SESSION['message']='Usluga je uspesno dodata';
     header("Location: ../admin-dashboard.php?page=dodajUslugu");
     exit();

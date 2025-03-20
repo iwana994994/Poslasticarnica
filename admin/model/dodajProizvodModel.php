@@ -9,7 +9,7 @@ if(isset($_POST["add-product"])){
         $slika=$_FILES["slika"]["name"];
 
         // Definišite putanju gde će se slika sačuvati
-    $upload_dir = "../korisnickaStrana/public/slike/upload/";
+    $upload_dir = "admin/model/upload/";
     $upload_file = $upload_dir .$slika;
     
 
@@ -19,7 +19,7 @@ if(isset($_POST["add-product"])){
 
 if($query_run){
 
-    move_uploaded_file($_FILES["slika"]["tmp_name"], $upload_file);
+    move_uploaded_file($_FILES["slika"]["tmp_name"], "upload/".$_FILES["slika"]["name"]);
     $_SESSION['message']='Proizvod je uspesno dodat';
     header("Location: ../admin-dashboard.php?page=dodajProizvod");
     exit();
