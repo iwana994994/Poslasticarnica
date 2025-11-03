@@ -101,6 +101,9 @@ switch ($page) {
     case 'registracija':
         include './korisnickaStrana/view/registracija.php';
         break;
+    case 'korpa':
+        include './korisnickaStrana/view/korpa.php';
+        break;
     default:
          include './korisnickaStrana/view/404.php';
         break;

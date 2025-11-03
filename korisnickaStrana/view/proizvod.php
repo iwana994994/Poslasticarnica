@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $proizvod['naziv'] ?> - Cake-Coffee Shop</title>
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/proizvod.css">
+     <script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script> 
 </head>
 <body>
 <div aria-label="breadcrumb">
@@ -23,7 +24,11 @@
             <h2><?= $proizvod['naziv']?></h2>
             <p><?= $proizvod['opis'] ?></p>
             <p><strong><?= $proizvod['cena'] ?> RSD</strong></p>
-            <a href="../korpa/korpa.html" class="shopping2">Ubaci u korpu</a>
+           <button class="shopping2" data-id="<?= $proizvod['id'] ?>" data-naziv="<?= $proizvod['naziv'] ?>" data-cena="<?= $proizvod['cena'] ?>" data-slika="<?= $proizvod['slika'] ?>">
+                Ubaci u korpu
+           </button>
+
+    <p id="cart-message" style="color:green; margin-top:10px;"></p>
         </div>
     </div>
 </body>

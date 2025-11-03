@@ -43,7 +43,8 @@
         <li><a href="/Poslasticarnica/vesti">Vesti</a></li>
         <li><a href="/Poslasticarnica/usluge">Usluge</a></li>
         <li><a href="/Poslasticarnica/kontakt">Kontakt</a></li>
-        <li><a href="#">Korpa</a></li>
+        <li><a href="/Poslasticarnica/korpa">Korpa</a></li>
+        
     </ul>
 </div>
 
