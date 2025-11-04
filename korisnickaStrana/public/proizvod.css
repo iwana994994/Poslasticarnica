@@ -9,8 +9,15 @@ body {
     background-size: cover;
     position: relative;
 }
+.price-quantity{
+    display: block;
+}
+.quantity{
+    width: 10%;
+    height: 15%;
 
 
+}
 /* Kontejner za proizvod */
 .product-container {
     display: flex;

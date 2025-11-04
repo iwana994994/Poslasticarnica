@@ -6,6 +6,28 @@ body {
     color: #333;
 }
 
+.btn-home {
+    background-color:  #fc7dab;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.btn-home:hover {
+    background-color: #f7d7e3;
+    transform: scale(1.05);
+}
+
+.continue-shopping {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .breadcrumb {
     list-style: none;
     padding: 15px 30px;

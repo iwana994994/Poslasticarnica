@@ -23,7 +23,14 @@
         <div class="product-info">
             <h2><?= $proizvod['naziv']?></h2>
             <p><?= $proizvod['opis'] ?></p>
+            <div class="price-quantity">
+                <input type="number" class="quantity" value="1" min="1">
             <p><strong><?= $proizvod['cena'] ?> RSD</strong></p>
+           
+
+            </div>
+            
+            
            <button class="shopping2" data-id="<?= $proizvod['id'] ?>" data-naziv="<?= $proizvod['naziv'] ?>" data-cena="<?= $proizvod['cena'] ?>" data-slika="<?= $proizvod['slika'] ?>">
                 Ubaci u korpu
            </button>

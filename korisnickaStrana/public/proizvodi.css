@@ -199,3 +199,18 @@ a{
     font-size: 24px;
     margin-bottom: 15px;
 }
+.shopping2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.shopping2:hover {
+    background-color: #e95a47;
+}

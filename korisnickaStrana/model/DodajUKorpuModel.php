@@ -2,8 +2,10 @@
 session_start();
 include_once(__DIR__ . "/../config/database.php");
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $product_id = $_POST['product_id'];
+    $kolicina = isset($_POST['kolicina']) ? (int)$_POST['kolicina'] : 1;
 
     // Uzmemo podatke o proizvodu iz baze
     $query = "SELECT * FROM proizvod WHERE id='$product_id'";
@@ -20,16 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['korpa'] = [];
     }
 
-    // Ako proizvod već postoji u korpi, povećaj količinu
     if (isset($_SESSION['korpa'][$product_id])) {
-        $_SESSION['korpa'][$product_id]['kolicina']++;
+        // Ako proizvod već postoji u korpi, povećaj količinu
+        $_SESSION['korpa'][$product_id]['kolicina'] += $kolicina;
     } else {
         $_SESSION['korpa'][$product_id] = [
             "id" => $proizvod['id'],
             "naziv" => $proizvod['naziv'],
             "cena" => $proizvod['cena'],
             "slika" => $proizvod['slika'],
-            "kolicina" => 1
+            "kolicina" => $kolicina
         ];
     }
 

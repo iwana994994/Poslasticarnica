@@ -32,6 +32,22 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
 </div>
   <div class="cart-container">
         <h2>Tvoja korpa</h2>
+
+        <?php if (isset($_SESSION['success_message'])): ?>
+    <div class="success-box">
+        <h2>🎉 <?= $_SESSION['success_message'] ?></h2>
+        
+         <div class="continue-shopping">
+    <form action="/Poslasticarnica/index.php?page=proizvodi" method="get">
+        <button type="submit" class="btn-home">🛍️ Nastavite kupovinu</button>
+    </form>
+</div>
+
+    </div>
+    <?php unset($_SESSION['success_message']); ?>
+<?php endif; ?>
+
+
          <?php if (!empty($korpa)): ?>
     <table class="cart-table">
         <thead>
@@ -78,7 +94,7 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
    <!-- Forma za isporuku -->
 <div id="checkoutForm" class="checkout-form">
     <h3>Podaci za isporuku</h3>
-    <form action="/Poslasticarnica/korisnickaStrana/controller/posaljiPorudzbinu.php" method="POST">
+    <form action="/Poslasticarnica/korisnickaStrana/model/posaljiPorudzbinuModel.php" method="POST">
         <label>Ime:</label>
         <input type="text" name="ime" required>
 
@@ -99,7 +115,7 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
 
         <input type="hidden" name="korpa_podaci" value='<?= json_encode($korpa) ?>'>
 
-        <button type="submit" class="submit-btn">Pošalji narudžbinu</button>
+        <button type="submit" class="submit-btn" >Pošalji narudžbinu</button>
     </form>
 </div>
     
