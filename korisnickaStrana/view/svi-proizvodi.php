@@ -26,7 +26,7 @@
                     <h3 class="product-price"><?= ($proizvod['cena']) ?> RSD</h3> <!-- Cena proizvoda -->
                 </div>
                 </a>
-                <input type="number" class="quantity" value="1">
+                <input type="number" class="quantity" value="1" min="1" max="50">
                 <button class="shopping2" data-id="<?= $proizvod['id'] ?>" data-naziv="<?= $proizvod['naziv'] ?>" data-cena="<?= $proizvod['cena'] ?>" data-slika="<?= $proizvod['slika'] ?>">
                 Ubaci u korpu
            </button>

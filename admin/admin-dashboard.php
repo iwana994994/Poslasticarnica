@@ -10,6 +10,8 @@ include_once 'model/korisnikModel.php';
 include_once 'model/pocetnaModel.php';
 include_once 'model/UslugaModel.php';
 include_once 'model/AkcijaModel.php';
+include_once 'model/sve-porudzbineModel.php';
+
 include "../korisnickaStrana/view/message-session.php";
 
 
@@ -21,9 +23,25 @@ switch ($page) {
     case 'pocetna':
         include './view/pocetna.php'; // pocetna stranica
         break;
+     
     case 'proizvodi':
         include './view/proizvod.php'; // Stranica za prikaz proizvoda
         break;
+    case 'poružbina':
+        include './view/listaPorudzbina.php';
+        break;
+  case 'detaljiPorudzbine':
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        include_once 'model/detaljiPorudzbineModel.php';
+        $id = intval($_GET['id']); // sada imamo validan $id
+        include './view/detaljiPorudzbine.php';
+    } else {
+        die("Greška: Neispravan ID porudzbine.");
+    }
+    break;
+
+
+
     case 'dodajProizvod':
         include './view/dodajProizvod.php'; // Stranica za dodavanje proizvoda
         break;

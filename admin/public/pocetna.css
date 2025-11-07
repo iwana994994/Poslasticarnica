@@ -1,26 +1,43 @@
+
 .container{
    display: inline-block;
 
     color: white;
     background-color: #2990ff;
-    margin-top: 5em;
-    margin-top: 6em;
-    margin: 2em;
-    
-    height: 10em;
+    margin-top: 1em;
+   margin-left: 1em;
+    height: 8em;
+    width: 15em;
 }
 .card-heder{
-    background-color: #92c7ff;
+    background-color: #50a2fa;
     padding: 1em;
     
 }
 .card-body{
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
     margin-top: 1em;
     text-align: center;
 }
 a{
     text-decoration: none;
     color: white;
+}
+.kartica {
+    font-size: medium;
+}
+
+.pre-grafa {
+    display: flex;
+    margin: 5em;
+    margin-left: 0em;
+    width: 100%;
+}
+.graf1 {
+ width: 25em;
+}
+
+.graf {
+ width: 30em;
 }

@@ -62,3 +62,26 @@ td {
     border-bottom: 1px solid #ddd;
 }
 
+/* Detalji o kupcu */
+.kupac {
+   border: 1px solid black;
+   width: 100%;
+    margin:5%  35%;   
+    
+}
+.kupac p {
+    margin: 2% 4%;
+    text-align:left
+}
+.kupac h3 {
+    text-align: center;
+    color: #2980b9;         /* plava boja naslova */
+    margin-top: 0;
+}
+
+.detalji-porudzbine h3 {
+    text-align: center;
+}
+
+
+

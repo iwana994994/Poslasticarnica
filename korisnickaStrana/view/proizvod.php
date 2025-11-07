@@ -24,7 +24,7 @@
             <h2><?= $proizvod['naziv']?></h2>
             <p><?= $proizvod['opis'] ?></p>
             <div class="price-quantity">
-                <input type="number" class="quantity" value="1" min="1">
+                <input type="number" class="quantity" value="1" min="1" max="50">
             <p><strong><?= $proizvod['cena'] ?> RSD</strong></p>
            
 

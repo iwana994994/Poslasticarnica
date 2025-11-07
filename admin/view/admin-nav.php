@@ -11,9 +11,12 @@
 <body id="body-nav">
     <div class="admin-container">
         <aside class="sidebar">
+            <a href="../pocetna"><img style="width: 120px;" src='./public/slike/Poslastičarnica_logo.png'></a>
             <h2 id="admin-title">Admin Panel</h2>
             <ul>
+               
             <li><a href="admin-dashboard.php?page=pocetna">Početna</a></li>
+               <li><a href="admin-dashboard.php?page=poružbina">Poružbine</a></li>
 
                 <li><a href="admin-dashboard.php?page=proizvodi">Proizvodi</a></li>
                 <li><a href="admin-dashboard.php?page=dodajProizvod">Dodaj Proizvod</a></li>
@@ -30,6 +33,8 @@
 
                 <li><a href="admin-dashboard.php?page=korisnici">Korisnici</a></li>
                 <li><a href="admin-dashboard.php?page=upravljajAdminima">Upravljanje Adminima</a></li>
+
+               
                 <li><a href="admin-dashboard.php?page=odjava">Odjava</a></li>
                 
                
