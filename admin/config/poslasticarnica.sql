@@ -51,9 +51,28 @@ CREATE TABLE IF NOT EXISTS `kontakt` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.kontakt: ~0 rows (approximately)
+-- Dumping data for table poslasticarnica.kontakt: ~1 rows (approximately)
 INSERT INTO `kontakt` (`id`, `adresa`, `telefon`, `email`, `working_hours`) VALUES
 	(3, 'Nikole Pasica 28, Nis', '+381 11 1234 567', 'kontakt@example.com', '0');
+
+-- Dumping structure for table poslasticarnica.porudzbina
+CREATE TABLE IF NOT EXISTS `porudzbina` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ime` varchar(50) NOT NULL,
+  `prezime` varchar(50) NOT NULL,
+  `adresa` varchar(100) NOT NULL,
+  `telefon` varchar(20) NOT NULL,
+  `nacin_placanja` varchar(30) NOT NULL DEFAULT 'gotovina',
+  `datum_porudzbine` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table poslasticarnica.porudzbina: ~4 rows (approximately)
+INSERT INTO `porudzbina` (`id`, `ime`, `prezime`, `adresa`, `telefon`, `nacin_placanja`, `datum_porudzbine`) VALUES
+	(3, 'iwana', 'Markovic', 'zore', '063', 'gotovina', '2025-11-07 17:21:04'),
+	(4, 'iwana', 'Markovic', 'zore', '063', 'gotovina', '2025-11-07 17:30:01'),
+	(5, 'iwana', 'Markovic', 'zore', '063', 'gotovina', '2025-11-07 17:35:36'),
+	(16, 'ivana', 'markovic', 'adada', '06', 'gotovina', '2025-11-07 18:26:08');
 
 -- Dumping structure for table poslasticarnica.poruka
 CREATE TABLE IF NOT EXISTS `poruka` (
@@ -65,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `poruka` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.poruka: ~6 rows (approximately)
+-- Dumping data for table poslasticarnica.poruka: ~7 rows (approximately)
 INSERT INTO `poruka` (`id`, `poruka`, `ime`, `email`, `datum`) VALUES
 	(9, 'FFFFFFFFFFF', 'FFFF', 'FFFF', '2025-02-28 09:46:23'),
 	(10, '1111111111', 'Ivana ', 'iwana994994@gmail.com', '2025-03-06 08:11:46'),
@@ -84,9 +103,9 @@ CREATE TABLE IF NOT EXISTS `proizvod` (
   `zalihe` int(11) NOT NULL DEFAULT 0,
   `slika` varchar(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table poslasticarnica.proizvod: ~6 rows (approximately)
+-- Dumping data for table poslasticarnica.proizvod: ~8 rows (approximately)
 INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
 	(3, 'Cheesecake parče', 'Kremasti užitak sa hrskavom podlogom – savršeno pa', 299, 15, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
 	(4, 'Medena pita', 'Tradicija u svakom zalogaju – medena pita sa sloje', 1000, 12, 'korisnickaStrana/public/slike/med i orasi.jpg'),
@@ -94,7 +113,50 @@ INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
 	(6, 'Čokoladna torta', 'Torta sa bogatom čokoladnom kremom i čokoladnim pr', 15.99, 30, 'korisnickaStrana/public/slike/19.jpg'),
 	(7, 'Voćna torta', 'Osvežavajuća torta sa sezonskim voćem i laganom kr', 12.5, 20, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
 	(8, 'Torta sa kestenom', 'Torta sa kremom od kestena i prahom od kestenovog ', 18, 15, 'admin/model/upload/20.jpg'),
-	(124, 'test', 'teset', 321, 0, 'admin/model/upload/6.jpg');
+	(124, 'test', 'teset', 321, 0, 'admin/model/upload/6.jpg'),
+	(125, 'Čoko Kolač', 'Opis kolača', 150, 10, 'slika_url');
+
+-- Dumping structure for table poslasticarnica.stavke_porudzbine
+CREATE TABLE IF NOT EXISTS `stavke_porudzbine` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `porudzbina_id` int(10) unsigned NOT NULL,
+  `proizvod_id` int(10) unsigned NOT NULL,
+  `kolicina` int(11) NOT NULL,
+  `cena` double NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `porudzbina_id` (`porudzbina_id`),
+  KEY `proizvod_id` (`proizvod_id`),
+  CONSTRAINT `stavke_porudzbine_ibfk_1` FOREIGN KEY (`porudzbina_id`) REFERENCES `porudzbina` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `stavke_porudzbine_ibfk_2` FOREIGN KEY (`proizvod_id`) REFERENCES `proizvod` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table poslasticarnica.stavke_porudzbine: ~25 rows (approximately)
+INSERT INTO `stavke_porudzbine` (`id`, `porudzbina_id`, `proizvod_id`, `kolicina`, `cena`) VALUES
+	(1, 1, 8, 1, 18),
+	(2, 2, 8, 1, 18),
+	(3, 3, 7, 1, 12.5),
+	(4, 4, 7, 1, 12.5),
+	(5, 5, 7, 1, 12.5),
+	(6, 6, 7, 1, 12.5),
+	(7, 7, 8, 1, 18),
+	(8, 8, 8, 1, 18),
+	(9, 9, 7, 1, 12.5),
+	(10, 10, 8, 1, 18),
+	(11, 11, 8, 1, 18),
+	(12, 12, 8, 1, 18),
+	(13, 13, 7, 1, 12.5),
+	(14, 14, 7, 1, 12.5),
+	(15, 15, 8, 1, 18),
+	(16, 1, 7, 1, 12.5),
+	(17, 1, 124, 1, 321),
+	(18, 2, 7, 1, 12.5),
+	(19, 3, 8, 7, 18),
+	(20, 4, 6, 20, 15.99),
+	(21, 5, 8, 20, 18),
+	(22, 5, 7, 1, 12.5),
+	(23, 5, 4, 20, 1000),
+	(24, 16, 7, 20, 12.5),
+	(25, 16, 8, 20, 18);
 
 -- Dumping structure for table poslasticarnica.user
 CREATE TABLE IF NOT EXISTS `user` (
