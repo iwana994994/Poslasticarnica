@@ -39,7 +39,13 @@ INSERT INTO `akcije` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
 	(5, 'Vikend akcija – svaka torta 500 dinara', 'Sve torte po ceni od samo 500 dinara, ovog vikenda! Požurite i ne propustite priliku da uživate u eksploziji ukusa!', 500, 25, 'korisnickaStrana/public/slike/Sale.jpg'),
 	(6, 'Prva narudžbina i jož 10% popusta!', 'Prva narudžbina? Sve po sniženoj ceni uz 10% popusta – od torti do tiramisua! Važi samo za online porudžbine.', 450, 35, 'korisnickaStrana/public/slike/10percentoff.jpg'),
 	(7, 'Voćna torta parče + kafa za 250 dinara', 'Uživaj u parčetu voćne torte i kafi za samo 250 dinara! Ponuda važi radnim danima preko sajta.', 250, 45, 'korisnickaStrana/public/slike/cakecoffee.jpg'),
-	(8, 'Čokoladni dan – 25% popusta', 'Svake srede, čokoladna torta samo 600 dinara uz 25% popusta! Naruči preko sajta i zasladi dan.', 600, 20, 'korisnickaStrana/public/slike/chocoslice.jpg');
+	(8, 'Čokoladni dan – 25% popusta', 'Svake srede, čokoladna torta samo 600 dinara uz 25% popusta! Naruči preko sajta i zasladi dan.', 600, 20, 'korisnickaStrana/public/slike/chocoslice.jpg'),
+	('Cheesecake 2+1 gratis', 'Kupi dva parčeta cheesecake-a, treći dobijaš gratis! Ponuda važi tokom vikenda samo online.', 600, 30, 'korisnickaStrana/public/slike/Cheesecake2.jpg'),
+	('Medena pita — 20% popusta', 'Naša domaća medena pita po sniženoj ceni tokom radnih dana!', 800, 25, 'korisnickaStrana/public/slike/HoneyCake.jpg'),
+	('Tiramisu + kafa paket', 'Uživaj u tiramisuu i kafi po specijalnoj ceni — savršen slatki predah.', 400, 40, 'korisnickaStrana/public/slike/TiramisuAndCoffee.jpg'),
+	('Čoko vikend — 2 parčeta za 1000 RSD', 'Dva parčeta torte po Vašem izboru za samo 1000 RSD!', 1000, 35, 'korisnickaStrana/public/slike/Cakes.jpg'), 
+	('Torta sa kestenom — specijalna cena', 'Sezonska torta sa kestenom po sniženoj ceni — količine ograničene!', 700, 20, 'korisnickaStrana/public/slike/ChesnutCake111.jpg');
+
 
 -- Dumping structure for table poslasticarnica.kontakt
 CREATE TABLE IF NOT EXISTS `kontakt` (
@@ -107,14 +113,25 @@ CREATE TABLE IF NOT EXISTS `proizvod` (
 
 -- Dumping data for table poslasticarnica.proizvod: ~8 rows (approximately)
 INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
-	(3, 'Cheesecake parče', 'Kremasti užitak sa hrskavom podlogom – savršeno pa', 299, 15, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
-	(4, 'Medena pita', 'Tradicija u svakom zalogaju – medena pita sa sloje', 1000, 12, 'korisnickaStrana/public/slike/med i orasi.jpg'),
-	(5, 'Tiramisu', 'Klasik u našem stilu – nežni slojevi mascarponea, ', 1400, 9, 'korisnickaStrana/public/slike/tiramisu.jpg'),
-	(6, 'Čokoladna torta', 'Torta sa bogatom čokoladnom kremom i čokoladnim pr', 15.99, 30, 'korisnickaStrana/public/slike/19.jpg'),
-	(7, 'Voćna torta', 'Osvežavajuća torta sa sezonskim voćem i laganom kr', 12.5, 20, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
-	(8, 'Torta sa kestenom', 'Torta sa kremom od kestena i prahom od kestenovog ', 18, 15, 'admin/model/upload/20.jpg'),
-	(124, 'test', 'teset', 321, 0, 'admin/model/upload/6.jpg'),
-	(125, 'Čoko Kolač', 'Opis kolača', 150, 10, 'slika_url');
+	-- Dumping data for table poslasticarnica.proizvod: updated & improved
+INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `cena`, `zalihe`, `slika`) VALUES
+	(3, 'Cheesecake parče','Kremasti užitak sa hrskavom podlogom i blagim ukusom vanile, preliven svežim voćnim prelivom — savršeno osveženje za svaku priliku.', 299, 15, 'korisnickaStrana/public/slike/Cheesecake.jpg'),	
+	(4, 'Medena pita','Tradicionalna domaća poslastica sa slojevima medenog testa i nežnim filom od oraha i vanile. Idealna uz topli čaj ili kafu.', 1000, 12, 'korisnickaStrana/public/slike/HoneyCake.jpg'),
+	(5, 'Tiramisu', 'Italijanski klasik — lagani slojevi piškota natopljenih kafom, krem od mascarpone sira i fini kakao. Savršeno izbalansiran ukus.', 1400, 9, 'korisnickaStrana/public/slike/tiramisu.jpg'),
+	(6, 'Čokoladna torta', 'Bogata torta od najfinije čokolade sa kremastim slojevima i glazurom od tamne čokolade. Neodoljivo iskustvo za prave čokoljupce.', 350, 30, 'korisnickaStrana/public/slike/ChocoCake1.jpg'),
+	(7, 'Voćna torta', 'Osvežavajuća torta sa slojevima laganog biskvita i kremom od sezonskog voća. Lagana, sočna i savršena za tople dane.', 220, 20, 'korisnickaStrana/public/slike/FruitCake.jpg'),
+	(8, 'Torta sa kestenom', 'Fina kombinacija kreme od kestena i čokolade, prelivene kakao glazurom. Posebno omiljena u jesenjim mesecima.', 700, 15, 'korisnickaStrana/public/slike/ChesnutCake.jpg'),
+	('Švarcvald torta', 'Klasična čokoladna torta sa višnjama i šlagom — idealna za ljubitelje bogatih ukusa.', 1200, 14, 'korisnickaStrana/public/slike/Schvartzvald.jpg'),
+	('Red Velvet', 'Nežna “crvena baršun” torta sa krem sirom — popularna za sve prilike.', 1350, 12, 'korisnickaStrana/public/slike/RedVelvet2.jpg'),
+	('Voćna pita', 'Hrskava pita sa sezonskim voćem i laganim kremom.', 850, 18, 'korisnickaStrana/public/slike/FruityPie.jpg'),
+	('Mille-Feuille (Krempita)', 'Lisnato testo u više slojeva sa vanila kremom — lagano i kremasto.', 420, 28, 'korisnickaStrana/public/slike/Creampie.jpg'),
+	('Čizkejk sa borovnicama', 'Cheesecake sa prelivom od borovnica — osvežavajuća kiselo-slatka kombinacija.', 650, 22, 'korisnickaStrana/public/slike/BlueCheesecake.jpg'),
+	('Čoko mus torta', 'Pufnasta mus torta od fine čokolade, topi se u ustima.', 1100, 16, 'korisnickaStrana/public/slike/ChocoMousse.jpg'),
+	('Pistać torta', 'Aromatična krema od pistaća i blagi biskvit — specijalitet kuće.', 1600, 10, 'korisnickaStrana/public/slike/PistachioCake.jpg'),
+	('Tart od limuna', 'Osvežavajući limun tart sa prhkim testom i mirisnom kremom.', 590, 20, 'korisnickaStrana/public/slike/LemonTart.jpg'),
+	('Torta “Tri čokolade”', 'Bela, mlečna i crna čokolada u tri sloja — čokoladni maksimum.', 1500, 12, 'korisnickaStrana/public/slike/TripleChoco.jpg'),
+	('Medenjaci pakovanje (200g)', 'Domaći medenjaci sa začinima — idealni uz čaj ili kafu.', 450, 35, 'korisnickaStrana/public/slike/GingerBread.jpg');
+	
 
 -- Dumping structure for table poslasticarnica.stavke_porudzbine
 CREATE TABLE IF NOT EXISTS `stavke_porudzbine` (
@@ -206,7 +223,10 @@ INSERT INTO `usluge` (`id`, `naziv`, `opis`, `slika`, `created_at`) VALUES
 	(2, 'Personalizacija torti po tvom ukusu', 'Pretvori svoju viziju u slatkiš! Nudimo uslugu personalizacije torti – odaberi ukus, oblik i dekoraciju, a mi ćemo kreirati remek-delo za tvoj poseban dan.', 'korisnickaStrana/public/slike/personalized.jpg', '2025-03-06 19:57:01'),
 	(3, 'Brza narudžba za hitne proslave', 'Slavi bez stresa! Uz našu uslugu brze narudžbe, tvoja torta ili kolači biće spremni za preuzimanje ili dostavu u roku od 24 sata. Idealno za iznenadne slatke trenutke.', 'korisnickaStrana/public/slike/fastshipping.jpg', '2025-03-06 19:57:01'),
 	(4, 'Poklon paketi za svaku priliku', 'Iznenadi svoje najmilije! Pripremamo elegantne poklon pakete sa tortama, kolačima ili kombinacijom slatkiša po tvom izboru – savršeno za rođendane, godišnjice ili jednostavno lepe geste.', 'korisnickaStrana/public/slike/cakegift.jpg', '2025-03-06 19:57:01'),
-	(5, 'Pretplata na slatkiše meseca', 'Zasladimo ti svaki mesec! Uz našu uslugu pretplate, svakog meseca dobijaš novu selekciju sezonskih torti ili kolača po specijalnoj ceni, direktno na tvoj prag.', 'admin/model/upload/fastshipping.jpg', '2025-03-06 19:57:01');
+	(5, 'Pretplata na slatkiše meseca', 'Zasladimo ti svaki mesec! Uz našu uslugu pretplate, svakog meseca dobijaš novu selekciju sezonskih torti ili kolača po specijalnoj ceni, direktno na tvoj prag.', 'admin/model/upload/fastshipping.jpg', '2025-03-06 19:57:01'),
+	(6, 'Dekoracija torti po želji', 'Odaberite način dekoracije vaše torte — od svečanih natpisa do ručno pravljenih figura od fondana. Učinite svaku tortu jedinstvenom!', 'korisnickaStrana/public/slike/DecoratedCake.jpg', '2025-11-12 19:57:01'),
+	(7, 'Korporativne narudžbine i brendiranje','Pripremamo torte i kolače sa logotipom vaše firme, idealne za korporativne proslave, jubileje ili poklone klijentima. Spoj ukusa i profesionalnog izgleda.','korisnickaStrana/public/slike/CorporateCake.jpg', '2025-11-12 19:57:01'),
+	(8, 'Catering za proslave i događaje','Obezbedite slatki sto za svaku priliku! Nudimo kompletne poslastičarske aranžmane za rođendane, venčanja, konferencije i druge događaje.','korisnickaStrana/public/slike/EventCatering.jpg', '2025-11-12 19:57:01');
 
 -- Dumping structure for table poslasticarnica.vesti
 CREATE TABLE IF NOT EXISTS `vesti` (
@@ -222,7 +242,11 @@ INSERT INTO `vesti` (`id`, `naziv`, `opis`, `slika`) VALUES
 	(1, 'Sezonska čarolija: Prolećne torte stižu na sajt!', 'Uživajte u svežim ukusima proleća uz naše nove torte inspirisane sezonom – jagode, limun i cvetne note samo su početak! Od danas su dostupne za porudžbinu na sajtu. Naručite svoj komad prolećne radosti i slatkoće već sada!', 'korisnickaStrana/public/slike/springcakes.jpg'),
 	(2, 'Brza dostava torti sada uključena u ponudu!', 'Dobra vest za sve sladokusce: uvodimo ekspresnu dostavu za sve narudžbine torti preko sajta! Poručite do podneva, a mi ćemo vašu slatku poslasticu isporučiti na vašu adresu isti dan. Isprobajte već danas!', 'korisnickaStrana/public/slike/dostava.jpg'),
 	(3, 'Poklon uz svaku tortu ovog meseca!', 'Slavimo ljubav prema slatkišima – uz svaku tortu naručenu preko sajta do kraja meseca dobijate mini set naših domaćih kolačića na poklon! Iskoristite priliku i zasladite dan sebi ili dragim osobama.', 'korisnickaStrana/public/slike/minitorte.jpg'),
-	(4, 'Novost u ponudi: Personalizovane torte sada dostupne online!', 'Dragi ljubitelji slatkiša, imamo sjajne vesti za vas! Od sada možete naručiti svoje omiljene torte direktno preko našeg sajta i dodatno ih personalizovati po želji – od ukusa do dekoracije. Proslavite posebne trenutke uz naše jedinstvene torte!', 'admin/model/upload/custom-cake.jpg');
+	(4, 'Novost u ponudi: Personalizovane torte sada dostupne online!', 'Dragi ljubitelji slatkiša, imamo sjajne vesti za vas! Od sada možete naručiti svoje omiljene torte direktno preko našeg sajta i dodatno ih personalizovati po želji – od ukusa do dekoracije. Proslavite posebne trenutke uz naše jedinstvene torte!', 'admin/model/upload/custom-cake.jpg'),
+	('Letnje osveženje: Novi sladoledni kolači!','Stigla je letnja ponuda! Uživajte u kremastoj sladolednoj torti sa ukusom vanile, čokolade, jagode ili pistaća. Idealno za vruće dane i lagano uživanje.',  'korisnickaStrana/public/slike/IceCreamCake.jpg'),
+	('Nova radionica ukrašavanja torti!', 'Pridružite se našoj radionici ukrašavanja torti i naučite tajne profesionalaca! Broj mesta je ograničen, a svi učesnici dobijaju sertifikat i poklon torticu.', 'korisnickaStrana/public/slike/CakeDecor.jpg'),
+	('Jeseni u znaku kestena i čokolade!',  'Sezona toplih ukusa je stigla! Probajte naše nove torte sa kestenom, čokoladom i karamelom — idealne za jesenje dane uz topli napitak.', 'korisnickaStrana/public/slike/Limited.jpg'),
+	('Specijalna ponuda za praznike!','Spremite se za praznične dane uz naše ekskluzivne torte i kolače! Poručite ranije i ostvarite 15% popusta na porudžbine do 20. decembra.','korisnickaStrana/public/slike/Sale1.jpg');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
