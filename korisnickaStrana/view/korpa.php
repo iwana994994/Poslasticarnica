@@ -21,6 +21,7 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korpa - Cake-Coffee Shop</title>
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/korpa.css">
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/korpa.js"></script>
     
 </head>
 
@@ -66,7 +67,7 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
                 <td><img src="/Poslasticarnica/<?= htmlspecialchars($item['slika']) ?>" width="60"></td>
                 <td><?= htmlspecialchars($item['naziv']) ?></td>
                 <td><?= number_format($item['cena'], 2) ?></td>
-                <td><?= $item['kolicina'] ?></td>
+                <td> <input type="number" class="quantity" value="<?= $item['kolicina'] ?>" min="1" max="50" ></td>
                 <td><?= number_format($item['cena'] * $item['kolicina'], 2) ?></td>
                 <td>
                     <form method="POST" action="/Poslasticarnica/korisnickaStrana/view/ukloniIzKorpe.php" style="display:inline;">
