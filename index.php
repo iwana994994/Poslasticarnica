@@ -9,9 +9,8 @@ include_once './korisnickaStrana/model/VestiModel.php';
 include_once './korisnickaStrana/model/UslugeModel.php'; 
 include_once './korisnickaStrana/model/AkcijaModel.php';
 
+//Nav bar i poruke
 include_once './korisnickaStrana/view/nav-bar.php'; 
-
-
 include_once './korisnickaStrana/view/message-session.php';
 
 
@@ -29,9 +28,11 @@ switch ($page) {
     case 'pocetna':
         include './korisnickaStrana/view/pocetna.php';
         break;
+
     case 'proizvodi':
         include './korisnickaStrana/view/svi-proizvodi.php'; 
         break;
+
     case 'proizvod':
             if ($id > 0) {
                 $proizvod = getProizvodById($con, $id);
@@ -44,12 +45,15 @@ switch ($page) {
                 die("Greška: Neispravan ID proizvoda.");
             }
             break;
+
     case 'kontakt':
         include './korisnickaStrana/view/kontakt.php';
         break;
+
     case 'usluge':
         include './korisnickaStrana/view/usluge.php';
         break;
+
     case 'usluga':
         if ($id > 0) {
             $usluga= getUslugeById($con, $id);
@@ -62,9 +66,11 @@ switch ($page) {
                 die("Greška: Neispravan ID usluga.");
             }
         break;
+
     case 'vesti':
         include './korisnickaStrana/view/vesti.php';
         break;
+
     case 'vest':
         if ($id > 0) {
             $vest = getVestById($con, $id);
@@ -77,9 +83,11 @@ switch ($page) {
                 die("Greška: Neispravan ID vesti.");
             }
         break;
+
     case 'akcije':
         include './korisnickaStrana/view/akcije.php';
         break;
+
     case 'akcija':
         if ($id > 0) {
             $akcija = getAkcijaById($con, $id);
@@ -92,21 +100,32 @@ switch ($page) {
                 die("Greška: Neispravan ID akcije.");
             }
         break;
+
     case 'login':
         include './korisnickaStrana/view/login.php';
         break;
+
     case 'logout':
         include './korisnickaStrana/view/logout.php';
         break;
+
     case 'registracija':
         include './korisnickaStrana/view/registracija.php';
         break;
+
     case 'korpa':
         include './korisnickaStrana/view/korpa.php';
         break;
-    default:
-         include './korisnickaStrana/view/404.php';
+
+    case 'pretraga':
+        include './korisnickaStrana/model/PretragaModel.php';
+        include './korisnickaStrana/view/pretraga.php';
         break;
+
+    default:
+        include './korisnickaStrana/view/404.php';
+        break;
+
 }
 include_once './korisnickaStrana/view/footer.php';
 ?>

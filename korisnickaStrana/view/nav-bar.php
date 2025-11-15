@@ -1,5 +1,5 @@
 
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,23 +13,29 @@
 </head>
 <body id="body">
    
-    <div class="search">
-              
-    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] == true): ?>
-            <!-- Ako je korisnik prijavljen, prikaži dugme "Odjavi se" -->
-            <a href="/Poslasticarnica/index.php?page=logout">Odjavi se</a>
-        <?php else: ?>
-            <!-- Ako nije prijavljen, prikaži dugme "Prijavi se" -->
-            <a href="/Poslasticarnica/index.php?page=login">Prijavi se</a>
-        <?php endif; ?>
+   <div class="search">
+            <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] == true): ?>
+                <a href="/Poslasticarnica/index.php?page=logout">Odjavi se</a>
+            <?php else: ?>
+                <a href="/Poslasticarnica/index.php?page=login">Prijavi se</a>
+            <?php endif; ?>
             
         <div id="search-card">
-            <form method="get">
-                <input type="search">
-                <button type="submit">Traži</button>   
-            </form>
+                <form method="get" 
+                        action="/Poslasticarnica/pretraga"
+                        accept-charset="UTF-8">
+            
+                    <input type="search"
+                        name="q"
+                        placeholder="Pretraži poslastice..."
+                        value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+
+                    <button type="submit">Traži</button>   
+                </form>
         </div>
     </div>
+
+
     <nav>
         <a href="#">
             <img src="/Poslasticarnica/korisnickaStrana/public/slike/Poslastičarnica_logo.png">
@@ -44,6 +50,8 @@
         <li><a href="/Poslasticarnica/usluge">Usluge</a></li>
         <li><a href="/Poslasticarnica/kontakt">Kontakt</a></li>
         <li><a href="/Poslasticarnica/korpa">Korpa</a></li>
+        <li><a href="/Poslasticarnica/pretraga">Pretraga</a></li>
+
         
     </ul>
 </div>
