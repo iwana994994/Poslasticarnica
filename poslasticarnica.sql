@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2025 at 12:51 AM
+-- Generation Time: Nov 17, 2025 at 12:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -107,7 +107,11 @@ INSERT INTO `porudzbina` (`id`, `ime`, `prezime`, `adresa`, `telefon`, `nacin_pl
 (24, 'Jovana', 'Jovanovic', 'Cestelinska 43', '06133344422', 'gotovina', '2025-11-15 00:05:46'),
 (25, 'Dejan', 'Dekic', 'Partizanski Put 52', '06133344422', 'gotovina', '2025-11-15 00:16:44'),
 (26, 'Milos', 'Milinkovic', 'Zmaj Jove 16', '06133344422', 'gotovina', '2025-11-15 00:17:43'),
-(27, 'Nikola', 'Nikolic', 'Neznanog Junaka 3', '061224451', 'gotovina', '2025-11-16 00:17:35');
+(27, 'Nikola', 'Nikolic', 'Neznanog Junaka 3', '061224451', 'gotovina', '2025-11-16 00:17:35'),
+(28, 'Nemanja', 'Jovanovic', 'Kosovska 71', '065442231', 'gotovina', '2025-11-16 12:34:00'),
+(29, 'Andrijana', 'MIlosevic', 'Baba Zlatina 2', '065443213', 'gotovina', '2025-11-16 20:32:05'),
+(30, 'Jelena', 'Markovic', 'Kostanina 20', '06822745', 'gotovina', '2025-11-16 22:48:12'),
+(31, 'Jovan', 'Tasic', 'Przarska 14', '06388654', 'gotovina', '2025-11-17 00:45:03');
 
 -- --------------------------------------------------------
 
@@ -165,15 +169,29 @@ INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `kategorija`, `cena`, `zalihe`, `
 (5, 'Mille-Feuille (Krempita)', 'Lisnato testo u više slojeva sa vanila kremom — lagano i kremasto.', 'krempita', 420, 28, 'korisnickaStrana/public/slike/Creampie.jpg'),
 (6, 'Čoko mus torta', 'Pufnasta mus torta od fine čokolade, topi se u ustima.', 'cokoladna', 1100, 16, 'korisnickaStrana/public/slike/ChocoMousse.jpg'),
 (7, 'Pistać torta', 'Aromatična krema od pistaća i blagi biskvit — specijalitet kuće.', 'pistac', 1600, 10, 'korisnickaStrana/public/slike/PistachioCake.jpg'),
-(8, 'Švarcvald torta', 'Klasična čokoladna torta sa višnjama i šlagom — idealna za ljubitelje bogatih ukusa.', 'svarcvald', 1200, 14, 'korisnickaStrana/public/slike/Schvartzvald.jpg'),
+(8, 'Švarcvald torta', 'Klasična čokoladna torta sa višnjama i šlagom — idealna za ljubitelje bogatih ukusa.', 'visnja', 1200, 14, 'korisnickaStrana/public/slike/Schvartzvald.jpg'),
 (9, 'Cheesecake parče', 'Kremasti užitak sa hrskavom podlogom i blagim ukusom vanile, preliven svežim voćnim prelivom — savršeno osveženje za svaku priliku.', 'cizkejk', 299, 15, 'korisnickaStrana/public/slike/Cheesecake.jpg'),
-(10, 'Medena pita', 'Tradicionalna domaća poslastica sa slojevima medenog testa i nežnim filom od oraha i vanile. Idealna uz topli čaj ili kafu.', 'medena_pita', 1000, 12, 'korisnickaStrana/public/slike/HoneyCake.jpg'),
-(11, 'Tart od limuna', 'Osvežavajući limun tart sa prhkim testom i mirisnom kremom.', 'limun', 590, 20, 'korisnickaStrana/public/slike/LemonTart.jpg'),
-(12, 'Torta “Tri čokolade”', 'Bela, mlečna i crna čokolada u tri sloja — čokoladni maksimum.', 'tri_cokolade', 1500, 12, 'korisnickaStrana/public/slike/TripleChoco.jpg'),
+(10, 'Medena pita', 'Tradicionalna domaća poslastica sa slojevima medenog testa i nežnim filom od oraha i vanile. Idealna uz topli čaj ili kafu.', 'med', 1000, 12, 'korisnickaStrana/public/slike/HoneyCake.jpg'),
+(11, 'Tart od limuna', 'Osvežavajući limun tart sa prhkim testom i mirisnom kremom.', 'tart', 590, 20, 'korisnickaStrana/public/slike/LemonTart.jpg'),
+(12, 'Torta “Tri čokolade”', 'Bela, mlečna i crna čokolada u tri sloja — čokoladni maksimum.', 'cokoladna', 1500, 12, 'korisnickaStrana/public/slike/TripleChoco.jpg'),
 (13, 'Torta sa kestenom', 'Fina kombinacija kreme od kestena i čokolade, prelivene kakao glazurom. Posebno omiljena u jesenjim mesecima.', 'kesten', 700, 15, 'korisnickaStrana/public/slike/ChesnutCake.jpg'),
 (14, 'Medenjaci pakovanje (200g)', 'Domaći medenjaci sa začinima — idealni uz čaj ili kafu.', 'medenjaci', 450, 35, 'korisnickaStrana/public/slike/GingerBread.jpg'),
 (15, 'Voćna torta', 'Osvežavajuća torta sa slojevima laganog biskvita i kremom od sezonskog voća. Lagana, sočna i savršena za tople dane.', 'vocna', 220, 20, 'korisnickaStrana/public/slike/FruitCake.jpg'),
-(16, 'Čizkejk sa borovnicama', 'Cheesecake sa prelivom od borovnica — osvežavajuća kiselo-slatka kombinacija.', 'cizkejk', 650, 22, 'korisnickaStrana/public/slike/BlueCheesecake.jpg');
+(16, 'Čizkejk sa borovnicama', 'Cheesecake sa prelivom od borovnica — osvežavajuća kiselo-slatka kombinacija.', 'cizkejk', 650, 22, 'korisnickaStrana/public/slike/BlueCheesecake.jpg'),
+(17, 'Mafini sa višnjom', 'Sočni mafini sa komadićima višnje i blagom aromom vanile – savršeni uz jutarnju kafu.', 'mafini', 180, 30, 'korisnickaStrana/public/slike/CherryMuffin.jpg'),
+(18, 'Mafini sa čokoladom', 'Pufnasti mafini prepuni komadića crne čokolade koja se topi pri svakom zalogaju.', 'mafini', 190, 32, 'korisnickaStrana/public/slike/ChocoMuffin.jpg'),
+(19, 'Mafini sa lešnikom', 'Mafini od prhkog testa sa pečenim lešnicima i blagom čokoladnom notom.', 'mafini', 200, 28, 'korisnickaStrana/public/slike/HazelnutMuffin.jpg'),
+(20, 'Kokos torta', 'Lagani biskvit u kombinaciji sa bogatim kokos kremom i posipom od kokosovih mrvica.', 'kokos', 1300, 10, 'korisnickaStrana/public/slike/CoconutCake.jpg'),
+(21, 'Rafaello kuglice', 'Sitni kolačići od kokosa i bele čokolade sa bademom u sredini – idealni za posluženje uz kafu.', 'kokos', 480, 25, 'korisnickaStrana/public/slike/Raffaelo.jpg'),
+(22, 'Kolač sa cimetom', 'Mekan biskvit sa cimetom i punjenjem od krem sira – topao i mirisan desert za hladne dane.', 'cimet', 550, 18, 'korisnickaStrana/public/slike/CinnaCookie.jpg'),
+(23, 'Cimet rolnice', 'Klasične cinnamon rolls – mekano testo sa filom od cimeta i šećera, preliveno blagim vanila prelivom.', 'cimet', 620, 20, 'korisnickaStrana/public/slike/CinnaRolls.jpg'),
+(24, 'Krofna sa šećerom', 'Klasična pržena krofna posuta kristal šećerom – jednostavno, ali neodoljivo.', 'krofne', 120, 40, 'korisnickaStrana/public/slike/DonutSugar.jpg'),
+(25, 'Krofna sa kremom', 'Pufnasta krofna punjena bogatim kremom od vanile i prelivena čokoladom.', 'krofne', 150, 36, 'korisnickaStrana/public/slike/DonutChoco.jpg'),
+(26, 'Princes krofna', 'Lagana princes krofna sa vanila filom i šlagom – idealna za svečanije prilike.', 'krofne', 180, 30, 'korisnickaStrana/public/slike/PrincessDonut.jpg'),
+(27, 'Tart od borovnice', 'Hrskavo prhko testo punjeno kremom i bogatim prelivom od svežih borovnica.', 'tart', 650, 16, 'korisnickaStrana/public/slike/BlueTart.jpg'),
+(28, 'Medovnik', 'Slojevita torta sa korama od meda i filom od kiselog mleka i oraha – tradicionalni desert pun ukusa.', 'med', 1250, 9, 'korisnickaStrana/public/slike/Medovnik.jpg'),
+(29, 'Baklava sa pistaćem', 'Bogata orijentalna baklava sa pistaćima, natopljena mirisnim sirupom od meda i limuna.', 'pistac', 750, 20, 'korisnickaStrana/public/slike/PIstaccioBaklava.jpg'),
+(30, 'Kolač od pistaća', 'Sočan kolač sa mlevenim pistaćima i laganim sirupom – intenzivan, ali nežan ukus.', 'pistac', 680, 18, 'korisnickaStrana/public/slike/PistaccioSmallCake.jpg');
 
 -- --------------------------------------------------------
 
@@ -205,7 +223,16 @@ INSERT INTO `stavke_porudzbine` (`id`, `porudzbina_id`, `proizvod_id`, `kolicina
 (9, 24, 11, 2, 400),
 (10, 25, 10, 1, 800),
 (11, 26, 7, 9, 1600),
-(12, 27, 15, 2, 220);
+(12, 27, 15, 2, 220),
+(13, 28, 6, 2, 1100),
+(14, 28, 16, 1, 650),
+(15, 29, 8, 4, 1200),
+(16, 30, 16, 1, 650),
+(17, 30, 9, 2, 299),
+(18, 30, 8, 3, 1200),
+(19, 31, 30, 2, 680),
+(20, 31, 17, 4, 180),
+(21, 31, 26, 4, 180);
 
 -- --------------------------------------------------------
 
@@ -381,7 +408,7 @@ ALTER TABLE `kontakt`
 -- AUTO_INCREMENT for table `porudzbina`
 --
 ALTER TABLE `porudzbina`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `poruka`
@@ -393,13 +420,13 @@ ALTER TABLE `poruka`
 -- AUTO_INCREMENT for table `proizvod`
 --
 ALTER TABLE `proizvod`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `stavke_porudzbine`
 --
 ALTER TABLE `stavke_porudzbine`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
