@@ -41,3 +41,102 @@ a{
 .graf {
  width: 30em;
 }
+
+.tabcontent {
+    display: none;
+    margin-left: 5%;
+
+}
+.tablinks.active {
+    background-color: #36A2EB;
+    color: white;
+}
+.stilizovana-tabela {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.stilizovana-tabela thead tr {
+    background-color: #36A2EB;
+    color: #ffffff;
+    text-align: left;
+}
+
+.stilizovana-tabela th,
+.stilizovana-tabela td {
+    padding: 12px 15px;
+}
+
+.stilizovana-tabela tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.stilizovana-tabela tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.stilizovana-tabela tbody tr:last-of-type {
+    border-bottom: 2px solid #36A2EB;
+}
+
+.stilizovana-tabela tbody tr:hover {
+    background-color: #d1e7ff;
+    cursor: pointer;
+}
+
+/* Smanjeni grafovi u tabovima */
+
+#productCategoryChart,
+#ordersByMonthChart {
+    max-width: 500px !important;
+    max-height: 400px !important;
+}
+
+/* Omot za tab dugmad */
+.tabs {
+    display: flex;
+    gap: 20px;
+    margin: 30px 50px;
+    padding-bottom: 10px;
+    
+    border-bottom: 2px solid #36A2EB;
+}
+
+/* Osnovni izgled tab dugmadi */
+.tablinks {
+    background: #36A2EB;
+    border: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+    padding: 20px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+/* Hover efekat */
+.tablinks:hover {
+    background: #2990ff;
+}
+
+/* Aktivni tab */
+.tablinks.active {
+    background: #2990ff;
+    color: white;
+    border: 1px solid #2990ff;
+}
+
+/* Sadržaj tabova */
+.tabcontent {
+    display: none;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 8px 8px 8px;
+    margin-top: -1px;
+}

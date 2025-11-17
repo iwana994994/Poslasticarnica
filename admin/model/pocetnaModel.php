@@ -140,6 +140,62 @@ function getTopProducts() {
     // Vraćanje rezultata
     return ['nazivi' => $nazivi, 'kolicine' => $kolicine];
 }
+// Prodaja po kategorijama u proteklom mesecu
+function getSalesByCategoryLastMonth() {
+    global $con;
+    $query = "SELECT p.kategorija, SUM(pp.kolicina) AS ukupno
+              FROM stavke_porudzbine pp
+              JOIN proizvod p ON pp.proizvod_id = p.id
+              JOIN porudzbina pr ON pp.porudzbina_id = pr.id
+              WHERE MONTH(pr.datum_porudzbine) = MONTH(CURDATE())
+              GROUP BY p.kategorija";
+    $result = mysqli_query($con, $query);
+    $categories = [];
+    $totals = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $categories[] = $row['kategorija'];
+        $totals[] = $row['ukupno'];
+    }
+    return ['categories' => $categories, 'totals' => $totals];
+}
+
+// Tabela – ukupno napravljeno i prodato poslednjih 5 godina
+// Funkcija koja vraća prodaju proizvoda u poslednjih 5 godina
+function getProductStatsLast5Years() {
+    global $con;
+    $query = "SELECT p.naziv, p.kategorija,
+                     SUM(COALESCE(pp.kolicina, 0)) AS ukupno_prodato
+              FROM proizvod p
+              LEFT JOIN stavke_porudzbine pp ON pp.proizvod_id = p.id
+              LEFT JOIN porudzbina pr ON pp.porudzbina_id = pr.id 
+                   AND pr.datum_porudzbine >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR)
+              GROUP BY p.id";
+    $result = mysqli_query($con, $query);
+    $rows = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+
+// Porudžbine – mesečna prodaja poslednje godine
+function getOrdersByMonthLastYear() {
+    global $con;
+    $query = "SELECT MONTH(datum_porudzbine) AS mesec, COUNT(*) AS ukupno
+              FROM porudzbina
+              WHERE datum_porudzbine >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+              GROUP BY MONTH(datum_porudzbine)
+              ORDER BY mesec";
+    $result = mysqli_query($con, $query);
+    $months = [];
+    $totals = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $months[] = $row['mesec'];
+        $totals[] = $row['ukupno'];
+    }
+    return ['months' => $months, 'totals' => $totals];
+}
 
 ?>
 
