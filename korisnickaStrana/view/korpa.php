@@ -64,7 +64,7 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
         </thead>
         <tbody>
         <?php foreach ($korpa as $id => $item): ?>
-            <tr>
+            <tr data-id="<?= $id ?>">
                 <td><img src="/Poslasticarnica/<?= htmlspecialchars($item['slika']) ?>" width="60"></td>
                 <td><?= htmlspecialchars($item['naziv']) ?></td>
                 <td><?= number_format($item['cena'], 2) ?></td>
@@ -82,11 +82,11 @@ $ukupno_placanje = $ukupno + ($ukupno > 0 ? $dostava : 0);
     </table>
 
     <div class="cart-summary">
-        <p><strong>Ukupno proizvoda:</strong> <?= number_format($ukupno, 2) ?> RSD</p>
-        <p><strong>Dostava:</strong> <?= $ukupno > 0 ? $dostava : 0 ?> RSD</p>
-        <p><strong>Ukupno za plaćanje:</strong> <?= number_format($ukupno_placanje, 2) ?> RSD</p>
-        <a href="#checkoutForm" class="checkout-btn">Nastavi na plaćanje</a>
-    </div>
+    <p><strong>Ukupno proizvoda:</strong> <span id="ukupnoProizvoda"><?= number_format($ukupno, 2) ?></span> RSD</p>
+    <p><strong>Dostava:</strong> <span id="dostava"><?= $ukupno > 0 ? $dostava : 0 ?></span> RSD</p>
+    <p><strong>Ukupno za plaćanje:</strong> <span id="ukupnoPlacanje"><?= number_format($ukupno_placanje, 2) ?></span> RSD</p>
+    <a href="#checkoutForm" class="checkout-btn">Nastavi na plaćanje</a>
+</div>
 
     <?php else: ?>
         <p style="text-align:center; font-size:18px;">🧁 Vaša korpa je prazna.</p>

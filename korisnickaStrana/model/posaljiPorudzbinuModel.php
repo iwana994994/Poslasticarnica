@@ -21,15 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION['korpa']) && !empty
         $porudzbina_id = mysqli_insert_id($con);
 
         // 3️⃣ Ubacujemo svaku stavku u `stavke_porudzbine`
-        foreach ($_SESSION['korpa'] as $stavka) {
-            $proizvod_id = $stavka['id'];
-            $kolicina = $stavka['kolicina'];
-            $cena = $stavka['cena'];
+     $korpa = json_decode($_POST['korpa_podaci'], true);
 
-            $query_stavka = "INSERT INTO stavke_porudzbine (porudzbina_id, proizvod_id, kolicina, cena)
-                             VALUES ('$porudzbina_id', '$proizvod_id', '$kolicina', '$cena')";
-            mysqli_query($con, $query_stavka);
-        }
+foreach ($korpa as $stavka) {
+    $proizvod_id = $stavka['id'];
+    $kolicina = $stavka['kolicina'];
+    $cena = $stavka['cena'];
+
+    $query_stavka = "INSERT INTO stavke_porudzbine (porudzbina_id, proizvod_id, kolicina, cena)
+                     VALUES ('$porudzbina_id', '$proizvod_id', '$kolicina', '$cena')";
+    mysqli_query($con, $query_stavka);
+}
     }
      // 4️⃣ Očistimo korpu
         unset($_SESSION['korpa']);
