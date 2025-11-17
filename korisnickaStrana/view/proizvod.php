@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="sr">
 
@@ -10,7 +8,8 @@
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/proizvod.css">
      <script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script> 
 </head>
-<body>
+<body id="body">
+
 <div aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Poslasticarnica/index.php?page=pocetna">Početna /</a></li>

@@ -12,7 +12,8 @@
 
     <title>Pocetna</title>
 </head>
-<body>
+<body id="body">
+
 
 <div class="swiper-container">
     <div class="swiper-wrapper">

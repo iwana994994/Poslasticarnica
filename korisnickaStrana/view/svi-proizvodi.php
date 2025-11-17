@@ -9,7 +9,8 @@
     <script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script>
     <title>Cake-Coffee Shop</title>
 </head>
-<body>
+<body id="body">
+
     
 <section>
     <h1 id="naslov">Čokoladne torte</h1>

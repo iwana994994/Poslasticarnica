@@ -6,7 +6,8 @@
     <script src="/Poslasticarnica/korisnickaStrana/public/js/windowForServicePop.js"></script>
     <title>Poslastičarnica</title>
     </head>
-<body>
+<body id="body">
+
     <section>
         <h1 id="naslov">Usluge</h1>
         <div class="container"> 

@@ -1,62 +1,82 @@
 <?php
 // korisnickaStrana/model/PretragaModel.php
 
-include_once(__DIR__ . "/../config/database.php");
+// ako konekcija već postoji, neće se ponovo otvoriti
+include_once __DIR__ . '/../config/database.php';
 
-// 1) Uzimamo vrednosti iz GET-a
-$q = isset($_GET['q']) ? trim($_GET['q']) : '';
+/**
+ * Pretraga proizvoda po:
+ *  - tekstu (naziv, opis, kategorija)
+ *  - listi kategorija
+ *  - opsegu cene
+ */
+function pretragaProizvoda(mysqli $con, ?string $q, array $kategorije, $cenaOd, $cenaDo): array
+{
+    $sql    = "SELECT * FROM proizvod WHERE 1=1";
+    $params = [];
+    $types  = '';
 
-$selected_kategorije = isset($_GET['kategorija']) && is_array($_GET['kategorija'])
-    ? array_filter($_GET['kategorija'])
-    : [];
-
-$min_cena = isset($_GET['cena_od']) && $_GET['cena_od'] !== ''
-    ? (float)$_GET['cena_od']
-    : null;
-
-$max_cena = isset($_GET['cena_do']) && $_GET['cena_do'] !== ''
-    ? (float)$_GET['cena_do']
-    : null;
-
-// 2) Gradimo uslove za WHERE
-$conditions = [];
-
-// Tekstualna pretraga
-if ($q !== '') {
-    $q_esc = mysqli_real_escape_string($con, $q);
-    $conditions[] = "(naziv LIKE '%$q_esc%' 
-                      OR opis LIKE '%$q_esc%'
-                      OR kategorija LIKE '%$q_esc%')";
-}
-
-// Filter po kategorijama (checkbox)
-if (!empty($selected_kategorije)) {
-    $safeCats = [];
-    foreach ($selected_kategorije as $cat) {
-        $safeCats[] = "'" . mysqli_real_escape_string($con, $cat) . "'";
+    // Tekstualna pretraga
+    if ($q !== null && $q !== '') {
+        $like = '%' . $q . '%';
+        $sql .= " AND (naziv LIKE ? OR opis LIKE ? OR kategorija LIKE ?)";
+        $params[] = $like;
+        $params[] = $like;
+        $params[] = $like;
+        $types    .= 'sss';
     }
-    $conditions[] = "kategorija IN (" . implode(',', $safeCats) . ")";
+
+    // Kategorije (checkbox-ovi)
+    if (!empty($kategorije)) {
+        // Očisti prazne vrednosti
+        $kategorije = array_filter($kategorije, fn($v) => $v !== '');
+
+        if (!empty($kategorije)) {
+            $placeholders = implode(',', array_fill(0, count($kategorije), '?'));
+            $sql .= " AND kategorija IN ($placeholders)";
+
+            foreach ($kategorije as $kat) {
+                $params[] = $kat;
+                $types    .= 's';
+            }
+        }
+    }
+
+    // Cena od
+    if ($cenaOd !== null && $cenaOd !== '') {
+        $sql .= " AND cena >= ?";
+        $params[] = (float)$cenaOd;
+        $types    .= 'd';
+    }
+
+    // Cena do
+    if ($cenaDo !== null && $cenaDo !== '') {
+        $sql .= " AND cena <= ?";
+        $params[] = (float)$cenaDo;
+        $types    .= 'd';
+    }
+
+    $sql .= " ORDER BY naziv";
+
+    // Izvršenje upita
+    if (empty($params)) {
+        $result = mysqli_query($con, $sql);
+    } else {
+        $stmt = mysqli_prepare($con, $sql);
+        if ($stmt === false) {
+            return [];
+        }
+        mysqli_stmt_bind_param($stmt, $types, ...$params);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    }
+
+    $proizvodi = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $proizvodi[] = $row;
+        }
+    }
+
+    return $proizvodi;
 }
-
-// Cena od
-if ($min_cena !== null) {
-    $conditions[] = "cena >= " . $min_cena;
-}
-
-// Cena do
-if ($max_cena !== null) {
-    $conditions[] = "cena <= " . $max_cena;
-}
-
-// 3) Sastavljamo konačni SQL
-$sql = "SELECT * FROM proizvod";
-
-if (!empty($conditions)) {
-    $sql .= " WHERE " . implode(" AND ", $conditions);
-}
-
-$sql .= " ORDER BY naziv ASC";
-
-// 4) Izvršavanje upita
-$result = mysqli_query($con, $sql);
-$proizvodi = $result ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];

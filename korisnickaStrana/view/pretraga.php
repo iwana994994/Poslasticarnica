@@ -3,39 +3,69 @@
 
 // vrednosti za popunjavanje forme
 $q = isset($_GET['q']) ? $_GET['q'] : '';
-$selected_kategorije = isset($_GET['kategorija']) && is_array($_GET['kategorija'])
+
+$selected_kategorije = (isset($_GET['kategorija']) && is_array($_GET['kategorija']))
     ? $_GET['kategorija']
     : [];
 
-$min_cena = isset($_GET['cena_od']) ? $_GET['cena_od'] : '';
-$max_cena = isset($_GET['cena_do']) ? $_GET['cena_do'] : '';
+$cena_od = isset($_GET['cena_od']) ? $_GET['cena_od'] : '';
+$cena_do = isset($_GET['cena_do']) ? $_GET['cena_do'] : '';
 
-// lista kategorija (value => label)
+// lista kategorija (value => label) – OVO USKLADI SA BAZOM!!! 
 $kategorije = [
-    'vocna'         => 'Voćne torte',
-    'cokoladna'     => 'Čokoladne torte',
-    'tiramisu'      => 'Tiramisu',
-    'krempita'      => 'Krempita',
-    'pistac'        => 'Pistać torta',
-    'svarcvald'     => 'Švarcvald',
-    'cizkejk'       => 'Čizkejk',
-    'medena_pita'   => 'Medena pita',
-    'limun'         => 'Limun / tart',
-    'tri_cokolade'  => 'Tri čokolade',
-    'kesten'        => 'Kesten torta',
-    'medenjaci'     => 'Medenjaci',
+    'vocna'     => 'Voćne torte i pite',
+    'cokoladna' => 'Čokoladne torte',
+    'krempita'  => 'Krempite',
+    'pistac'    => 'Pistać poslastice',
+    'visnja'    => 'Deserti sa višnjom',
+    'med'       => 'Poslastice od meda',
+    'tart'      => 'Tartovi',
+    'cizkejk'   => 'Čizkejk',
+    'kesten'    => 'Kesten kolači',
+    'medenjaci' => 'Medenjaci',
+    'mafini'    => 'Mafini',
+    'kokos'     => 'Kokos poslastice',
+    'cimet'     => 'Deserti sa cimetom',
+    'krofne'    => 'Krofne',
 ];
+
+
+
+// naslov i action zavise od stranice na kojoj smo
+// (varijabla $page dolazi iz index.php switch-a)
+$page_title  = ($page === 'proizvodi') ? 'Proizvodi' : 'Pretraga';
+$heading     = ($page === 'proizvodi') ? 'Proizvodi' : 'Rezultati pretrage';
+
+// oba slučaja idu na index.php, samo menjamo "page" param
+$form_action = '/Poslasticarnica/index.php';
+$form_page   = ($page === 'proizvodi') ? 'proizvodi' : 'pretraga';
+
+
 ?>
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($page_title) ?> - Cake-Coffee Shop</title>
 
-<link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/pretraga.css">
+    <!-- koristimo postojeći stil kartica + mali stil za layout pretrage -->
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/proizvodi.css">
+    <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/pretraga.css">
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script>
+</head>
+<body id="body">
 
-<main class="search-page">
+
+<div class="search-layout">
 
     <!-- LEVA STRANA – FILTERI -->
     <aside class="search-sidebar">
         <h2>Filter</h2>
 
-        <form method="get" action="/Poslasticarnica/pretraga" class="filter-form">
+            <form method="get" action="<?= htmlspecialchars($form_action) ?>" class="filter-form">
+                 <input type="hidden" name="page" value="<?= htmlspecialchars($form_page) ?>">
+                 
 
             <!-- Tekstualna pretraga -->
             <div class="filter-group">
@@ -73,7 +103,7 @@ $kategorije = [
                                name="cena_od"
                                min="0"
                                step="10"
-                               value="<?= htmlspecialchars($min_cena) ?>">
+                               value="<?= htmlspecialchars($cena_od) ?>">
                     </div>
                     <div>
                         <label for="cena_do">do</label>
@@ -82,7 +112,7 @@ $kategorije = [
                                name="cena_do"
                                min="0"
                                step="10"
-                               value="<?= htmlspecialchars($max_cena) ?>">
+                               value="<?= htmlspecialchars($cena_do) ?>">
                     </div>
                 </div>
             </div>
@@ -93,52 +123,51 @@ $kategorije = [
 
     <!-- DESNA STRANA – REZULTATI -->
     <section class="search-results">
-        <h1 class="results-title">Rezultati pretrage</h1>
+        <h1 id="naslov"><?= htmlspecialchars($heading) ?></h1>
 
-        <p class="results-info">
-            Pronađeno proizvoda: <strong><?= count($proizvodi) ?></strong>
+
+        <p>
+            Pronađeno proizvoda:
+            <strong><?= count($proizvodi) ?></strong>
         </p>
 
         <?php if (empty($proizvodi)): ?>
             <p>Nema proizvoda koji odgovaraju zadatim filterima.</p>
         <?php else: ?>
-            <div class="results-grid">
-                <?php foreach ($proizvodi as $p): ?>
-                    <article class="product-card">
-                        <img src="/Poslasticarnica/<?= htmlspecialchars($p['slika']) ?>"
-                             alt="<?= htmlspecialchars($p['naziv']) ?>">
+            <div class="conteiner">
+                <?php foreach ($proizvodi as $proizvod): ?>
+                    <div class="product-box">
+                        <a href="/Poslasticarnica/index.php?page=proizvod&id=<?= $proizvod['id'] ?>">
+                            <img src="/Poslasticarnica/<?= htmlspecialchars($proizvod['slika']) ?>"
+                                 class="product-img">
+                            <div class="description">
+                                <h2 class="product-title">
+                                    <?= htmlspecialchars($proizvod['naziv']) ?>
+                                </h2>
+                                <h3 class="product-price">
+                                    <?= htmlspecialchars($proizvod['cena']) ?> RSD
+                                </h3>
+                            </div>
+                        </a>
 
-                        <h3 class="product-title"><?= htmlspecialchars($p['naziv']) ?></h3>
-                        <p class="product-category">
-                            <?= htmlspecialchars($p['kategorija']) ?>
-                        </p>
-                        <p class="product-desc">
-                            <?= htmlspecialchars($p['opis']) ?>
-                        </p>
-                        <p class="product-price"><?= htmlspecialchars($p['cena']) ?> RSD</p>
+                        <input type="number" class="quantity" value="1" min="1" max="50">
 
-                        <div class="product-actions">
-                            <input type="number"
-                                   class="quantity"
-                                   value="1"
-                                   min="1"
-                                   max="50">
-                            <button class="shopping2"
-                                    data-id="<?= $p['id'] ?>"
-                                    data-naziv="<?= htmlspecialchars($p['naziv']) ?>"
-                                    data-cena="<?= $p['cena'] ?>"
-                                    data-slika="<?= htmlspecialchars($p['slika']) ?>">
-                                Ubaci u korpu
-                            </button>
-                        </div>
+                        <button class="shopping2"
+                                data-id="<?= $proizvod['id'] ?>"
+                                data-naziv="<?= htmlspecialchars($proizvod['naziv']) ?>"
+                                data-cena="<?= $proizvod['cena'] ?>"
+                                data-slika="<?= htmlspecialchars($proizvod['slika']) ?>">
+                            Ubaci u korpu
+                        </button>
 
-                        <p class="cart-message"></p>
-                    </article>
+                        <p class="cart-message" style="color:green; margin-top:5px;"></p>
+                    </div>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
     </section>
-</main>
 
-<script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script>
+</div>
 
+</body>
+</html>

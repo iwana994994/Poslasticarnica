@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-image: linear-gradient(rgba(0,0,9,0.4),rgba(0,0,9,0.7)), url(../public/slike/slice-homemade.jpg);
+    background-image: linear-gradient(rgba(0,0,9,0.4),rgba(0,0,9,0.7)), url(../public/slike/background1.jpg);
     background-position: center;
     background-size: cover;
     position: relative;

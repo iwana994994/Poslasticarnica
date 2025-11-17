@@ -7,7 +7,8 @@
     <script src="/Poslasticarnica/korisnickaStrana/public/js/session-add-product.js"></script>
     <title>Poslastičarnica</title>
 </head>
-<body>
+<body id="body">
+
 <section>
     <h1 id="naslov">Akcije</h1>
 

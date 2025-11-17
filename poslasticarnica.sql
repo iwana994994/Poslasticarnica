@@ -192,6 +192,7 @@ INSERT INTO `proizvod` (`id`, `naziv`, `opis`, `kategorija`, `cena`, `zalihe`, `
 (28, 'Medovnik', 'Slojevita torta sa korama od meda i filom od kiselog mleka i oraha – tradicionalni desert pun ukusa.', 'med', 1250, 9, 'korisnickaStrana/public/slike/Medovnik.jpg'),
 (29, 'Baklava sa pistaćem', 'Bogata orijentalna baklava sa pistaćima, natopljena mirisnim sirupom od meda i limuna.', 'pistac', 750, 20, 'korisnickaStrana/public/slike/PIstaccioBaklava.jpg'),
 (30, 'Kolač od pistaća', 'Sočan kolač sa mlevenim pistaćima i laganim sirupom – intenzivan, ali nežan ukus.', 'pistac', 680, 18, 'korisnickaStrana/public/slike/PistaccioSmallCake.jpg');
+  
 
 -- --------------------------------------------------------
 

@@ -6,7 +6,8 @@
     <title><?= $usluga['naziv'] ?> - Poslastičarnica</title>
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/usluga.css">
 </head>
-<body>
+<body id="body">
+
     <div aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/Poslasticarnica/index.php?page=pocetna">Početna /</a></li>

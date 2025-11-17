@@ -8,6 +8,7 @@ include_once './korisnickaStrana/model/KontaktModel.php';
 include_once './korisnickaStrana/model/VestiModel.php'; 
 include_once './korisnickaStrana/model/UslugeModel.php'; 
 include_once './korisnickaStrana/model/AkcijaModel.php';
+include_once './korisnickaStrana/model/PretragaModel.php';
 
 //Nav bar i poruke
 include_once './korisnickaStrana/view/nav-bar.php'; 
@@ -30,7 +31,25 @@ switch ($page) {
         break;
 
     case 'proizvodi':
-        include './korisnickaStrana/view/svi-proizvodi.php'; 
+        // Stranica "Proizvodi" koristi isti layout kao pretraga,
+        // samo što po defaultu prikazuje sve proizvode (bez obaveznih filtera).
+
+        // Ako ima filtera u URL-u, koristićemo ih (da možeš filtrirati i sa /proizvodi)
+        $q          = isset($_GET['q']) ? trim($_GET['q']) : '';
+        $kategorije = (isset($_GET['kategorija']) && is_array($_GET['kategorija']))
+            ? $_GET['kategorija']
+            : [];
+        $cenaOd     = isset($_GET['cena_od']) ? $_GET['cena_od'] : null;
+        $cenaDo     = isset($_GET['cena_do']) ? $_GET['cena_do'] : null;
+
+        // Ako nema filtera uopšte, preuzmi sve proizvode
+        if ($q === '' && empty($kategorije) && $cenaOd === null && $cenaDo === null) {
+            $proizvodi = pretragaProizvoda($con, null, [], null, null);
+        } else {
+            $proizvodi = pretragaProizvoda($con, $q, $kategorije, $cenaOd, $cenaDo);
+        }
+
+        include './korisnickaStrana/view/pretraga.php';
         break;
 
     case 'proizvod':
@@ -117,9 +136,21 @@ switch ($page) {
         include './korisnickaStrana/view/korpa.php';
         break;
 
-    case 'pretraga':
-        include './korisnickaStrana/model/PretragaModel.php';
-        include './korisnickaStrana/view/pretraga.php';
+    
+    case 'pretraga': // ← NOVO
+        // Pokupimo GET parametre
+        $q          = isset($_GET['q']) ? trim($_GET['q']) : '';
+        $kategorije = (isset($_GET['kategorija']) && is_array($_GET['kategorija']))
+            ? $_GET['kategorija']
+            : [];
+        $cenaOd     = isset($_GET['cena_od']) ? $_GET['cena_od'] : null;
+        $cenaDo     = isset($_GET['cena_do']) ? $_GET['cena_do'] : null;
+
+        // Pozovemo model
+        $proizvodi = pretragaProizvoda($con, $q, $kategorije, $cenaOd, $cenaDo);
+
+        // Prosledimo u view
+        include './korisnickaStrana/view/pretraga.php';    
         break;
 
     default:

@@ -10,7 +10,8 @@ include_once(__DIR__ ."/../view/message-session.php");
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/message-session.css">
     <title>Kontakt</title>
 </head>
-<body class="heder">
+<body id="body">
+
 <div class="head-box">
 <h1 class="title">
     Kontakt
