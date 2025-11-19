@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Poslasticarnica/korisnickaStrana/public/akcije.css">
     <script src="/Poslasticarnica/korisnickaStrana/public/js/window-for-product-pop.js"></script> 
-    <script src="/Poslasticarnica/korisnickaStrana/public/js/session-add-product.js"></script>
+    <script src="/Poslasticarnica/korisnickaStrana/public/js/sesion-add-product.js"></script>
     <title>Poslastičarnica</title>
 </head>
 <body id="body">
@@ -14,7 +14,7 @@
 
     <div class="container"> 
         <?php foreach ($akcije as $akcija): ?>
-            <div class="sale-box">
+            <div class="sale-box product-box">
                 <a href="index.php?page=akcija&id=<?= $akcija['id'] ?>">
                     <img src="<?= $akcija['slika'] ?>" class="sale-img">
                     <div class="description">

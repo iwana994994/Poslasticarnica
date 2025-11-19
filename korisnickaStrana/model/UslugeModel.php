@@ -2,7 +2,7 @@
 include_once(__DIR__ . "/../config/database.php");
 
 
-$query = "SELECT * FROM usluge ORDER BY id DESC";
+$query = "SELECT * FROM usluge ORDER BY id DESC LIMIT 6";
 $query_run = mysqli_query($con, $query);
 
 if ($query_run && mysqli_num_rows($query_run) > 0) {

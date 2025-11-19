@@ -24,12 +24,12 @@ a {
 /* Individual sale box */
 .container .sale-box {
     width: 280px; 
-    height: 400px; 
+    min-height: 400px; 
     position: relative;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    overflow: hidden;
+    overflow: visible;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }

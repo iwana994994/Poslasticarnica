@@ -21,7 +21,7 @@
 </div>
     <div class="sale-container">
         <img src="/Poslasticarnica/<?= $akcija['slika'] ?>" class="sale-img" >
-        <div class="sale-info">
+        <div class="sale-info product-info">
             <h2><?= $akcija['naziv']?></h2>
             <p><?= $akcija['opis'] ?></p>
             <p><strong><?= $akcija['cena'] ?> RSD</strong></p>
@@ -36,9 +36,13 @@
                         data-slika="<?= $akcija['slika'] ?>">
                     Ubaci u korpu
                 </button>
-            </div>
 
-            <!-- ovde će JS da piše poruku -->
-            <p id="cart-message" class="cart-message" style="color:green; margin-top:10px;"></p>        </div>
+                <!-- poruka posle dugmeta -->
+                <p class="cart-message" style="color:green; margin-top:10px;"></p> 
+            </div>       
     </div>
+</div>
+
+    <?php include 'footer.php'; ?> 
+    
 </body>

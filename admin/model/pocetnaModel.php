@@ -106,6 +106,8 @@ function getSalesByMonth() {
     return ['meseci' => $meseci, 'prodaja' => $prodaja];
 }
 
+
+
 // Najprodavaniji kolač
 function getTopProducts() {
     global $con;

@@ -10,6 +10,7 @@ include_once __DIR__ . '/../config/database.php';
  *  - listi kategorija
  *  - opsegu cene
  */
+
 function pretragaProizvoda(mysqli $con, ?string $q, array $kategorije, $cenaOd, $cenaDo): array
 {
     $sql    = "SELECT * FROM proizvod WHERE 1=1";
