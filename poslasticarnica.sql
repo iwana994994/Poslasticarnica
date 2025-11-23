@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2025 at 02:24 PM
+-- Generation Time: Nov 23, 2025 at 03:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -533,7 +533,11 @@ INSERT INTO `vesti` (`id`, `naziv`, `opis`, `slika`) VALUES
 (21, 'Novitet: Slatke kutije za poklon', 'Nove poklon kutije sa kombinacijom kolača, macaronsa i pralina idealne su za rođendane, godišnjice i posebne prilike.', 'korisnickaStrana/public/slike/giftBox.jpg'),
 (22, 'Povratak omiljenog kolača: Krempita', 'Popularna krempita je ponovo u našoj vitrini – lagani fil od vanile i hrskavo lisnato testo za prave ljubitelje klasike.', 'korisnickaStrana/public/slike/Creampie33.jpg'),
 (23, 'Letnja škola dekoracije za decu', 'Tokom leta organizujemo kreativnu radionicu za decu na kojoj mališani uče da ukrašavaju mafine i keksiće šarenim kremovima i posipima.', 'korisnickaStrana/public/slike/KidsWorkshop.jpg'),
-(24, 'Torta nedelje: Čoko-malina po posebnoj ceni', 'Svake nedelje izdvajamo jednu tortu po specijalnoj ceni. Ovog puta to je čoko-malina kombinacija sa penastom kremom i svežim voćem.', 'korisnickaStrana/public/slike/ChocoRapsberry.jpg');
+(24, 'Torta nedelje: Čoko-malina po posebnoj ceni', 'Svake nedelje izdvajamo jednu tortu po specijalnoj ceni. Ovog puta to je čoko-malina kombinacija sa penastom kremom i svežim voćem.', 'korisnickaStrana/public/slike/ChocoRapsberry.jpg'),
+(25, 'Novi ukus meseca: Rafaelo torta!', 'U ponudi je novi ukus meseca — kremasta Rafaelo torta sa bademima, kokosom i laganom belom kremom. Dostupna tokom celog meseca po promotivnoj ceni.', 'korisnickaStrana/public/slike/Raffaelo155.jpg'),
+(26, 'Specijalna ponuda: Porodicne porcije kolača', 'Za sve ljubitelje slatkiša uvodimo porodična pakovanja najtraženijih kolača, idealna za okupljanja i proslave. Uštedite uz veća pakovanja!', 'korisnickaStrana/public/slike/FamilyCake.jpg'),
+(27, 'Uskršnja kolekcija dekorisanih kolača', 'Stigla je limitirana uskršnja kolekcija ručno dekorisanih keksića i kolača. Savršeni za poklon ili prazničnu trpezu.', 'korisnickaStrana/public/slike/EasterCake.jpg'),
+(28, 'Novo u ponudi: Domaći sladoled u čašicama', 'Za osveženje tokom toplijih dana uvodimo domaći sladoled u čašicama – dostupni ukusi su vanila, čokolada, pistaći i šumsko voće.', 'korisnickaStrana/public/slike/HomemadeIcecream.jpg');
 
 --
 -- Indexes for dumped tables
@@ -653,7 +657,7 @@ ALTER TABLE `usluge`
 -- AUTO_INCREMENT for table `vesti`
 --
 ALTER TABLE `vesti`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
