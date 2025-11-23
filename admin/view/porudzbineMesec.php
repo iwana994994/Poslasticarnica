@@ -1,7 +1,7 @@
 <?php
-// Preuzmi mesec i godinu
-$month = $_GET['month'] ?? date('n');
-$year = $_GET['year'] ?? date('Y');
+// Preuzmi mesec i godinu iz URL-a, ili koristi trenutni mesec i godinu kao podrazumevane vrednosti
+$month = $_GET['month'] ?? date('n');  // n daje broj meseca (1-12)
+$year = $_GET['year'] ?? date('Y');    // Y daje godinu (npr. 2025)
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +10,15 @@ $year = $_GET['year'] ?? date('Y');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prikaz porudžbina</title>
-    <link rel="stylesheet" href="style.css"> <!-- Poželjno je dodati CSS za stilizovanje -->
+    <link rel="stylesheet" href="./public/tabela.css">
+     <script src="./public/js/porudzbineTab.js" defer></script> 
 </head>
-<body>
+<body data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
 
-<h1>Porudžbine za mesec: <span id="month-year"><?php echo $month . '-' . $year; ?></span></h1>
 
-<!-- Form for selecting month and year -->
+<h1 class="title">Porudžbine za mesec: <span id="month-year"><?php echo $month . '-' . $year; ?></span></h1>
+
+<!-- Forma za odabir meseca i godine -->
 <form id="monthYearForm">
     <label for="month">Mesec:</label>
     <select name="month" id="month">
@@ -39,12 +41,13 @@ $year = $_GET['year'] ?? date('Y');
     <button type="submit">Prikaz</button>
 </form>
 
-<!-- Prikaz podataka u tabeli -->
+<!-- Tabela za prikaz podataka o porudžbinama -->
 <div id="orders-table">
-    <!-- Ovdje će biti učitani podaci putem AJAX-a -->
+    <!-- Podaci će biti učitani ovde putem AJAX-a -->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 </body>

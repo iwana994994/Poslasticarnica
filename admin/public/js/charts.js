@@ -26,12 +26,11 @@
                 if (dailyChart) {
                     dailyChart.destroy();
                 }
-                const labels = Array.from({length: 31}, (_, i) => i + 1);
 
                 dailyChart = new Chart(document.getElementById('dailyOrdersChart'), {
                     type: 'bar',
                     data: {
-                        labels: labels,
+                        labels: days,
                         datasets: [{
                             label: 'Prodaja po danima',
                             data: totals,

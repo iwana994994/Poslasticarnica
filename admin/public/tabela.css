@@ -1,0 +1,99 @@
+/* Generalna postavka za tabelu */
+table {
+    width: 100%;
+    margin: 50px auto; /* Automatsko centriranje tabele */
+    margin-left: 10%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Senka oko tabele */
+    border-radius: 8px;
+    overflow: hidden;
+}
+.title {
+      margin-left: 10%;
+}
+
+/* Zaglavlje tabele */
+th {
+    background-color: #343a40;  /* Tamno siva boja */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Redovi u tabeli */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd; /* Subtilna linija ispod svake ćelije */
+}
+
+/* Efekat hover-a za redove */
+tr:hover {
+    background-color: #f1f1f1; /* Svetlo siva pozadina pri hover-u */
+}
+
+/* Pruge na redovima - za lakše praćenje podataka */
+tr:nth-child(even) {
+    background-color: #f8f9fa; /* Svetla pozadina za parne redove */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Bela pozadina za neparne redove */
+}
+
+/* Dugme za prikaz */
+button {
+    background-color: #28a745; /* Zelena boja */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Hover efekat na dugme */
+button:hover {
+    background-color: #218838; /* Tamnija zelena pri hover-u */
+}
+
+/* Dropdown meni (mesec i godina) */
+select {
+    padding: 8px 12px;
+    margin: 0 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    
+}
+
+/* Tooltip efekat za mesec i godinu */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+      margin-left: 10%;
+}
+
+/* Prilagodjeno poravnavanje dugmadi unutar forme */
+#monthYearForm {
+    margin-top: 20px;
+    margin-bottom: 30px;
+      margin-left: 10%;
+}
+
+/* Responzivni dizajn */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}

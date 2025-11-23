@@ -1,8 +1,12 @@
 $(document).ready(function() {
-    // Prikazivanje podataka za početni mesec i godinu
+    // Preuzmi mesec i godinu iz data atributa u HTML-u
+    var initialMonth = $('body').data('month');
+    var initialYear = $('body').data('year');
+
+    // Učitaj podatke za početni mesec i godinu odmah po učitavanju stranice
     loadOrders(initialMonth, initialYear);
 
-    // Kada se promeni mesec ili godina, pošaljemo AJAX zahtev
+    // Kada korisnik izabere novi mesec ili godinu, pošaljemo AJAX zahtev
     $('#monthYearForm').submit(function(e) {
         e.preventDefault(); // Sprečava refresh stranice
 
@@ -12,14 +16,14 @@ $(document).ready(function() {
         // Ažuriraj mesec i godinu u naslovu
         $('#month-year').text(month + '-' + year);
 
-        // Poziv AJAX-a za učitavanje podataka
+        // Poziv AJAX-a da učita podatke za izabrani mesec i godinu
         loadOrders(month, year);
     });
 
-    // Funkcija za učitavanje porudžbina
+    // Funkcija koja šalje AJAX zahtev da se podaci učitaju
     function loadOrders(month, year) {
         $.ajax({
-            url: '', // Trenutni URL (stranica)
+            url: 'http://localhost/Poslasticarnica/admin/model/porudzbineMesecModel.php', // Pravilno postavljen URL ka modelu
             method: 'GET',
             data: {
                 ajax: true, // Ovaj parametar označava da se poziva AJAX
@@ -27,9 +31,10 @@ $(document).ready(function() {
                 year: year
             },
             success: function(response) {
-                var orders = JSON.parse(response);
+                var orders = JSON.parse(response);  // Razgovara JSON u JavaScript objekat
                 var tableHtml = '<table border="1"><thead><tr><th>ID</th><th>Ime</th><th>Prezime</th><th>Datum porudžbine</th><th>Timestamp</th></tr></thead><tbody>';
 
+                // Ako ima porudžbina, prikaži ih u tabeli
                 if (orders.length > 0) {
                     orders.forEach(function(order) {
                         tableHtml += '<tr>';
@@ -37,7 +42,7 @@ $(document).ready(function() {
                         tableHtml += '<td>' + order.ime + '</td>';
                         tableHtml += '<td>' + order.prezime + '</td>';
                         tableHtml += '<td>' + order.datum_porudzbine + '</td>';
-                        tableHtml += '<td>' + new Date(order.timestamp * 1000).toLocaleString() + '</td>'; // Pretvaranje UNIX timestamp u ljudski datum
+                        tableHtml += '<td>' + new Date(order.timestamp * 1000).toLocaleString() + '</td>'; // UNIX timestamp u ljudski datum
                         tableHtml += '</tr>';
                     });
                 } else {
@@ -45,7 +50,10 @@ $(document).ready(function() {
                 }
 
                 tableHtml += '</tbody></table>';
-                $('#orders-table').html(tableHtml); // Ažuriraj sadržaj tabele
+                $('#orders-table').html(tableHtml); // Prikazivanje tabele sa porudžbinama
+            },
+            error: function(xhr, status, error) {
+                console.error('Greška prilikom učitavanja podataka: ', error);
             }
         });
     }
