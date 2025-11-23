@@ -77,14 +77,16 @@ $orderTotals = json_encode($orderData['totals']);
         </div>
         </a>
     </div>
-       
-        <div class="container">
+       <?php
+         $bojaKontejnera =brojPorudzbinaTab() < 30 ? 'crvena' : 'zelena';?>
+        <div class="container <?php echo $bojaKontejnera; ?>">
         <div class="card-heder">
             <a href="/Poslasticarnica/admin/admin-dashboard.php?page=porudzbine">
           
-            <h1 class="kartica">Porudzbine</h1>
+            <h1 class="kartica">Porudzbine za mesec</h1>
         </div>
         <div class="card-body">
+            
             <?=brojPorudzbinaTab()?>
         </div>
         </a>

@@ -1,50 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("loadDataButton").addEventListener("click", function() {
-        var mesec = document.getElementById("mesec").value;
-        var godina = document.getElementById("godina").value;
+$(document).ready(function() {
+    // Prikazivanje podataka za početni mesec i godinu
+    loadOrders(initialMonth, initialYear);
 
-        // Koristimo fetch API za slanje GET zahteva
-        fetch(`http://localhost/Poslasticarnica/admin/model/porudzbineMesecModel.php?mesec=${mesec}&godina=${godina}`)
-            .then(response => response.text())  // Koristi text() da vidiš ceo odgovor kao tekst
-            .then(text => {
-                console.log("Odgovor sa servera:", text);  // Loguj ceo odgovor
-                try {
-                    const data = JSON.parse(text);  // Ručno pokušaj da parsiraš JSON
-                    if (data.success) {
-                        updateTable(data.data);  // Ažuriranje tabele sa podacima
-                    } else {
-                        alert("Nema podataka za prikaz.");
-                    }
-                } catch (error) {
-                    console.error("Greška u parsiranju JSON-a:", error);
-                    alert("Došlo je do greške u parsiranju odgovora.");
+    // Kada se promeni mesec ili godina, pošaljemo AJAX zahtev
+    $('#monthYearForm').submit(function(e) {
+        e.preventDefault(); // Sprečava refresh stranice
+
+        var month = $('#month').val();
+        var year = $('#year').val();
+
+        // Ažuriraj mesec i godinu u naslovu
+        $('#month-year').text(month + '-' + year);
+
+        // Poziv AJAX-a za učitavanje podataka
+        loadOrders(month, year);
+    });
+
+    // Funkcija za učitavanje porudžbina
+    function loadOrders(month, year) {
+        $.ajax({
+            url: '', // Trenutni URL (stranica)
+            method: 'GET',
+            data: {
+                ajax: true, // Ovaj parametar označava da se poziva AJAX
+                month: month,
+                year: year
+            },
+            success: function(response) {
+                var orders = JSON.parse(response);
+                var tableHtml = '<table border="1"><thead><tr><th>ID</th><th>Ime</th><th>Prezime</th><th>Datum porudžbine</th><th>Timestamp</th></tr></thead><tbody>';
+
+                if (orders.length > 0) {
+                    orders.forEach(function(order) {
+                        tableHtml += '<tr>';
+                        tableHtml += '<td>' + order.id + '</td>';
+                        tableHtml += '<td>' + order.ime + '</td>';
+                        tableHtml += '<td>' + order.prezime + '</td>';
+                        tableHtml += '<td>' + order.datum_porudzbine + '</td>';
+                        tableHtml += '<td>' + new Date(order.timestamp * 1000).toLocaleString() + '</td>'; // Pretvaranje UNIX timestamp u ljudski datum
+                        tableHtml += '</tr>';
+                    });
+                } else {
+                    tableHtml += '<tr><td colspan="5">Nema porudžbina za ovaj mesec.</td></tr>';
                 }
-            })
-            .catch(error => {
-                console.error('Greška u AJAX pozivu:', error);
-                alert("Došlo je do greške prilikom učitavanja podataka.");
-            });
-    });
+
+                tableHtml += '</tbody></table>';
+                $('#orders-table').html(tableHtml); // Ažuriraj sadržaj tabele
+            }
+        });
+    }
 });
-
-// Funkcija za ažuriranje tabele sa podacima
-function updateTable(data) {
-    var tableBody = document.querySelector("table tbody");
-    tableBody.innerHTML = "";  // Očistiti trenutne redove u tabeli
-
-    // Dodavanje novih redova u tabelu
-    data.forEach(function(row) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${row.id}</td>
-            <td>${row.ime}</td>
-            <td>${row.prezime}</td>
-            <td>${row.email}</td>
-            <td>${row.adresa}</td>
-            <td>${row.telefon}</td>
-            <td>${row.datum_porudzbine}</td>
-            <td>${row.ukupna_cena || 'N/A'}</td>
-        `;
-        tableBody.appendChild(tr);
-    });
-}

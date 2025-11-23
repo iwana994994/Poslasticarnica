@@ -84,7 +84,7 @@ function getCountSale($totalSale){
         } 
         
         
-// Ukupno porudžbina u poslednjem mesecu
+// Ukupno porudžbina u poslednjem mesecu za Novembar
 function brojPorudzbinaTab() {
     global $con;
     // Upit za brojanje porudžbina u poslednjem mesecu (tekući mesec)

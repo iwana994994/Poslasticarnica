@@ -5,9 +5,9 @@
     color: white;
     background-color: #2990ff;
     margin-top: 1em;
-   margin-left: 0.1em;
+
     height: 8em;
-    width: 12em;
+    width: 12.2em;
 }
 .card-heder{
     background-color: #50a2fa;
@@ -145,4 +145,13 @@ a{
     width: 100% !important;
     max-width: 800px;
     height: 400px !important;
+}
+.crvena {
+    background-color: red;
+    color: white;
+}
+
+.zelena {
+    background-color: green;
+    color: white;
 }
