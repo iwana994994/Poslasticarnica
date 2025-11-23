@@ -470,7 +470,11 @@ INSERT INTO `vesti` (`id`, `naziv`, `opis`, `slika`) VALUES
 	(13, 'Novitet: Slatke kutije za poklon', 'Nove poklon kutije sa kombinacijom kolača, macaronsa i pralina idealne su za rođendane, godišnjice i posebne prilike.', 'korisnickaStrana/public/slike/giftBox.jpg'),
 	(14, 'Povratak omiljenog kolača: Krempita', 'Popularna krempita je ponovo u našoj vitrini – lagani fil od vanile i hrskavo lisnato testo za prave ljubitelje klasike.', 'korisnickaStrana/public/slike/Creampie33.jpg'),
 	(15, 'Letnja škola dekoracije za decu', 'Tokom leta organizujemo kreativnu radionicu za decu na kojoj mališani uče da ukrašavaju mafine i keksiće šarenim kremovima i posipima.', 'korisnickaStrana/public/slike/KidsWorkshop.jpg'),
-	(16, 'Torta nedelje: Čoko-malina po posebnoj ceni', 'Svake nedelje izdvajamo jednu tortu po specijalnoj ceni. Ovog puta to je čoko-malina kombinacija sa penastom kremom i svežim voćem.', 'korisnickaStrana/public/slike/ChocoRapsberry.jpg');
+	(16, 'Torta nedelje: Čoko-malina po posebnoj ceni', 'Svake nedelje izdvajamo jednu tortu po specijalnoj ceni. Ovog puta to je čoko-malina kombinacija sa penastom kremom i svežim voćem.', 'korisnickaStrana/public/slike/ChocoRapsberry.jpg'),
+	(17, 'Novi ukus meseca: Rafaelo torta!', 'U ponudi je novi ukus meseca — kremasta Rafaelo torta sa bademima, kokosom i laganom belom kremom. Dostupna tokom celog meseca po promotivnoj ceni.', 'korisnickaStrana/public/slike/Raffaelo155.jpg'),
+	(18, 'Specijalna ponuda: Porodicne porcije kolača', 'Za sve ljubitelje slatkiša uvodimo porodična pakovanja najtraženijih kolača, idealna za okupljanja i proslave. Uštedite uz veća pakovanja!','korisnickaStrana/public/slike/FamilyCake.jpg'),
+	(19, 'Uskršnja kolekcija dekorisanih kolača', 'Stigla je limitirana uskršnja kolekcija ručno dekorisanih keksića i kolača. Savršeni za poklon ili prazničnu trpezu.', 'korisnickaStrana/public/slike/EasterCake.jpg'),
+	(20, 'Novo u ponudi: Domaći sladoled u čašicama', 'Za osveženje tokom toplijih dana uvodimo domaći sladoled u čašicama – dostupni ukusi su vanila, čokolada, pistaći i šumsko voće.', 'korisnickaStrana/public/slike/HomemadeIcecream.jpg');
 
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
