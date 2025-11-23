@@ -10,10 +10,10 @@ function getOrdersByMonth($month, $year) {
     global $con;  // Koristiš globalnu bazu konekciju
 
     // SQL upit za dobijanje porudžbina
-    $query = "SELECT id, ime, prezime, datum_porudzbine, UNIX_TIMESTAMP(datum_porudzbine) AS timestamp
-              FROM porudzbina
-              WHERE YEAR(datum_porudzbine) = $year AND MONTH(datum_porudzbine) = $month
-              ORDER BY datum_porudzbine DESC";
+   $query = "SELECT id, ime, prezime, datum_porudzbine
+          FROM porudzbina
+          WHERE YEAR(datum_porudzbine) = $year AND MONTH(datum_porudzbine) = $month
+          ORDER BY datum_porudzbine DESC";
 
     // Izvršavanje upita
     $query_run = mysqli_query($con, $query);

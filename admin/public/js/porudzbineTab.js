@@ -32,7 +32,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 var orders = JSON.parse(response);  // Razgovara JSON u JavaScript objekat
-                var tableHtml = '<table border="1"><thead><tr><th>ID</th><th>Ime</th><th>Prezime</th><th>Datum porudžbine</th><th>Timestamp</th></tr></thead><tbody>';
+                var tableHtml = '<table border="1"><thead><tr><th>ID</th><th>Ime</th><th>Prezime</th><th>Datum porudžbine</th></thead><tbody>';
 
                 // Ako ima porudžbina, prikaži ih u tabeli
                 if (orders.length > 0) {
@@ -42,7 +42,7 @@ $(document).ready(function() {
                         tableHtml += '<td>' + order.ime + '</td>';
                         tableHtml += '<td>' + order.prezime + '</td>';
                         tableHtml += '<td>' + order.datum_porudzbine + '</td>';
-                        tableHtml += '<td>' + new Date(order.timestamp * 1000).toLocaleString() + '</td>'; // UNIX timestamp u ljudski datum
+               
                         tableHtml += '</tr>';
                     });
                 } else {

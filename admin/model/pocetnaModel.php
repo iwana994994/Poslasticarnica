@@ -39,7 +39,7 @@ function getCountAnonymousCustomers() {
         return 'Greška prilikom prebrojavanja anonimnih kupaca!';
     }
 }
-
+//ukupno admina
 function getCountAdmin($totalAdmin){
 
     global $con;
@@ -68,6 +68,7 @@ function getCountNews($totalNews){
         return 'Nesto nije u redu !';
     }
     }
+    //ukupno akcija
 function getCountSale($totalSale){
 
         global $con;
@@ -130,7 +131,7 @@ function getCountProduct($totalProducts){
                 }
                 }    
 
-
+//--------------------------------------------------------------Grafovi
 
 // Prodaja po mesecima
 function getSalesByMonth() {
@@ -156,7 +157,7 @@ function getSalesByMonth() {
 function getTopProducts() {
     global $con;
 
-    // Ispravi SQL upit
+    
     $query = "SELECT p.naziv, SUM(pp.kolicina) AS ukupno
               FROM stavke_porudzbine pp
               JOIN proizvod p ON pp.proizvod_id = p.id

@@ -20,6 +20,7 @@ th {
     padding: 12px;
     text-align: left;
     font-weight: bold;
+   
 }
 
 /* Redovi u tabeli */
@@ -72,7 +73,8 @@ select {
 label {
     font-weight: bold;
     margin-right: 10px;
-      margin-left: 10%;
+    
+   
 }
 
 /* Prilagodjeno poravnavanje dugmadi unutar forme */
@@ -80,6 +82,7 @@ label {
     margin-top: 20px;
     margin-bottom: 30px;
       margin-left: 10%;
+        
 }
 
 /* Responzivni dizajn */
