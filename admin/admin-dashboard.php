@@ -11,6 +11,8 @@ include_once 'model/pocetnaModel.php';
 include_once 'model/UslugaModel.php';
 include_once 'model/AkcijaModel.php';
 include_once 'model/sve-porudzbineModel.php';
+include_once 'model/anonimniKorisniciModel.php';
+include_once 'model/porudzbineMesecModel.php';
 
 include "../korisnickaStrana/view/message-session.php";
 
@@ -67,8 +69,14 @@ switch ($page) {
             include './view/dodajAkciju.php'; //Str za dodavanje akcija
             break;
     case 'korisnici':
-                include './view/korisnik.php'; //Str za dodavanje vesti
+                include './view/korisnik.php';
                 break;
+    case 'anonimniKorisnici':
+    include './view/anonimniKorisnici.php';
+    break;
+    case 'porudzbine':
+    include './view/porudzbineMesec.php';
+    break;
     case 'upravljajAdminima':
                 include './view/upravljanjeAdminima.php'; //Str za dodavanje vesti
                 break;

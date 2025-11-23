@@ -12,13 +12,13 @@ $topProductsData = getTopProducts();
 $naziviKolaca = json_encode($topProductsData['nazivi']); // ["Čoko", "Vanila", ...]
 $kolicineKolaca = json_encode($topProductsData['kolicine']); // [10, 5, ...]
 
-$categoryData = getSalesByCategoryLastMonth();
-$categoryNames = json_encode($categoryData['categories']);
-$categoryTotals = json_encode($categoryData['totals']);
+
 
 $orderData = getOrdersByMonthLastYear();
 $orderMonths = json_encode($orderData['months']);
 $orderTotals = json_encode($orderData['totals']);
+
+
 
 
 ?>
@@ -46,7 +46,8 @@ $orderTotals = json_encode($orderData['totals']);
     <div class="container">
         <div class="card-heder">
             <a href="/Poslasticarnica/admin/admin-dashboard.php?page=korisnici">
-            <h1 class="kartica">Ukupno korisnika</h1>
+          
+            <h1 class="kartica">Korisnici</h1>
         </div>
         <div class="card-body">
             <?= getCount('user');?>
@@ -56,8 +57,20 @@ $orderTotals = json_encode($orderData['totals']);
 
         <div class="container">
         <div class="card-heder">
+            <a href="/Poslasticarnica/admin/admin-dashboard.php?page=anonimniKorisnici">
+          
+            <h1 class="kartica">Anonimni korisnici</h1>
+        </div>
+        <div class="card-body">
+            <?= getCountAnonymousCustomers(); ?>
+        </div>
+        </a>
+        </div>
+
+        <div class="container">
+        <div class="card-heder">
         <a href="/Poslasticarnica/admin/admin-dashboard.php?page=proizvodi">
-            <h1 class="kartica">Ukupno proizvoda</h1>
+            <h1 class="kartica">Proizvodi</h1>
         </div>
         <div class="card-body">
             <?= getCountProduct('proizvod');?>
@@ -65,12 +78,23 @@ $orderTotals = json_encode($orderData['totals']);
         </a>
     </div>
        
-        
+        <div class="container">
+        <div class="card-heder">
+            <a href="/Poslasticarnica/admin/admin-dashboard.php?page=porudzbine">
+          
+            <h1 class="kartica">Porudzbine</h1>
+        </div>
+        <div class="card-body">
+            <?=brojPorudzbinaTab()?>
+        </div>
+        </a>
+        </div>
+
 
     <div class="container">
         <div class="card-heder">
         <a href="/Poslasticarnica/admin/admin-dashboard.php?page=vesti">
-            <h1 class="kartica">Ukupno vesti</h1>
+            <h1 class="kartica">Vesti</h1>
         </div>
         <div class="card-body">
             <?= getCountNews('vesti');?>
@@ -81,7 +105,7 @@ $orderTotals = json_encode($orderData['totals']);
     <div class="container">
         <div class="card-heder">
         <a href="/Poslasticarnica/admin/admin-dashboard.php?page=akcije">
-            <h1 class="kartica">Ukupno akcija</h1>
+            <h1 class="kartica">Akcije</h1>
         </div>
         <div class="card-body">
             <?= getCountSale('akcije');?>
@@ -92,7 +116,7 @@ $orderTotals = json_encode($orderData['totals']);
     <div class="container">
         <div class="card-heder">
         <a href="/Poslasticarnica/admin/admin-dashboard.php?page=poruke">
-            <h1 class="kartica">Ukupno poruka</h1>
+            <h1 class="kartica">Poruke</h1>
         </div>
         <div class="card-body">
             <?= getCountMessage('poruka');?>
@@ -114,13 +138,33 @@ $orderTotals = json_encode($orderData['totals']);
 
     <h2>Analitika proizvoda</h2>
 
+    <div class="filter-wrapper">
+    
 
-    <canvas id="productCategoryChart" width="50" height="20"></canvas>
+      <label for="filterMonthProducts">Mesec:</label>
+      <select id="filterMonthProducts">
+    <?php for($m = 1; $m <= 12; $m++): ?>
+        <option value="<?= $m ?>" <?= $m == date('n') ? 'selected' : '' ?>><?= $m ?></option>
+    <?php endfor; ?>
+</select>
+<label for="filterYearProducts">Godina:</label>
+<select id="filterYearProducts">
+    <?php for($y = 2020; $y <= date("Y"); $y++): ?>
+        <option value="<?= $y ?>" <?= $y == date('Y') ? 'selected' : '' ?>><?= $y ?></option>
+    <?php endfor; ?>
+</select>
+
+    
+
+    <button id="loadProductsByDate">Prikaži</button>
+</div>
+
+<div class="graf">
+    <canvas id="dailyProductsChart" width="400" height="200"></canvas>
 
 
-
-    <div id="categoryNames" data-value='<?= $categoryNames ?>'></div>
-    <div id="categoryTotals" data-value='<?= $categoryTotals ?>'></div>
+</div>
+  
 
 
 
@@ -154,9 +198,48 @@ $orderTotals = json_encode($orderData['totals']);
 
 
 
+
+
+
+
+
 <div id="Porudzbine" class="tabcontent">
 
+<!--Svaki dan -->
+
+<div class="filter-wrapper">
+    
+
+  <label>Mesec:</label>
+<select id="filterMonth">
+    <?php for($m = 1; $m <= 12; $m++): ?>
+        <option value="<?= $m ?>" <?= $m == date('n') ? 'selected' : '' ?>><?= $m ?></option>
+    <?php endfor; ?>
+</select>
+<label for="filterYear">Godina:</label>
+<select id="filterYear">
+    <?php for($y = 2020; $y <= date("Y"); $y++): ?>
+        <option value="<?= $y ?>" <?= $y == date('Y') ? 'selected' : '' ?>><?= $y ?></option>
+    <?php endfor; ?>
+</select>
+
+    <button id="loadByDate">Prikaži</button>
+</div>
+
+<!-- Graf za svaki dan porudzbine u mesecu -->
+
+<div class="graf">
+    <h2>Prodaja po danima u odabranom mesecu</h2>
+    <canvas id="dailyOrdersChart" width="400" height="200"></canvas>
+
+</div>
+
+
+<!-- Analitika porudzbine-->
+
     <h2>Analitika porudžbina</h2>
+
+    
 
     <canvas id="ordersByMonthChart" width="50" height="20"></canvas>
 

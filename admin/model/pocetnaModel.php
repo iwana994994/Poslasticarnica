@@ -1,6 +1,6 @@
 <?php
 
-
+//Ukupno prijavljenih
 function getCount($totalUsers){
 
     global $con;
@@ -15,6 +15,31 @@ if($query_run){
     return 'Nesto nije u redu !';
 }
 }
+
+//ukupno anonimnih korisnika 
+// Funkcija za broj anonimnih kupaca
+function getCountAnonymousCustomers() {
+    global $con;
+
+    // Upit koji proverava da li ime i prezime iz porudzbine postoje u tabeli user
+    $query = "
+        SELECT COUNT(*) AS ukupno_anonimnih
+        FROM porudzbina p
+        LEFT JOIN user u
+        ON p.email = u.email
+        WHERE u.id IS NULL
+    ";
+
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['ukupno_anonimnih'];
+    } else {
+        return 'Greška prilikom prebrojavanja anonimnih kupaca!';
+    }
+}
+
 function getCountAdmin($totalAdmin){
 
     global $con;
@@ -56,7 +81,26 @@ function getCountSale($totalSale){
         }else{
             return 'Nesto nije u redu !';
         }
-        }  
+        } 
+        
+        
+// Ukupno porudžbina u poslednjem mesecu
+function brojPorudzbinaTab() {
+    global $con;
+    // Upit za brojanje porudžbina u poslednjem mesecu (tekući mesec)
+    $query = "SELECT COUNT(*) AS ukupno_porudzbina
+              FROM porudzbina
+              WHERE MONTH(datum_porudzbine) = MONTH(CURDATE())
+                AND YEAR(datum_porudzbine) = YEAR(CURDATE())";
+    $result = mysqli_query($con, $query);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['ukupno_porudzbina'];
+    } else {
+        return 'Greška prilikom prebrojavanja porudžbina!';
+    }
+}
+
  function getCountMessage($totalMessage){
 
             global $con;
@@ -198,6 +242,73 @@ function getOrdersByMonthLastYear() {
     }
     return ['months' => $months, 'totals' => $totals];
 }
+
+
+
+
+//Porudzbina po mesecima
+function getOrdersByDate($year, $month) {
+    global $con;
+
+    // Prvo, uzmi postojeće podatke iz baze (kao što je bilo)
+    $sql = "SELECT DAY(datum_porudzbine) AS dan, COUNT(*) AS ukupno
+            FROM porudzbina
+            WHERE YEAR(datum_porudzbine) = ?
+              AND MONTH(datum_porudzbine) = ?
+            GROUP BY DAY(datum_porudzbine)
+            ORDER BY DAY(datum_porudzbine)";
+
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "ii", $year, $month);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    // Kreiraj mapu postojećih dana (za brže traženje)
+    $existingData = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $existingData[$row['dan']] = $row['ukupno'];
+    }
+
+    // Odredi broj dana u mesecu (koristi PHP-ovu funkciju)
+    $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+    // Kreiraj niz za sve dane (1 do $daysInMonth), sa ukupno = 0 ako nema podataka
+    $podaci = [];
+    for ($day = 1; $day <= $daysInMonth; $day++) {
+        $ukupno = isset($existingData[$day]) ? $existingData[$day] : 0;
+        $podaci[] = ['dan' => $day, 'ukupno' => $ukupno];
+    }
+
+    return $podaci;
+}
+//Proizvodi po mesecima
+function getSalesByCategory($year, $month) {
+    global $con;
+    $query = "SELECT p.kategorija, SUM(pp.kolicina) AS ukupno
+          FROM stavke_porudzbine pp
+          JOIN proizvod p ON pp.proizvod_id = p.id
+          JOIN porudzbina pr ON pp.porudzbina_id = pr.id
+          WHERE YEAR(pr.datum_porudzbine) = ? AND MONTH(pr.datum_porudzbine) = ?
+          GROUP BY p.kategorija
+          ORDER BY MONTH(pr.datum_porudzbine) DESC";
+
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, "ii", $year, $month);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    $data = [];
+
+    while($row = mysqli_fetch_assoc($result)) {
+        $data[] = [
+            "category" => $row["kategorija"],
+            "total" => intval($row["ukupno"])
+        ];
+    }
+
+    return $data;
+}
+
 
 ?>
 
